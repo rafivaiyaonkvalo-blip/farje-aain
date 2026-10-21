@@ -1218,18 +1218,8 @@
         </div>
       </div>
 
-      <!-- SCREEN 1: MODE SELECTOR SCREEN -->
-      <div id="quizModeScreen">
-        <div style="text-align: center; margin-bottom: 16px;">
-          <p id="quizModeDesc" style="color: var(--text-dim); font-size: 0.92rem; line-height: 1.5;"></p>
-        </div>
-
-        <div class="quiz-mode-grid" id="quizModesList"></div>
-
-        <button class="quiz-btn-primary" style="width: 100%; justify-content: center; padding: 13px; font-size: 1.02rem; margin-top: 14px;" onclick="startQuizGame()">
-          <span>কুইজ শুরু করুন</span> <i class="fa-solid fa-play"></i>
-        </button>
-      </div>
+      <!-- SCREEN 1: MODE SELECTOR SCREEN (Hidden - Direct Instant Quiz Start) -->
+      <div id="quizModeScreen" style="display: none;"></div>
 
       <!-- SCREEN 2: ACTIVE QUIZ PLAY SCREEN -->
       <div id="quizPlayScreen" style="display: none;">
@@ -1251,8 +1241,8 @@
         <div class="quiz-explanation-box" id="quizExplanationBox"></div>
 
         <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px;">
-          <button class="quiz-btn-secondary" onclick="abortToModeSelect()">
-            <i class="fa-solid fa-rotate-left"></i> <span>মোড বদলান</span>
+          <button class="quiz-btn-secondary" onclick="restartCurrentQuiz()" title="নতুন করে শুরু করুন">
+            <i class="fa-solid fa-rotate-left"></i> <span>নতুন করে শুরু</span>
           </button>
           <button class="quiz-btn-primary" id="quizNextBtn" onclick="nextQuestion()" style="display: none;">
             <span>পরবর্তী প্রশ্ন</span> <i class="fa-solid fa-arrow-right"></i>
@@ -1720,15 +1710,18 @@
       if (el) el.classList.add('selected');
     }
 
+    const quizCache = {};
+
     function showQuizModal() {
       document.getElementById('quizModal').style.display = 'flex';
-      document.getElementById('quizModeScreen').style.display = 'block';
-      document.getElementById('quizPlayScreen').style.display = 'none';
+      const modeScreen = document.getElementById('quizModeScreen');
+      if (modeScreen) modeScreen.style.display = 'none';
+      document.getElementById('quizPlayScreen').style.display = 'block';
       document.getElementById('quizResultScreen').style.display = 'none';
       document.getElementById('quizReviewScreen').style.display = 'none';
     }
 
-    // 1. Open Lesson Quiz (100 MCQs with 2 options)
+    // 1. Open Lesson Quiz (Starts IMMEDIATELY with Question 1, zero extra options)
     async function openQuiz(lessonId) {
       activeQuizLesson = portalData.lessons.find(l => l.id === lessonId);
       if (!activeQuizLesson) return;
@@ -1740,19 +1733,31 @@
       document.getElementById('quizTitle').innerText = quizState.quizTitle;
       updateSoundIcon();
 
-      setQuizModes([
-        { count: 10, title: 'কুইক টেস্ট (১০টি প্রশ্ন)', desc: 'দ্রুত প্রস্তুতি ও মৌলিক জ্ঞান যাচাইয়ের জন্য (৫ মিনিট)', color: 'var(--cyan-bright)', icon: 'fa-bolt' },
-        { count: 25, title: 'স্ট্যান্ডার্ড টেস্ট (২৫টি প্রশ্ন)', desc: 'গভীর মূল্যায়ন ও আত্মবিশ্বাসী প্রস্তুতির জন্য (১৫ মিনিট)', color: 'var(--emerald-mint)', icon: 'fa-bullseye' },
-        { count: 100, title: 'পূর্ণাঙ্গ টেস্ট (১০০টি প্রশ্ন)', desc: 'সম্পূর্ণ পাঠের সকল বিষয়ের পুঙ্খানুপুঙ্খ মূল্যায়ন', color: '#F59E0B', icon: 'fa-award' }
-      ], 10, 'এই পাঠের জন্য <strong style="color: var(--cyan-bright);">১০০টি যাচাইকৃত ২-অপশন বহুনির্বাচনী প্রশ্নব্যাংক</strong> প্রস্তুত রয়েছে। আপনার পছন্দসই কুইজ মোড নির্বাচন করুন:');
-
+      quizState.selectedMode = 10;
       showQuizModal();
 
       const numStr = String(lessonId).padStart(2, '0');
+      const cacheKey = `lesson-${numStr}`;
+
+      if (quizCache[cacheKey]) {
+        quizState.allQuestions = quizCache[cacheKey];
+        startQuizGame();
+        return;
+      }
+
+      document.getElementById('quizProgressBar').style.width = '0%';
+      document.getElementById('quizProgressText').innerText = 'প্রশ্ন ১...';
+      document.getElementById('quizLiveScore').innerText = '';
+      document.getElementById('quizQuestionText').innerHTML = '<div style="text-align: center; padding: 25px;"><i class="fa-solid fa-spinner fa-spin" style="font-size: 1.8rem; color: var(--cyan-bright); margin-bottom: 12px; display: block;"></i><span style="color: var(--text-dim); font-size: 0.95rem;">কুইজ চালু হচ্ছে, অপেক্ষা করুন...</span></div>';
+      document.getElementById('quizOptionsContainer').innerHTML = '';
+      document.getElementById('quizExplanationBox').style.display = 'none';
+      document.getElementById('quizNextBtn').style.display = 'none';
+
       try {
         const res = await fetch(`${basePath}quiz-data/quiz-lesson-${numStr}.json?t=` + Date.now(), { cache: 'no-store' });
         if (res.ok) {
           quizState.allQuestions = await res.json();
+          quizCache[cacheKey] = quizState.allQuestions;
         } else {
           quizState.allQuestions = generateFallbackQuestions(activeQuizLesson);
         }
@@ -1760,9 +1765,11 @@
         console.warn('Using local fallback questions:', e);
         quizState.allQuestions = generateFallbackQuestions(activeQuizLesson);
       }
+
+      startQuizGame();
     }
 
-    // 2. Open Chapter Quiz ("সম্পূর্ণ অধ্যায়ের কুইজ")
+    // 2. Open Chapter Quiz ("সম্পূর্ণ অধ্যায়ের কুইজ" - Starts IMMEDIATELY)
     async function openCurrentChapterQuiz(targetChapterId) {
       const chId = targetChapterId || currentChapterId || 1;
       const chap = portalData.chapters.find(c => c.id === chId);
@@ -1775,28 +1782,40 @@
       document.getElementById('quizTitle').innerText = quizState.quizTitle;
       updateSoundIcon();
 
-      setQuizModes([
-        { count: 15, title: 'অধ্যায় কুইক টেস্ট (১৫টি প্রশ্ন)', desc: 'অধ্যায়ের মৌলিক বিধানসমূহের দ্রুত যাচাই (৮ মিনিট)', color: 'var(--cyan-bright)', icon: 'fa-bolt' },
-        { count: 30, title: 'অধ্যায় স্ট্যান্ডার্ড টেস্ট (৩০টি প্রশ্ন)', desc: 'সকল পাঠের সমন্বিত ভারসাম্যপূর্ণ মূল্যায়ন (১৮ মিনিট)', color: 'var(--emerald-mint)', icon: 'fa-bullseye' },
-        { count: 50, title: 'অধ্যায় গ্র্যান্ড টেস্ট (৫০টি প্রশ্ন)', desc: 'গভীর আত্মমূল্যায়ন ও পূর্ণাঙ্গ প্রস্তুতি (৩০ মিনিট)', color: '#6366F1', icon: 'fa-shield-halved' },
-        { count: 100, title: 'অধ্যায় পূর্ণাঙ্গ টেস্ট (১০০টি প্রশ্ন)', desc: 'অধ্যায়ের সকল পাঠের সমন্বিত পুঙ্খানুপুঙ্খ মূল্যায়ন', color: '#F59E0B', icon: 'fa-award' }
-      ], 30, `‘<strong style="color: var(--cyan-bright);">${chap.name}</strong>’ অধ্যায়ের সকল পাঠের সমন্বিত ২-অপশন প্রশ্নব্যাংক। প্রশ্নের সংখ্যা নির্বাচন করুন:`);
-
+      quizState.selectedMode = 20;
       showQuizModal();
+
+      const cacheKey = `chap-${chId}`;
+      if (quizCache[cacheKey]) {
+        quizState.allQuestions = quizCache[cacheKey];
+        startQuizGame();
+        return;
+      }
+
+      document.getElementById('quizProgressBar').style.width = '0%';
+      document.getElementById('quizProgressText').innerText = 'প্রশ্ন ১...';
+      document.getElementById('quizLiveScore').innerText = '';
+      document.getElementById('quizQuestionText').innerHTML = '<div style="text-align: center; padding: 25px;"><i class="fa-solid fa-spinner fa-spin" style="font-size: 1.8rem; color: var(--cyan-bright); margin-bottom: 12px; display: block;"></i><span style="color: var(--text-dim); font-size: 0.95rem;">অধ্যায় কুইজ চালু হচ্ছে...</span></div>';
+      document.getElementById('quizOptionsContainer').innerHTML = '';
+      document.getElementById('quizExplanationBox').style.display = 'none';
+      document.getElementById('quizNextBtn').style.display = 'none';
 
       try {
         const res = await fetch(`${basePath}quiz-data/quiz-chapter-${chId}.json?t=` + Date.now(), { cache: 'no-store' });
         if (res.ok) {
           quizState.allQuestions = await res.json();
+          quizCache[cacheKey] = quizState.allQuestions;
         } else {
           quizState.allQuestions = [];
         }
       } catch (e) {
         console.error('Failed to load chapter quiz:', e);
       }
+
+      startQuizGame();
     }
 
-    // 3. Open Book Quiz ("সম্পূর্ণ কিতাবের সমন্বিত কুইজ")
+    // 3. Open Book Quiz ("সম্পূর্ণ কিতাবের সমন্বিত কুইজ" - Starts IMMEDIATELY)
     async function openMegaBookQuiz() {
       quizState.type = 'mega';
       quizState.lessonId = null;
@@ -1805,24 +1824,37 @@
       document.getElementById('quizTitle').innerText = quizState.quizTitle;
       updateSoundIcon();
 
-      setQuizModes([
-        { count: 25, title: 'কুইক টেস্ট (২৫টি প্রশ্ন)', desc: '৫টি অধ্যায় ও ৩৫টি পাঠের মৌলিক সারসংক্ষেপ (১৫ মিনিট)', color: 'var(--cyan-bright)', icon: 'fa-bolt' },
-        { count: 50, title: 'স্ট্যান্ডার্ড টেস্ট (৫০টি প্রশ্ন)', desc: 'সমগ্র কিতাবের ভারসাম্যপূর্ণ সমন্বিত পরীক্ষা (৩০ মিনিট)', color: 'var(--emerald-mint)', icon: 'fa-bullseye' },
-        { count: 100, title: 'পূর্ণাঙ্গ কিতাব টেস্ট (১০০টি প্রশ্ন)', desc: 'সম্পূর্ণ কিতাবের এ টু জেড চূড়ান্ত আত্মমূল্যায়ন', color: '#F59E0B', icon: 'fa-award' }
-      ], 50, '৫টি অধ্যায় ও ৩৫টি পাঠের সমন্বিত <strong style="color: var(--cyan-bright);">৩,৫০০টি যাচাইকৃত ২-অপশন প্রশ্নব্যাংক</strong>। প্রশ্নের সংখ্যা নির্বাচন করুন:');
-
+      quizState.selectedMode = 25;
       showQuizModal();
+
+      const cacheKey = 'mega-book';
+      if (quizCache[cacheKey]) {
+        quizState.allQuestions = quizCache[cacheKey];
+        startQuizGame();
+        return;
+      }
+
+      document.getElementById('quizProgressBar').style.width = '0%';
+      document.getElementById('quizProgressText').innerText = 'প্রশ্ন ১...';
+      document.getElementById('quizLiveScore').innerText = '';
+      document.getElementById('quizQuestionText').innerHTML = '<div style="text-align: center; padding: 25px;"><i class="fa-solid fa-spinner fa-spin" style="font-size: 1.8rem; color: var(--cyan-bright); margin-bottom: 12px; display: block;"></i><span style="color: var(--text-dim); font-size: 0.95rem;">মেগা কুইজ চালু হচ্ছে...</span></div>';
+      document.getElementById('quizOptionsContainer').innerHTML = '';
+      document.getElementById('quizExplanationBox').style.display = 'none';
+      document.getElementById('quizNextBtn').style.display = 'none';
 
       try {
         const res = await fetch(`${basePath}quiz-data/quiz-mega-challenge.json?t=` + Date.now(), { cache: 'no-store' });
         if (res.ok) {
           quizState.allQuestions = await res.json();
+          quizCache[cacheKey] = quizState.allQuestions;
         } else {
           quizState.allQuestions = [];
         }
       } catch (e) {
         console.error('Failed to load mega quiz:', e);
       }
+
+      startQuizGame();
     }
 
     function generateFallbackQuestions(lesson) {
@@ -2043,8 +2075,7 @@
     }
 
     function abortToModeSelect() {
-      document.getElementById('quizPlayScreen').style.display = 'none';
-      document.getElementById('quizModeScreen').style.display = 'block';
+      restartCurrentQuiz();
     }
 
     function closeQuiz() {
