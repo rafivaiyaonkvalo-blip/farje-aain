@@ -1117,26 +1117,54 @@
       }
     }
 
-    /* ════════════ Animated Kalima Motion Graphics Splash Intro ════════════ */
+    /* ════════════ Animated Kalima Motion Graphics Splash Intro (Refined Normal Sizing) ════════════ */
     .kalima-intro-splash {
       position: fixed;
       inset: 0;
-      z-index: 999999;
-      background: #06090E;
+      width: 100vw;
+      height: 100vh;
+      height: 100dvh;
+      z-index: 9999999;
+      background-color: #0A0D12;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 20px;
-      transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.4s ease;
+      transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
       cursor: pointer;
       user-select: none;
       -webkit-user-select: none;
+      overflow: hidden;
+      margin: 0;
+      padding: 16px;
+    }
+
+    .kalima-center-box {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      max-width: 380px;
+      margin: 0 auto;
+      pointer-events: none;
+    }
+
+    .kalima-ambient-glow {
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      filter: blur(48px);
+      opacity: 0.25;
+      pointer-events: none;
+      transition: background 1s ease;
     }
 
     .kalima-canvas-wrap {
+      position: relative;
       width: 100%;
-      max-width: 860px;
+      max-width: 260px;
+      aspect-ratio: 2 / 1;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1145,62 +1173,9 @@
 
     #kalimaCanvas {
       width: 100%;
-      height: auto;
-      max-height: 52vh;
-      aspect-ratio: 1080 / 540;
-      object-fit: contain;
-      filter: drop-shadow(0 0 35px rgba(56, 189, 248, 0.35));
-    }
-
-    .kalima-intro-footer {
-      position: absolute;
-      bottom: 30px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 14px;
-      pointer-events: auto;
-    }
-
-    .kalima-pulse-bar {
-      width: 140px;
-      height: 3px;
-      background: rgba(255, 255, 255, 0.12);
-      border-radius: 99px;
-      overflow: hidden;
-    }
-
-    .kalima-pulse-fill {
-      width: 0%;
       height: 100%;
-      background: linear-gradient(90deg, #38BDF8, #34D399, #F59E0B);
-      transition: width 0.05s linear;
-    }
-
-    .kalima-skip-btn {
-      background: rgba(15, 23, 42, 0.85);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      border: 1px solid rgba(56, 189, 248, 0.35);
-      color: #CBD5E1;
-      padding: 7px 18px;
-      border-radius: 999px;
-      font-size: 0.84rem;
-      font-weight: 600;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      transition: all 0.2s ease;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-      font-family: var(--font-body);
-    }
-
-    .kalima-skip-btn:hover {
-      background: rgba(56, 189, 248, 0.2);
-      border-color: #38BDF8;
-      color: #FFFFFF;
-      transform: translateY(-1px);
+      object-fit: contain;
+      filter: drop-shadow(0 2px 16px rgba(255, 215, 0, 0.20));
     }
   </style>
 </head>
@@ -1208,16 +1183,11 @@
 
   <!-- ════════════ Animated Kalima Motion Graphics Splash Intro ════════════ -->
   <div id="kalimaIntroSplash" class="kalima-intro-splash" onclick="finishKalimaIntro()">
-    <div class="kalima-canvas-wrap">
-      <canvas id="kalimaCanvas" width="1080" height="540"></canvas>
-    </div>
-    <div class="kalima-intro-footer">
-      <div class="kalima-pulse-bar">
-        <div class="kalima-pulse-fill" id="kalimaProgressFill"></div>
+    <div class="kalima-center-box">
+      <div class="kalima-ambient-glow" id="kalimaAmbientGlow"></div>
+      <div class="kalima-canvas-wrap">
+        <canvas id="kalimaCanvas" width="1080" height="540"></canvas>
       </div>
-      <button id="skipKalimaBtn" class="kalima-skip-btn" onclick="event.stopPropagation(); finishKalimaIntro();" title="সরাসরি ওয়েবসাইটে প্রবেশ করুন">
-        <span>স্কিপ করুন</span> <i class="fa-solid fa-forward-step"></i>
-      </button>
     </div>
   </div>
 
@@ -1468,6 +1438,11 @@
       const randomIdx = Math.floor(Math.random() * SPLASH_CALLIGRAPHY_GRADIENTS.length);
       const gradientColors = SPLASH_CALLIGRAPHY_GRADIENTS[randomIdx].darkColors;
 
+      const ambientGlow = document.getElementById('kalimaAmbientGlow');
+      if (ambientGlow) {
+        ambientGlow.style.background = `radial-gradient(circle, ${gradientColors[0]} 0%, transparent 70%)`;
+      }
+
       const TOTAL_FRAMES = 86;
       const FPS_INTERVAL = 30; // 30ms * 86 = 2580ms
       const images = [];
@@ -1507,7 +1482,6 @@
 
       let currentFrame = 1;
       let lastTime = performance.now();
-      const progressFill = document.getElementById('kalimaProgressFill');
 
       function playLoop(now) {
         if (!kalimaAnimRunning) return;
@@ -1518,9 +1492,6 @@
           if (img && img.complete) {
             renderFrame(img);
           }
-          if (progressFill) {
-            progressFill.style.width = ((currentFrame / TOTAL_FRAMES) * 100) + '%';
-          }
 
           if (currentFrame < TOTAL_FRAMES) {
             currentFrame++;
@@ -1528,7 +1499,7 @@
           } else {
             kalimaFinishTimer = setTimeout(() => {
               finishKalimaIntro();
-            }, 450);
+            }, 420);
           }
         } else {
           requestAnimationFrame(playLoop);
