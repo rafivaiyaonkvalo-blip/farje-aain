@@ -507,12 +507,29 @@
     }
 
   </style>
+
+  <script>
+    function returnToPortal(e) {
+      if (e && e.preventDefault) e.preventDefault();
+      var p = window.location.pathname;
+      if (p.startsWith('/farj') || p.includes('/farj/')) {
+        window.location.href = '/farj';
+      } else if (p.startsWith('/farz') || p.includes('/farz/')) {
+        window.location.href = '/farz';
+      } else if (p.startsWith('/farje-aain') || p.includes('/farje-aain/')) {
+        window.location.href = '/farje-aain';
+      } else {
+        window.location.href = '/';
+      }
+    }
+    window.returnToPortal = returnToPortal;
+  </script>
 </head>
 <body>
 
   <div class="top-bar">
     <div class="brand">
-      <a href="../index.html" class="btn-sm" title="মূল পোর্টালে ফিরে যান" style="text-decoration: none; color: #38BDF8; background: rgba(56, 189, 248, 0.15); border: 1px solid rgba(56, 189, 248, 0.45); font-weight: 700; padding: 7px 15px; border-radius: 8px; display: inline-flex; align-items: center; gap: 7px;">
+      <a href="../" onclick="returnToPortal(event)" class="btn-sm" title="মূল পোর্টালে ফিরে যান" style="text-decoration: none; color: #38BDF8; background: rgba(56, 189, 248, 0.15); border: 1px solid rgba(56, 189, 248, 0.45); font-weight: 700; padding: 7px 15px; border-radius: 8px; display: inline-flex; align-items: center; gap: 7px;">
         <i class="fa-solid fa-arrow-left"></i>
         <span>মূল পেজে ফিরুন</span>
       </a>

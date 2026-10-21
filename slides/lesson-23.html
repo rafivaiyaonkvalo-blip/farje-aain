@@ -302,12 +302,29 @@
     }
 
   </style>
+
+  <script>
+    function returnToPortal(e) {
+      if (e && e.preventDefault) e.preventDefault();
+      var p = window.location.pathname;
+      if (p.startsWith('/farj') || p.includes('/farj/')) {
+        window.location.href = '/farj';
+      } else if (p.startsWith('/farz') || p.includes('/farz/')) {
+        window.location.href = '/farz';
+      } else if (p.startsWith('/farje-aain') || p.includes('/farje-aain/')) {
+        window.location.href = '/farje-aain';
+      } else {
+        window.location.href = '/';
+      }
+    }
+    window.returnToPortal = returnToPortal;
+  </script>
 </head>
 <body>
 
   <!-- TOP BACK TO PORTAL BAR -->
   <div class="portal-nav-bar" style="width: 100%; max-width: 1120px; display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; padding: 0 6px; box-sizing: border-box; z-index: 1000;">
-    <a href="../index.html" class="portal-back-btn" style="text-decoration: none; color: #38BDF8; background: rgba(56, 189, 248, 0.15); border: 1px solid rgba(56, 189, 248, 0.45); font-weight: 700; padding: 7px 16px; border-radius: 8px; display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-family: 'Kalpurush', 'Noto Serif Bengali', sans-serif; transition: all 0.2s ease;">
+    <a href="../" onclick="returnToPortal(event)" class="portal-back-btn" style="text-decoration: none; color: #38BDF8; background: rgba(56, 189, 248, 0.15); border: 1px solid rgba(56, 189, 248, 0.45); font-weight: 700; padding: 7px 16px; border-radius: 8px; display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-family: 'Kalpurush', 'Noto Serif Bengali', sans-serif; transition: all 0.2s ease;">
       ← মূল পেজে ফিরুন
     </a>
     <span style="color: #94A3B8; font-size: 13.5px; font-family: 'Kalpurush', 'Noto Serif Bengali', sans-serif;">
