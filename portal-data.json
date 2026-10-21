@@ -2,58 +2,43 @@
   "chapters": [
     {
       "id": 1,
-      "key": "০১_আকিদা",
+      "num": "০১",
       "name": "আকিদা ও ঈমান",
-      "english": "Aqeedah & Iman",
+      "count": "১০টি পাঠ",
       "icon": "fa-kaaba",
-      "desc": "ঈমান, ইসলাম, তাওহিদ, রিসালাত, মালাইকা ও আখেরাতের মৌলিক বিশ্বাস",
-      "color": "#0B6E5F",
-      "badge": "পাঠ ০১ – ১০",
-      "bgImg": "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1200&q=80"
+      "accent": "#0B6E5F"
     },
     {
       "id": 2,
-      "key": "০২_ইবাদাত",
+      "num": "০২",
       "name": "ইবাদাত ও আহকাম",
-      "english": "Ibadah & Rituals",
+      "count": "৯টি পাঠ",
       "icon": "fa-mosque",
-      "desc": "পবিত্রতা, পাঁচ ওয়াক্ত সালাত, সিয়াম, যাকাত, হজ্ব ও সংশ্লিষ্ট বিধান",
-      "color": "#0E8C7A",
-      "badge": "পাঠ ১১ – ১৯",
-      "bgImg": "https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?auto=format&fit=crop&w=1200&q=80"
+      "accent": "#0E8C7A"
     },
     {
       "id": 3,
-      "key": "০৩_মুআমালাত",
+      "num": "০৩",
       "name": "মুআমালাত ও লেনদেন",
-      "english": "Muamalat & Transactions",
+      "count": "৫টি পাঠ",
       "icon": "fa-scale-balanced",
-      "desc": "পেশা, হালাল ব্যবসা, সুদ-ঘুষ বর্জন, ঋণ, বিবাহ ও ইসলামি বিচারব্যবস্থা",
-      "color": "#1B3A5C",
-      "badge": "পাঠ ২০ – ২৪",
-      "bgImg": "https://images.unsplash.com/photo-1564769625905-50e93615e769?auto=format&fit=crop&w=1200&q=80"
+      "accent": "#1B3A5C"
     },
     {
       "id": 4,
-      "key": "০৪_মুআশারাত_ও_আখলাকিয়াত",
+      "num": "০৪",
       "name": "মুআশারাত ও আখলাক",
-      "english": "Social Ethics & Akhlaq",
+      "count": "৫টি পাঠ",
       "icon": "fa-handshake-angle",
-      "desc": "ইসলামি শিষ্টাচার, আত্মীয়তা, পিতা-মাতা, প্রতিবেশী ও রোগীর হক",
-      "color": "#8A5818",
-      "badge": "পাঠ ২৫ – ২৯",
-      "bgImg": "https://images.unsplash.com/photo-1519817650390-64a93db51149?auto=format&fit=crop&w=1200&q=80"
+      "accent": "#7D5215"
     },
     {
       "id": 5,
-      "key": "০৫_হালাল_হারাম",
+      "num": "০৫",
       "name": "হালাল ও হারাম",
-      "english": "Halal & Haram",
+      "count": "৬টি পাঠ",
       "icon": "fa-circle-check",
-      "desc": "পানাহার, বিনোদন, ফটো-ভিডিও, চিকিৎসা ও দৈনন্দিন হালাল-হারাম বিধান",
-      "color": "#24594D",
-      "badge": "পাঠ ৩০ – ৩৫",
-      "bgImg": "https://images.unsplash.com/photo-1590076215667-875d4ef2d7ee?auto=format&fit=crop&w=1200&q=80"
+      "accent": "#1E6252"
     }
   ],
   "lessons": [
@@ -66,7 +51,10 @@
       "slug": "lesson-01",
       "slideUrl": "slides/lesson-01.html",
       "sourceHtml": "০১_আকিদা_ঈমান_ও_ইসলাম_ওয়েব_স্লাইড.html",
-      "driveUrl": "https://drive.google.com/drive/folders/1A-W6HkzzIlc8AMPn09w1YEqrfPCtuir3?usp=drive_link"
+      "driveUrl": "https://drive.google.com/drive/folders/1A-W6HkzzIlc8AMPn09w1YEqrfPCtuir3?usp=drive_link",
+      "pdfId": "1vXK6V4AvuSzQavhA0uctJYBY2siNAn-g",
+      "downloadUrl": "https://drive.google.com/uc?export=download&id=1vXK6V4AvuSzQavhA0uctJYBY2siNAn-g",
+      "viewPdfUrl": "https://drive.google.com/file/d/1vXK6V4AvuSzQavhA0uctJYBY2siNAn-g/view?usp=sharing"
     },
     {
       "id": 2,
@@ -77,7 +65,10 @@
       "slug": "lesson-02",
       "slideUrl": "slides/lesson-02.html",
       "sourceHtml": "০২_তাওহিদ_ওয়েব_স্লাইড.html",
-      "driveUrl": "https://drive.google.com/drive/folders/1A-W6HkzzIlc8AMPn09w1YEqrfPCtuir3?usp=drive_link"
+      "driveUrl": "https://drive.google.com/drive/folders/1A-W6HkzzIlc8AMPn09w1YEqrfPCtuir3?usp=drive_link",
+      "pdfId": "1dlbytQaBWuE_dBrRX1Ibr37vM4fI-Ihc",
+      "downloadUrl": "https://drive.google.com/uc?export=download&id=1dlbytQaBWuE_dBrRX1Ibr37vM4fI-Ihc",
+      "viewPdfUrl": "https://drive.google.com/file/d/1dlbytQaBWuE_dBrRX1Ibr37vM4fI-Ihc/view?usp=sharing"
     },
     {
       "id": 3,
@@ -88,7 +79,10 @@
       "slug": "lesson-03",
       "slideUrl": "slides/lesson-03.html",
       "sourceHtml": "০৩_রিসালাত_ওয়েব_স্লাইড.html",
-      "driveUrl": "https://drive.google.com/drive/folders/1A-W6HkzzIlc8AMPn09w1YEqrfPCtuir3?usp=drive_link"
+      "driveUrl": "https://drive.google.com/drive/folders/1A-W6HkzzIlc8AMPn09w1YEqrfPCtuir3?usp=drive_link",
+      "pdfId": "1hr6sznVHduMdUehSAe9c_fHVMQWZRsl4",
+      "downloadUrl": "https://drive.google.com/uc?export=download&id=1hr6sznVHduMdUehSAe9c_fHVMQWZRsl4",
+      "viewPdfUrl": "https://drive.google.com/file/d/1hr6sznVHduMdUehSAe9c_fHVMQWZRsl4/view?usp=sharing"
     },
     {
       "id": 4,
@@ -99,7 +93,10 @@
       "slug": "lesson-04",
       "slideUrl": "slides/lesson-04.html",
       "sourceHtml": "০৪_আরকানুল_ঈমান_ওয়েব_স্লাইড.html",
-      "driveUrl": "https://drive.google.com/drive/folders/1A-W6HkzzIlc8AMPn09w1YEqrfPCtuir3?usp=drive_link"
+      "driveUrl": "https://drive.google.com/drive/folders/1A-W6HkzzIlc8AMPn09w1YEqrfPCtuir3?usp=drive_link",
+      "pdfId": "1LqrOTeXfED77sPLS2rOeva8EJCg17jHH",
+      "downloadUrl": "https://drive.google.com/uc?export=download&id=1LqrOTeXfED77sPLS2rOeva8EJCg17jHH",
+      "viewPdfUrl": "https://drive.google.com/file/d/1LqrOTeXfED77sPLS2rOeva8EJCg17jHH/view?usp=sharing"
     },
     {
       "id": 5,
@@ -110,7 +107,10 @@
       "slug": "lesson-05",
       "slideUrl": "slides/lesson-05.html",
       "sourceHtml": "০৫_মুজিযা_কারামাত_ও_কিয়ামতের_আলামত_ওয়েব_স্লাইড.html",
-      "driveUrl": "https://drive.google.com/drive/folders/1A-W6HkzzIlc8AMPn09w1YEqrfPCtuir3?usp=drive_link"
+      "driveUrl": "https://drive.google.com/drive/folders/1A-W6HkzzIlc8AMPn09w1YEqrfPCtuir3?usp=drive_link",
+      "pdfId": "1b_lvA9HLPuIrmTHbDMjwrWq1R8dZ4WZX",
+      "downloadUrl": "https://drive.google.com/uc?export=download&id=1b_lvA9HLPuIrmTHbDMjwrWq1R8dZ4WZX",
+      "viewPdfUrl": "https://drive.google.com/file/d/1b_lvA9HLPuIrmTHbDMjwrWq1R8dZ4WZX/view?usp=sharing"
     },
     {
       "id": 6,
@@ -121,7 +121,10 @@
       "slug": "lesson-06",
       "slideUrl": "slides/lesson-06.html",
       "sourceHtml": "০৬_জিন_ইলহাম_ও_স্বপ্ন_ওয়েব_স্লাইড.html",
-      "driveUrl": "https://drive.google.com/drive/folders/1A-W6HkzzIlc8AMPn09w1YEqrfPCtuir3?usp=drive_link"
+      "driveUrl": "https://drive.google.com/drive/folders/1A-W6HkzzIlc8AMPn09w1YEqrfPCtuir3?usp=drive_link",
+      "pdfId": "1yVFhSrtkW-ELm-x1dFGV8gf4bniA9ZOc",
+      "downloadUrl": "https://drive.google.com/uc?export=download&id=1yVFhSrtkW-ELm-x1dFGV8gf4bniA9ZOc",
+      "viewPdfUrl": "https://drive.google.com/file/d/1yVFhSrtkW-ELm-x1dFGV8gf4bniA9ZOc/view?usp=sharing"
     },
     {
       "id": 7,
@@ -132,7 +135,10 @@
       "slug": "lesson-07",
       "slideUrl": "slides/lesson-07.html",
       "sourceHtml": "০৭_কুফর_শিরক_ইরতিদাদ_ও_ইলহাদ_ওয়েব_স্লাইড.html",
-      "driveUrl": "https://drive.google.com/drive/folders/1A-W6HkzzIlc8AMPn09w1YEqrfPCtuir3?usp=drive_link"
+      "driveUrl": "https://drive.google.com/drive/folders/1A-W6HkzzIlc8AMPn09w1YEqrfPCtuir3?usp=drive_link",
+      "pdfId": "12hXEVbup4AufpzQQudT3Jq1wk2Romtf2",
+      "downloadUrl": "https://drive.google.com/uc?export=download&id=12hXEVbup4AufpzQQudT3Jq1wk2Romtf2",
+      "viewPdfUrl": "https://drive.google.com/file/d/12hXEVbup4AufpzQQudT3Jq1wk2Romtf2/view?usp=sharing"
     },
     {
       "id": 8,
@@ -143,7 +149,10 @@
       "slug": "lesson-08",
       "slideUrl": "slides/lesson-08.html",
       "sourceHtml": "০৮_ঈমান_ভঙ্গের_কারণ_ও_তাকফির_ওয়েব_স্লাইড.html",
-      "driveUrl": "https://drive.google.com/drive/folders/1A-W6HkzzIlc8AMPn09w1YEqrfPCtuir3?usp=drive_link"
+      "driveUrl": "https://drive.google.com/drive/folders/1A-W6HkzzIlc8AMPn09w1YEqrfPCtuir3?usp=drive_link",
+      "pdfId": "1a5x_LbDnoozlAEbIec_ngKfMvVRFTQA7",
+      "downloadUrl": "https://drive.google.com/uc?export=download&id=1a5x_LbDnoozlAEbIec_ngKfMvVRFTQA7",
+      "viewPdfUrl": "https://drive.google.com/file/d/1a5x_LbDnoozlAEbIec_ngKfMvVRFTQA7/view?usp=sharing"
     },
     {
       "id": 9,
@@ -154,7 +163,10 @@
       "slug": "lesson-09",
       "slideUrl": "slides/lesson-09.html",
       "sourceHtml": "০৯_বিদআত_সামাজিক_ভ্রান্তি_ও_কুসংস্কার_ওয়েব_স্লাইড.html",
-      "driveUrl": "https://drive.google.com/drive/folders/1A-W6HkzzIlc8AMPn09w1YEqrfPCtuir3?usp=drive_link"
+      "driveUrl": "https://drive.google.com/drive/folders/1A-W6HkzzIlc8AMPn09w1YEqrfPCtuir3?usp=drive_link",
+      "pdfId": "176vqJPumKdYFCQg3KQgChdk1AV-JN_td",
+      "downloadUrl": "https://drive.google.com/uc?export=download&id=176vqJPumKdYFCQg3KQgChdk1AV-JN_td",
+      "viewPdfUrl": "https://drive.google.com/file/d/176vqJPumKdYFCQg3KQgChdk1AV-JN_td/view?usp=sharing"
     },
     {
       "id": 10,
@@ -165,7 +177,10 @@
       "slug": "lesson-10",
       "slideUrl": "slides/lesson-10.html",
       "sourceHtml": "১০_আল_ওয়ালা_ওয়াল_বারা_ওয়েব_স্লাইড.html",
-      "driveUrl": "https://drive.google.com/drive/folders/1A-W6HkzzIlc8AMPn09w1YEqrfPCtuir3?usp=drive_link"
+      "driveUrl": "https://drive.google.com/drive/folders/1A-W6HkzzIlc8AMPn09w1YEqrfPCtuir3?usp=drive_link",
+      "pdfId": "1TvSBiiJ4yAIJd35ntkSan5nFPEIcLDvs",
+      "downloadUrl": "https://drive.google.com/uc?export=download&id=1TvSBiiJ4yAIJd35ntkSan5nFPEIcLDvs",
+      "viewPdfUrl": "https://drive.google.com/file/d/1TvSBiiJ4yAIJd35ntkSan5nFPEIcLDvs/view?usp=sharing"
     },
     {
       "id": 11,
@@ -176,7 +191,10 @@
       "slug": "lesson-11",
       "slideUrl": "slides/lesson-11.html",
       "sourceHtml": "১১_পবিত্রতা_ওয়েব_স্লাইড.html",
-      "driveUrl": "https://drive.google.com/drive/folders/1A-W6HkzzIlc8AMPn09w1YEqrfPCtuir3?usp=drive_link"
+      "driveUrl": "https://drive.google.com/drive/folders/1A-W6HkzzIlc8AMPn09w1YEqrfPCtuir3?usp=drive_link",
+      "pdfId": "1pQU9QPx0vro0edM6U1vyPt7oujlDL6BA",
+      "downloadUrl": "https://drive.google.com/uc?export=download&id=1pQU9QPx0vro0edM6U1vyPt7oujlDL6BA",
+      "viewPdfUrl": "https://drive.google.com/file/d/1pQU9QPx0vro0edM6U1vyPt7oujlDL6BA/view?usp=sharing"
     },
     {
       "id": 12,
@@ -187,7 +205,10 @@
       "slug": "lesson-12",
       "slideUrl": "slides/lesson-12.html",
       "sourceHtml": "১২_সালাত_ওয়েব_স্লাইড.html",
-      "driveUrl": "https://drive.google.com/drive/folders/1A-W6HkzzIlc8AMPn09w1YEqrfPCtuir3?usp=drive_link"
+      "driveUrl": "https://drive.google.com/drive/folders/1A-W6HkzzIlc8AMPn09w1YEqrfPCtuir3?usp=drive_link",
+      "pdfId": "1AvtlHm4v7ru2zC7G6OISBUoII41OLFd_",
+      "downloadUrl": "https://drive.google.com/uc?export=download&id=1AvtlHm4v7ru2zC7G6OISBUoII41OLFd_",
+      "viewPdfUrl": "https://drive.google.com/file/d/1AvtlHm4v7ru2zC7G6OISBUoII41OLFd_/view?usp=sharing"
     },
     {
       "id": 13,
@@ -198,7 +219,10 @@
       "slug": "lesson-13",
       "slideUrl": "slides/lesson-13.html",
       "sourceHtml": "১৩_যাকাত_ও_হজ্ব_ওয়েব_স্লাইড.html",
-      "driveUrl": "https://drive.google.com/drive/folders/1A-W6HkzzIlc8AMPn09w1YEqrfPCtuir3?usp=drive_link"
+      "driveUrl": "https://drive.google.com/drive/folders/1A-W6HkzzIlc8AMPn09w1YEqrfPCtuir3?usp=drive_link",
+      "pdfId": "1NrCKdHkkYMvLusneyrfpYOSxWj6EDyT2",
+      "downloadUrl": "https://drive.google.com/uc?export=download&id=1NrCKdHkkYMvLusneyrfpYOSxWj6EDyT2",
+      "viewPdfUrl": "https://drive.google.com/file/d/1NrCKdHkkYMvLusneyrfpYOSxWj6EDyT2/view?usp=sharing"
     },
     {
       "id": 14,
@@ -209,7 +233,10 @@
       "slug": "lesson-14",
       "slideUrl": "slides/lesson-14.html",
       "sourceHtml": "১৪_সিয়াম_ও_কুরবানি_ওয়েব_স্লাইড.html",
-      "driveUrl": "https://drive.google.com/drive/folders/1A-W6HkzzIlc8AMPn09w1YEqrfPCtuir3?usp=drive_link"
+      "driveUrl": "https://drive.google.com/drive/folders/1A-W6HkzzIlc8AMPn09w1YEqrfPCtuir3?usp=drive_link",
+      "pdfId": "1Yr7KPCLse_bFcGdfHq4beEkE45913Jo9",
+      "downloadUrl": "https://drive.google.com/uc?export=download&id=1Yr7KPCLse_bFcGdfHq4beEkE45913Jo9",
+      "viewPdfUrl": "https://drive.google.com/file/d/1Yr7KPCLse_bFcGdfHq4beEkE45913Jo9/view?usp=sharing"
     },
     {
       "id": 15,
@@ -220,7 +247,10 @@
       "slug": "lesson-15",
       "slideUrl": "slides/lesson-15.html",
       "sourceHtml": "১৫_জিহাদ_ফরজ_দাওয়াহ_ও_পর্দা_ওয়েব_স্লাইড.html",
-      "driveUrl": "https://drive.google.com/drive/folders/1A-W6HkzzIlc8AMPn09w1YEqrfPCtuir3?usp=drive_link"
+      "driveUrl": "https://drive.google.com/drive/folders/1A-W6HkzzIlc8AMPn09w1YEqrfPCtuir3?usp=drive_link",
+      "pdfId": "1T98BoyMwh1CwsGMCfp9yuCOu8uN185Nt",
+      "downloadUrl": "https://drive.google.com/uc?export=download&id=1T98BoyMwh1CwsGMCfp9yuCOu8uN185Nt",
+      "viewPdfUrl": "https://drive.google.com/file/d/1T98BoyMwh1CwsGMCfp9yuCOu8uN185Nt/view?usp=sharing"
     },
     {
       "id": 16,
@@ -231,7 +261,10 @@
       "slug": "lesson-16",
       "slideUrl": "slides/lesson-16.html",
       "sourceHtml": "১৬_তাযকিয়া_ও_বাইআত_ওয়েব_স্লাইড.html",
-      "driveUrl": "https://drive.google.com/drive/folders/1A-W6HkzzIlc8AMPn09w1YEqrfPCtuir3?usp=drive_link"
+      "driveUrl": "https://drive.google.com/drive/folders/1A-W6HkzzIlc8AMPn09w1YEqrfPCtuir3?usp=drive_link",
+      "pdfId": "1gNvm1RXTyrLsiqaWmOIHmCx3d46a1eDc",
+      "downloadUrl": "https://drive.google.com/uc?export=download&id=1gNvm1RXTyrLsiqaWmOIHmCx3d46a1eDc",
+      "viewPdfUrl": "https://drive.google.com/file/d/1gNvm1RXTyrLsiqaWmOIHmCx3d46a1eDc/view?usp=sharing"
     },
     {
       "id": 17,
@@ -242,7 +275,10 @@
       "slug": "lesson-17",
       "slideUrl": "slides/lesson-17.html",
       "sourceHtml": "১৭_ইতিকাফ_ও_ওয়াকফ_ওয়েব_স্লাইড.html",
-      "driveUrl": "https://drive.google.com/drive/folders/1A-W6HkzzIlc8AMPn09w1YEqrfPCtuir3?usp=drive_link"
+      "driveUrl": "https://drive.google.com/drive/folders/1A-W6HkzzIlc8AMPn09w1YEqrfPCtuir3?usp=drive_link",
+      "pdfId": "139KYLrepVi2x3cOuQeFTsIyUile6m-X0",
+      "downloadUrl": "https://drive.google.com/uc?export=download&id=139KYLrepVi2x3cOuQeFTsIyUile6m-X0",
+      "viewPdfUrl": "https://drive.google.com/file/d/139KYLrepVi2x3cOuQeFTsIyUile6m-X0/view?usp=sharing"
     },
     {
       "id": 18,
@@ -253,7 +289,10 @@
       "slug": "lesson-18",
       "slideUrl": "slides/lesson-18.html",
       "sourceHtml": "১৮_আকিকা_খতনা_ও_দাড়ি_ওয়েব_স্লাইড.html",
-      "driveUrl": "https://drive.google.com/drive/folders/1A-W6HkzzIlc8AMPn09w1YEqrfPCtuir3?usp=drive_link"
+      "driveUrl": "https://drive.google.com/drive/folders/1A-W6HkzzIlc8AMPn09w1YEqrfPCtuir3?usp=drive_link",
+      "pdfId": "19EXq50uw83pl3YdfgG6mXCzWT7XUOuml",
+      "downloadUrl": "https://drive.google.com/uc?export=download&id=19EXq50uw83pl3YdfgG6mXCzWT7XUOuml",
+      "viewPdfUrl": "https://drive.google.com/file/d/19EXq50uw83pl3YdfgG6mXCzWT7XUOuml/view?usp=sharing"
     },
     {
       "id": 19,
@@ -264,7 +303,10 @@
       "slug": "lesson-19",
       "slideUrl": "slides/lesson-19.html",
       "sourceHtml": "১৯_শপথ_ও_মানত_ওয়েব_স্লাইড.html",
-      "driveUrl": "https://drive.google.com/drive/folders/1A-W6HkzzIlc8AMPn09w1YEqrfPCtuir3?usp=drive_link"
+      "driveUrl": "https://drive.google.com/drive/folders/1A-W6HkzzIlc8AMPn09w1YEqrfPCtuir3?usp=drive_link",
+      "pdfId": "1fGg_1ji-LhqVdIrs6r9_vamALrz_B-BB",
+      "downloadUrl": "https://drive.google.com/uc?export=download&id=1fGg_1ji-LhqVdIrs6r9_vamALrz_B-BB",
+      "viewPdfUrl": "https://drive.google.com/file/d/1fGg_1ji-LhqVdIrs6r9_vamALrz_B-BB/view?usp=sharing"
     },
     {
       "id": 20,
@@ -275,7 +317,10 @@
       "slug": "lesson-20",
       "slideUrl": "slides/lesson-20.html",
       "sourceHtml": "২০_পেশা_ব্যবসা_ও_চাকরি_ওয়েব_স্লাইড.html",
-      "driveUrl": "https://drive.google.com/drive/folders/1A-W6HkzzIlc8AMPn09w1YEqrfPCtuir3?usp=drive_link"
+      "driveUrl": "https://drive.google.com/drive/folders/1A-W6HkzzIlc8AMPn09w1YEqrfPCtuir3?usp=drive_link",
+      "pdfId": "1z2RZJM-ghpLdnRiJASm1OuYdgFONtFnf",
+      "downloadUrl": "https://drive.google.com/uc?export=download&id=1z2RZJM-ghpLdnRiJASm1OuYdgFONtFnf",
+      "viewPdfUrl": "https://drive.google.com/file/d/1z2RZJM-ghpLdnRiJASm1OuYdgFONtFnf/view?usp=sharing"
     },
     {
       "id": 21,
@@ -286,7 +331,10 @@
       "slug": "lesson-21",
       "slideUrl": "slides/lesson-21.html",
       "sourceHtml": "২১_ঋণ_ও_সুদ_ঘুষ_ওয়েব_স্লাইড.html",
-      "driveUrl": "https://drive.google.com/drive/folders/1A-W6HkzzIlc8AMPn09w1YEqrfPCtuir3?usp=drive_link"
+      "driveUrl": "https://drive.google.com/drive/folders/1A-W6HkzzIlc8AMPn09w1YEqrfPCtuir3?usp=drive_link",
+      "pdfId": "1-AC5iljVU2QHqS__B_hVago9jgVhs1ak",
+      "downloadUrl": "https://drive.google.com/uc?export=download&id=1-AC5iljVU2QHqS__B_hVago9jgVhs1ak",
+      "viewPdfUrl": "https://drive.google.com/file/d/1-AC5iljVU2QHqS__B_hVago9jgVhs1ak/view?usp=sharing"
     },
     {
       "id": 22,
@@ -297,7 +345,10 @@
       "slug": "lesson-22",
       "slideUrl": "slides/lesson-22.html",
       "sourceHtml": "২২_বিবাহ_ওয়েব_স্লাইড.html",
-      "driveUrl": "https://drive.google.com/drive/folders/1A-W6HkzzIlc8AMPn09w1YEqrfPCtuir3?usp=drive_link"
+      "driveUrl": "https://drive.google.com/drive/folders/1A-W6HkzzIlc8AMPn09w1YEqrfPCtuir3?usp=drive_link",
+      "pdfId": "1Wnt6QPmN7YEJ07PemZeCsHMR0oYfKqU3",
+      "downloadUrl": "https://drive.google.com/uc?export=download&id=1Wnt6QPmN7YEJ07PemZeCsHMR0oYfKqU3",
+      "viewPdfUrl": "https://drive.google.com/file/d/1Wnt6QPmN7YEJ07PemZeCsHMR0oYfKqU3/view?usp=sharing"
     },
     {
       "id": 23,
@@ -308,7 +359,10 @@
       "slug": "lesson-23",
       "slideUrl": "slides/lesson-23.html",
       "sourceHtml": "২৩_তালাক_ও_উত্তরাধিকার.html",
-      "driveUrl": "https://drive.google.com/drive/folders/1A-W6HkzzIlc8AMPn09w1YEqrfPCtuir3?usp=drive_link"
+      "driveUrl": "https://drive.google.com/drive/folders/1A-W6HkzzIlc8AMPn09w1YEqrfPCtuir3?usp=drive_link",
+      "pdfId": "1dyfUummSy4aVAe9yM-pVewk970tlyYaS",
+      "downloadUrl": "https://drive.google.com/uc?export=download&id=1dyfUummSy4aVAe9yM-pVewk970tlyYaS",
+      "viewPdfUrl": "https://drive.google.com/file/d/1dyfUummSy4aVAe9yM-pVewk970tlyYaS/view?usp=sharing"
     },
     {
       "id": 24,
@@ -319,7 +373,10 @@
       "slug": "lesson-24",
       "slideUrl": "slides/lesson-24.html",
       "sourceHtml": "২৪_ইসলামি_দণ্ডবিধি.html",
-      "driveUrl": "https://drive.google.com/drive/folders/1A-W6HkzzIlc8AMPn09w1YEqrfPCtuir3?usp=drive_link"
+      "driveUrl": "https://drive.google.com/drive/folders/1A-W6HkzzIlc8AMPn09w1YEqrfPCtuir3?usp=drive_link",
+      "pdfId": "15fF7R-_oj-G1AzlE279QYsiv6w5t__g5",
+      "downloadUrl": "https://drive.google.com/uc?export=download&id=15fF7R-_oj-G1AzlE279QYsiv6w5t__g5",
+      "viewPdfUrl": "https://drive.google.com/file/d/15fF7R-_oj-G1AzlE279QYsiv6w5t__g5/view?usp=sharing"
     },
     {
       "id": 25,
@@ -330,7 +387,10 @@
       "slug": "lesson-25",
       "slideUrl": "slides/lesson-25.html",
       "sourceHtml": "২৫_ইসলামি_শিষ্টাচার.html",
-      "driveUrl": "https://drive.google.com/drive/folders/1A-W6HkzzIlc8AMPn09w1YEqrfPCtuir3?usp=drive_link"
+      "driveUrl": "https://drive.google.com/drive/folders/1A-W6HkzzIlc8AMPn09w1YEqrfPCtuir3?usp=drive_link",
+      "pdfId": "1rQPv9TQSlyo46Hl83DvqTzYGkX7Rwtzq",
+      "downloadUrl": "https://drive.google.com/uc?export=download&id=1rQPv9TQSlyo46Hl83DvqTzYGkX7Rwtzq",
+      "viewPdfUrl": "https://drive.google.com/file/d/1rQPv9TQSlyo46Hl83DvqTzYGkX7Rwtzq/view?usp=sharing"
     },
     {
       "id": 26,
@@ -341,7 +401,10 @@
       "slug": "lesson-26",
       "slideUrl": "slides/lesson-26.html",
       "sourceHtml": "২৬_আত্মীয়তার_বন্ধন.html",
-      "driveUrl": "https://drive.google.com/drive/folders/1A-W6HkzzIlc8AMPn09w1YEqrfPCtuir3?usp=drive_link"
+      "driveUrl": "https://drive.google.com/drive/folders/1A-W6HkzzIlc8AMPn09w1YEqrfPCtuir3?usp=drive_link",
+      "pdfId": "1Z73WSAHIxBexCPC2g1FwT9y0ABPiHQ9C",
+      "downloadUrl": "https://drive.google.com/uc?export=download&id=1Z73WSAHIxBexCPC2g1FwT9y0ABPiHQ9C",
+      "viewPdfUrl": "https://drive.google.com/file/d/1Z73WSAHIxBexCPC2g1FwT9y0ABPiHQ9C/view?usp=sharing"
     },
     {
       "id": 27,
@@ -352,7 +415,10 @@
       "slug": "lesson-27",
       "slideUrl": "slides/lesson-27.html",
       "sourceHtml": "২৭_মা_বাবা_ও_সন্তানের_হক.html",
-      "driveUrl": "https://drive.google.com/drive/folders/1A-W6HkzzIlc8AMPn09w1YEqrfPCtuir3?usp=drive_link"
+      "driveUrl": "https://drive.google.com/drive/folders/1A-W6HkzzIlc8AMPn09w1YEqrfPCtuir3?usp=drive_link",
+      "pdfId": "16lK2KKTD3RexoD0PtMv86e3HLvzBvcBB",
+      "downloadUrl": "https://drive.google.com/uc?export=download&id=16lK2KKTD3RexoD0PtMv86e3HLvzBvcBB",
+      "viewPdfUrl": "https://drive.google.com/file/d/16lK2KKTD3RexoD0PtMv86e3HLvzBvcBB/view?usp=sharing"
     },
     {
       "id": 28,
@@ -363,7 +429,10 @@
       "slug": "lesson-28",
       "slideUrl": "slides/lesson-28.html",
       "sourceHtml": "২৮_স্বামী_স্ত্রী_প্রতিবেশী_গরিবদের_হক_হাদিয়া_ও_দাওয়াত.html",
-      "driveUrl": "https://drive.google.com/drive/folders/1A-W6HkzzIlc8AMPn09w1YEqrfPCtuir3?usp=drive_link"
+      "driveUrl": "https://drive.google.com/drive/folders/1A-W6HkzzIlc8AMPn09w1YEqrfPCtuir3?usp=drive_link",
+      "pdfId": "1TRblE88VbgAb1OQWT41a0-eWtYZcLnCv",
+      "downloadUrl": "https://drive.google.com/uc?export=download&id=1TRblE88VbgAb1OQWT41a0-eWtYZcLnCv",
+      "viewPdfUrl": "https://drive.google.com/file/d/1TRblE88VbgAb1OQWT41a0-eWtYZcLnCv/view?usp=sharing"
     },
     {
       "id": 29,
@@ -374,7 +443,10 @@
       "slug": "lesson-29",
       "slideUrl": "slides/lesson-29.html",
       "sourceHtml": "২৯_রোগীর_শুশ্রূষা_জানাযা_গোসল_কাফন_দাফন_ও_কবর_জিয়ারত.html",
-      "driveUrl": "https://drive.google.com/drive/folders/1A-W6HkzzIlc8AMPn09w1YEqrfPCtuir3?usp=drive_link"
+      "driveUrl": "https://drive.google.com/drive/folders/1A-W6HkzzIlc8AMPn09w1YEqrfPCtuir3?usp=drive_link",
+      "pdfId": "1k_LQkrv818WT6OBdsczdVD0xTv_BxapQ",
+      "downloadUrl": "https://drive.google.com/uc?export=download&id=1k_LQkrv818WT6OBdsczdVD0xTv_BxapQ",
+      "viewPdfUrl": "https://drive.google.com/file/d/1k_LQkrv818WT6OBdsczdVD0xTv_BxapQ/view?usp=sharing"
     },
     {
       "id": 30,
@@ -385,7 +457,10 @@
       "slug": "lesson-30",
       "slideUrl": "slides/lesson-30.html",
       "sourceHtml": "৩০_গুনাহ_হালাল_হারাম_ও_মাকরুহ_পরিচিতি.html",
-      "driveUrl": "https://drive.google.com/drive/folders/1A-W6HkzzIlc8AMPn09w1YEqrfPCtuir3?usp=drive_link"
+      "driveUrl": "https://drive.google.com/drive/folders/1A-W6HkzzIlc8AMPn09w1YEqrfPCtuir3?usp=drive_link",
+      "pdfId": "1JozCAsU-MzJa8xBcd_-rrp1AEGqgI-fp",
+      "downloadUrl": "https://drive.google.com/uc?export=download&id=1JozCAsU-MzJa8xBcd_-rrp1AEGqgI-fp",
+      "viewPdfUrl": "https://drive.google.com/file/d/1JozCAsU-MzJa8xBcd_-rrp1AEGqgI-fp/view?usp=sharing"
     },
     {
       "id": 31,
@@ -396,7 +471,10 @@
       "slug": "lesson-31",
       "slideUrl": "slides/lesson-31.html",
       "sourceHtml": "৩১_পানাহারে_হালাল_হারাম.html",
-      "driveUrl": "https://drive.google.com/drive/folders/1A-W6HkzzIlc8AMPn09w1YEqrfPCtuir3?usp=drive_link"
+      "driveUrl": "https://drive.google.com/drive/folders/1A-W6HkzzIlc8AMPn09w1YEqrfPCtuir3?usp=drive_link",
+      "pdfId": "1nvzH6SpsQpLLHm2zTEiUEdtzaeq_3Yx2",
+      "downloadUrl": "https://drive.google.com/uc?export=download&id=1nvzH6SpsQpLLHm2zTEiUEdtzaeq_3Yx2",
+      "viewPdfUrl": "https://drive.google.com/file/d/1nvzH6SpsQpLLHm2zTEiUEdtzaeq_3Yx2/view?usp=sharing"
     },
     {
       "id": 32,
@@ -407,7 +485,10 @@
       "slug": "lesson-32",
       "slideUrl": "slides/lesson-32.html",
       "sourceHtml": "৩২_দৈহিক_পরিচর্যায়_হালাল_হারাম.html",
-      "driveUrl": "https://drive.google.com/drive/folders/1A-W6HkzzIlc8AMPn09w1YEqrfPCtuir3?usp=drive_link"
+      "driveUrl": "https://drive.google.com/drive/folders/1A-W6HkzzIlc8AMPn09w1YEqrfPCtuir3?usp=drive_link",
+      "pdfId": "1-zscEJ_DpLFU8bpBEtpYsRTMVZL9Q2AY",
+      "downloadUrl": "https://drive.google.com/uc?export=download&id=1-zscEJ_DpLFU8bpBEtpYsRTMVZL9Q2AY",
+      "viewPdfUrl": "https://drive.google.com/file/d/1-zscEJ_DpLFU8bpBEtpYsRTMVZL9Q2AY/view?usp=sharing"
     },
     {
       "id": 33,
@@ -418,7 +499,10 @@
       "slug": "lesson-33",
       "slideUrl": "slides/lesson-33.html",
       "sourceHtml": "৩৩_খেলাধুলা_গান_ও_বিনোদন.html",
-      "driveUrl": "https://drive.google.com/drive/folders/1A-W6HkzzIlc8AMPn09w1YEqrfPCtuir3?usp=drive_link"
+      "driveUrl": "https://drive.google.com/drive/folders/1A-W6HkzzIlc8AMPn09w1YEqrfPCtuir3?usp=drive_link",
+      "pdfId": "1gmOos1-EakMfl1Ob-JXvfJV8fS7_i58X",
+      "downloadUrl": "https://drive.google.com/uc?export=download&id=1gmOos1-EakMfl1Ob-JXvfJV8fS7_i58X",
+      "viewPdfUrl": "https://drive.google.com/file/d/1gmOos1-EakMfl1Ob-JXvfJV8fS7_i58X/view?usp=sharing"
     },
     {
       "id": 34,
@@ -429,7 +513,10 @@
       "slug": "lesson-34",
       "slideUrl": "slides/lesson-34.html",
       "sourceHtml": "৩৪_ফটো_ভিডিও_মূর্তি_ঘরে_পশুপালন_ও_তার_কেনাবেচা.html",
-      "driveUrl": "https://drive.google.com/drive/folders/1A-W6HkzzIlc8AMPn09w1YEqrfPCtuir3?usp=drive_link"
+      "driveUrl": "https://drive.google.com/drive/folders/1A-W6HkzzIlc8AMPn09w1YEqrfPCtuir3?usp=drive_link",
+      "pdfId": "1BRPaW066hy_QvMYF9bmWSQNNpXYVNPLG",
+      "downloadUrl": "https://drive.google.com/uc?export=download&id=1BRPaW066hy_QvMYF9bmWSQNNpXYVNPLG",
+      "viewPdfUrl": "https://drive.google.com/file/d/1BRPaW066hy_QvMYF9bmWSQNNpXYVNPLG/view?usp=sharing"
     },
     {
       "id": 35,
@@ -440,7 +527,10 @@
       "slug": "lesson-35",
       "slideUrl": "slides/lesson-35.html",
       "sourceHtml": "৩৫_চিকিৎসাশাস্ত্রে_হালাল_হারাম.html",
-      "driveUrl": "https://drive.google.com/drive/folders/1A-W6HkzzIlc8AMPn09w1YEqrfPCtuir3?usp=drive_link"
+      "driveUrl": "https://drive.google.com/drive/folders/1A-W6HkzzIlc8AMPn09w1YEqrfPCtuir3?usp=drive_link",
+      "pdfId": "135zgR_srBF0kkR9ReT_JbPOmXTSPaKR9",
+      "downloadUrl": "https://drive.google.com/uc?export=download&id=135zgR_srBF0kkR9ReT_JbPOmXTSPaKR9",
+      "viewPdfUrl": "https://drive.google.com/file/d/135zgR_srBF0kkR9ReT_JbPOmXTSPaKR9/view?usp=sharing"
     }
   ]
 }
