@@ -62,7 +62,8 @@
       position: relative;
       background-image: 
         linear-gradient(135deg, rgba(6, 13, 26, 0.95) 0%, rgba(10, 24, 46, 0.90) 50%, rgba(4, 9, 20, 0.97) 100%),
-        url('assets/bg_arch.jpg');
+        url('assets/bg_arch.jpg'),
+        url('https://farje-aain.vercel.app/assets/bg_arch.jpg');
       background-size: cover;
       background-position: center top;
       background-attachment: fixed;
@@ -1130,7 +1131,7 @@
   <header>
     <div class="header-container">
       <a href="#" onclick="showAllChapters(); return false;" class="brand" title="হোমপেজে ফিরুন">
-        <img src="assets/logo_user.png" alt="মারকাযুল ঈমান" onerror="this.style.display='none'">
+        <img id="portalBrandLogo" src="assets/logo_user.png" alt="মারকাযুল ঈমান" onerror="if(!this.dataset.retried){this.dataset.retried='1';this.src='https://farje-aain.vercel.app/assets/logo_user.png';}else{this.style.display='none';}">
         <div class="brand-text">
           <h1>মারকাযুল ঈমান</h1>
           <p>ফারজে আইন কিতাবের প্রেজেন্টেশন</p>
@@ -1329,7 +1330,15 @@
       { name: 'Rose Gold Luxury', darkColors: ['#FFCCBC', '#FFAB91', '#FFD54F', '#FF80AB'] }
     ];
 
-    const basePath = (window.location.pathname.startsWith('/farj')) ? '/farj/' : '';
+    // Dynamic asset base host for standalone and proxied deployments (e.g. markazuliman.com/farj)
+    const isProxiedDomain = window.location.hostname.includes('markazuliman.com') || window.location.pathname.startsWith('/farj');
+    const basePath = isProxiedDomain ? 'https://farje-aain.vercel.app/' : '';
+
+    // Immediately ensure brand logo is loaded from CDN if on proxied domain
+    const brandLogo = document.getElementById('portalBrandLogo');
+    if (brandLogo && isProxiedDomain) {
+      brandLogo.src = 'https://farje-aain.vercel.app/assets/logo_user.png';
+    }
     let kalimaAnimRunning = true;
     let kalimaFinishTimer = null;
 
