@@ -15,27 +15,28 @@
 
   <style>
     :root {
-      /* Royal Islamic Navy Blue & Gold Theme */
-      --primary-dark: #040E1E;
-      --blue-deep:    #0A2244;
-      --blue-mid:     #123668;
-      --blue-accent:  #1D4F8D;
-      --blue-bright:  #286EB8;
-      --accent-gold:  #E5B842;
-      --gold-hover:   #F8D068;
+      /* Modern Cyber Islamic Palette (No Gold) */
+      --primary-dark:   #060D1A;
+      --navy-deep:      #0A172C;
+      --navy-card:      rgba(11, 25, 48, 0.85);
+      --navy-card-hover: rgba(15, 34, 66, 0.96);
       
-      --bg-dark:      #030B17;
-      --card-bg:      rgba(8, 24, 49, 0.88);
-      --card-hover:   rgba(12, 34, 68, 0.95);
-      --card-border:  rgba(229, 184, 66, 0.26);
-      --card-border-hover: rgba(229, 184, 66, 0.7);
+      --cyan-bright:    #38BDF8;   /* Electric Sky Cyan */
+      --cyan-glow:      #00E5FF;
+      --emerald-mint:   #10B981;   /* Achievement Mint */
+      --emerald-glow:   #34D399;
+      --purple-accent:  #818CF8;   /* Royal Violet Accent */
       
-      --text-main:    #FFFFFF;
-      --text-muted:   #D2DFEE;
-      --text-dim:     #96AAC2;
+      --card-border:    rgba(56, 189, 248, 0.22);
+      --card-border-glow: rgba(56, 189, 248, 0.75);
+      --card-border-emerald: rgba(16, 185, 129, 0.5);
       
-      --font-body:    'Hind Siliguri', 'Anek Bangla', sans-serif;
-      --font-title:   'Noto Serif Bengali', serif;
+      --text-main:      #FFFFFF;
+      --text-muted:     #CBD5E1;
+      --text-dim:       #94A3B8;
+      
+      --font-body:      'Hind Siliguri', 'Anek Bangla', sans-serif;
+      --font-title:     'Noto Serif Bengali', serif;
     }
 
     * {
@@ -52,7 +53,7 @@
     }
 
     body {
-      background-color: var(--bg-dark);
+      background-color: var(--primary-dark);
       color: var(--text-main);
       font-family: var(--font-body);
       min-height: 100vh;
@@ -60,7 +61,7 @@
       flex-direction: column;
       position: relative;
       background-image: 
-        linear-gradient(135deg, rgba(4, 14, 30, 0.94) 0%, rgba(10, 31, 62, 0.88) 50%, rgba(3, 10, 22, 0.96) 100%),
+        linear-gradient(135deg, rgba(6, 13, 26, 0.95) 0%, rgba(10, 24, 46, 0.90) 50%, rgba(4, 9, 20, 0.97) 100%),
         url('assets/bg_arch.jpg');
       background-size: cover;
       background-position: center top;
@@ -72,10 +73,10 @@
 
     /* Header */
     header {
-      background: rgba(4, 15, 33, 0.94);
+      background: rgba(6, 15, 30, 0.92);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
-      border-bottom: 1px solid rgba(229, 184, 66, 0.25);
+      border-bottom: 1px solid rgba(56, 189, 248, 0.22);
       position: sticky;
       top: 0;
       z-index: 100;
@@ -100,13 +101,19 @@
       text-decoration: none;
       color: inherit;
       min-width: 0;
+      cursor: pointer;
+      transition: opacity 0.2s ease;
+    }
+
+    .brand:hover {
+      opacity: 0.9;
     }
 
     .brand img {
       height: 44px;
       width: auto;
       flex-shrink: 0;
-      filter: drop-shadow(0 2px 8px rgba(0,0,0,0.5));
+      filter: drop-shadow(0 2px 10px rgba(56, 189, 248, 0.3));
     }
 
     .brand-text {
@@ -125,7 +132,7 @@
 
     .brand-text p {
       font-size: 0.78rem;
-      color: var(--accent-gold);
+      color: var(--cyan-bright);
       font-weight: 500;
       white-space: nowrap;
       overflow: hidden;
@@ -140,9 +147,9 @@
       display: inline-flex;
       align-items: center;
       gap: 7px;
-      background: linear-gradient(135deg, rgba(229, 184, 66, 0.22) 0%, rgba(229, 184, 66, 0.08) 100%);
-      border: 1px solid var(--accent-gold);
-      color: var(--accent-gold);
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid var(--cyan-bright);
+      color: var(--cyan-bright);
       padding: 7px 14px;
       border-radius: 8px;
       font-size: 0.84rem;
@@ -153,10 +160,10 @@
     }
 
     .drive-all-btn:hover {
-      background: var(--accent-gold);
+      background: var(--cyan-bright);
       color: var(--primary-dark);
       transform: translateY(-1px);
-      box-shadow: 0 4px 14px rgba(229, 184, 66, 0.4);
+      box-shadow: 0 4px 14px rgba(56, 189, 248, 0.4);
     }
 
     /* Hero Section */
@@ -172,15 +179,15 @@
       display: inline-flex;
       align-items: center;
       gap: 7px;
-      padding: 5px 15px;
-      background: rgba(29, 79, 141, 0.35);
-      border: 1px solid rgba(40, 110, 184, 0.6);
+      padding: 5px 16px;
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid rgba(16, 185, 129, 0.5);
       border-radius: 50px;
       font-size: 0.82rem;
-      color: #8CC4FF;
+      color: var(--emerald-glow);
       margin-bottom: 12px;
       font-weight: 600;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+      box-shadow: 0 0 14px rgba(16, 185, 129, 0.2);
     }
 
     .hero h2 {
@@ -188,7 +195,7 @@
       font-size: 2.1rem;
       font-weight: 800;
       line-height: 1.35;
-      background: linear-gradient(135deg, #FFFFFF 30%, #E5B842 100%);
+      background: linear-gradient(135deg, #FFFFFF 30%, #38BDF8 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       margin-bottom: 10px;
@@ -214,7 +221,7 @@
       width: 100%;
       padding: 12px 18px 12px 44px;
       border-radius: 12px;
-      background: rgba(7, 21, 45, 0.90);
+      background: rgba(10, 23, 44, 0.88);
       border: 1px solid var(--card-border);
       color: var(--text-main);
       font-family: var(--font-body);
@@ -225,9 +232,9 @@
     }
 
     .search-box input:focus {
-      border-color: var(--accent-gold);
-      box-shadow: 0 0 0 3px rgba(229, 184, 66, 0.25);
-      background: rgba(10, 29, 60, 0.98);
+      border-color: var(--cyan-bright);
+      box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.25);
+      background: rgba(14, 31, 58, 0.95);
     }
 
     .search-box i {
@@ -235,7 +242,7 @@
       left: 16px;
       top: 50%;
       transform: translateY(-50%);
-      color: var(--accent-gold);
+      color: var(--cyan-bright);
       font-size: 0.95rem;
     }
 
@@ -253,9 +260,9 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 20px;
+      margin-bottom: 22px;
       padding-bottom: 12px;
-      border-bottom: 1px solid rgba(229, 184, 66, 0.22);
+      border-bottom: 1px solid rgba(56, 189, 248, 0.2);
       width: 100%;
     }
 
@@ -264,7 +271,7 @@
       align-items: center;
       gap: 7px;
       background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(56, 189, 248, 0.3);
       color: var(--text-main);
       padding: 7px 15px;
       border-radius: 8px;
@@ -277,16 +284,16 @@
     }
 
     .back-btn:hover {
-      background: var(--blue-mid);
-      border-color: var(--accent-gold);
-      color: #fff;
+      background: rgba(56, 189, 248, 0.2);
+      border-color: var(--cyan-bright);
+      color: var(--cyan-bright);
     }
 
     .view-title {
       font-family: var(--font-title);
       font-size: 1.28rem;
       font-weight: 700;
-      color: var(--accent-gold);
+      color: var(--cyan-bright);
       display: flex;
       align-items: center;
       gap: 10px;
@@ -308,7 +315,7 @@
     }
 
     .chapter-card {
-      background: var(--card-bg);
+      background: var(--navy-card);
       border: 1px solid var(--card-border);
       border-radius: 16px;
       overflow: hidden;
@@ -323,16 +330,16 @@
 
     .chapter-card:hover {
       transform: translateY(-6px);
-      background: var(--card-hover);
-      border-color: var(--card-border-hover);
-      box-shadow: 0 16px 36px rgba(10, 34, 68, 0.6), 0 0 20px rgba(229, 184, 66, 0.3);
+      background: var(--navy-card-hover);
+      border-color: var(--card-border-glow);
+      box-shadow: 0 16px 36px rgba(14, 165, 233, 0.3), 0 0 20px rgba(56, 189, 248, 0.25);
     }
 
     .chapter-img-wrap {
       height: 150px;
       position: relative;
       overflow: hidden;
-      background: #05142B;
+      background: #08152B;
     }
 
     .chapter-img {
@@ -352,75 +359,67 @@
       position: absolute;
       top: 10px;
       right: 10px;
-      background: rgba(4, 15, 33, 0.92);
+      background: rgba(6, 15, 30, 0.9);
       backdrop-filter: blur(8px);
-      color: var(--accent-gold);
+      color: var(--cyan-bright);
       padding: 3px 9px;
       border-radius: 6px;
       font-size: 0.74rem;
       font-weight: 700;
-      border: 1px solid rgba(229, 184, 66, 0.35);
+      border: 1px solid rgba(56, 189, 248, 0.35);
     }
 
     .chapter-icon-circle {
       position: absolute;
       bottom: -20px;
-      left: 16px;
+      left: 50%;
+      transform: translateX(-50%);
       width: 44px;
       height: 44px;
       border-radius: 12px;
-      background: linear-gradient(135deg, var(--blue-mid) 0%, var(--primary-dark) 100%);
-      border: 2px solid var(--accent-gold);
+      background: linear-gradient(135deg, #0284C7 0%, #0369A1 100%);
+      border: 2px solid var(--cyan-bright);
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 1.2rem;
-      color: var(--accent-gold);
-      box-shadow: 0 6px 14px rgba(0,0,0,0.5);
+      color: #FFFFFF;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.5), 0 0 12px rgba(56, 189, 248, 0.35);
     }
 
     .chapter-body {
-      padding: 26px 16px 18px;
+      padding: 28px 16px 18px;
       flex-grow: 1;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      text-align: center;
     }
 
     .chapter-body h3 {
       font-family: var(--font-title);
-      font-size: 1.15rem;
+      font-size: 1.2rem;
       font-weight: 700;
       color: var(--text-main);
       margin-bottom: 4px;
+      text-align: center;
     }
 
     .chapter-sub {
       font-size: 0.78rem;
-      color: var(--accent-gold);
+      color: var(--cyan-bright);
       font-weight: 600;
       margin-bottom: 8px;
+      text-align: center;
     }
 
     .chapter-body p {
       font-size: 0.84rem;
       color: var(--text-muted);
       line-height: 1.45;
-      margin-bottom: 14px;
+      text-align: center;
     }
 
-    .chapter-footer-link {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      color: var(--accent-gold);
-      font-size: 0.85rem;
-      font-weight: 700;
-      padding-top: 10px;
-      border-top: 1px dashed rgba(255, 255, 255, 0.12);
-    }
-
-    /* LESSON CARDS GRID */
+    /* ACHIEVEMENT CARDS (LESSONS GRID) */
     .lessons-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
@@ -429,121 +428,288 @@
     }
 
     .lesson-card {
-      background: var(--card-bg);
+      background: linear-gradient(145deg, rgba(12, 28, 54, 0.78) 0%, rgba(7, 18, 38, 0.90) 100%);
       border: 1px solid var(--card-border);
-      border-radius: 14px;
+      border-radius: 16px;
       padding: 18px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      transition: all 0.28s ease;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.32s cubic-bezier(0.16, 1, 0.3, 1);
       width: 100%;
       box-sizing: border-box;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255, 255, 255, 0.08);
     }
 
+    /* Top glowing neon accent line */
+    .lesson-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #38BDF8, #10B981);
+      opacity: 0.7;
+      transition: all 0.3s ease;
+    }
+
+    /* Achievement Glow on Hover */
     .lesson-card:hover {
-      background: var(--card-hover);
-      border-color: var(--card-border-hover);
-      transform: translateY(-4px);
-      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45), 0 0 16px rgba(40, 110, 184, 0.35);
+      background: var(--navy-card-hover);
+      border-color: var(--cyan-bright);
+      transform: translateY(-5px) scale(1.015);
+      box-shadow: 0 16px 36px -8px rgba(14, 165, 233, 0.45), 0 0 25px rgba(16, 185, 129, 0.35);
+    }
+
+    .lesson-card:hover::before {
+      opacity: 1;
+      height: 4px;
+      box-shadow: 0 0 12px var(--cyan-bright);
     }
 
     .lesson-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
     .lesson-num {
-      background: rgba(229, 184, 66, 0.15);
-      border: 1px solid rgba(229, 184, 66, 0.38);
-      color: var(--accent-gold);
-      padding: 3px 9px;
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.18) 0%, rgba(16, 185, 129, 0.18) 100%);
+      border: 1px solid rgba(56, 189, 248, 0.45);
+      color: var(--cyan-bright);
+      padding: 3px 10px;
       border-radius: 6px;
-      font-size: 0.78rem;
+      font-size: 0.8rem;
       font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      box-shadow: 0 0 8px rgba(56, 189, 248, 0.2);
     }
 
     .lesson-chap-tag {
       font-size: 0.76rem;
-      color: var(--text-dim);
+      color: var(--emerald-mint);
+      font-weight: 600;
     }
 
     .lesson-title {
       font-family: var(--font-body);
-      font-size: 1.12rem;
+      font-size: 1.15rem;
       font-weight: 700;
       color: var(--text-main);
       line-height: 1.45;
-      margin-bottom: 16px;
-      min-height: 48px;
+      margin-bottom: 18px;
+      text-align: center;
+      min-height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    /* Action Buttons */
+    /* 3 Action Buttons with 1-word names */
     .lesson-actions {
       display: grid;
-      grid-template-columns: 1.1fr 1fr;
-      gap: 8px;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 7px;
       width: 100%;
     }
 
-    .btn-slide {
-      background: linear-gradient(135deg, #164379 0%, #1D5496 100%);
-      color: #FFFFFF;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      padding: 8px 10px;
+    .btn-action {
+      padding: 8px 6px;
       border-radius: 8px;
       text-decoration: none;
       font-family: var(--font-body);
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       font-weight: 600;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 6px;
+      gap: 5px;
       cursor: pointer;
       transition: all 0.2s ease;
       white-space: nowrap;
-      box-shadow: 0 4px 10px rgba(18, 54, 104, 0.35);
+      border: 1px solid transparent;
+      box-sizing: border-box;
     }
 
+    /* Button 1: স্লাইড */
+    .btn-slide {
+      background: linear-gradient(135deg, #0284C7 0%, #0369A1 100%);
+      color: #FFFFFF;
+      border-color: rgba(56, 189, 248, 0.3);
+      box-shadow: 0 2px 8px rgba(2, 132, 199, 0.3);
+    }
     .btn-slide:hover {
-      background: #2465B3;
+      background: #0EA5E9;
       transform: translateY(-1px);
-      box-shadow: 0 4px 14px rgba(36, 101, 179, 0.5);
+      box-shadow: 0 4px 14px rgba(14, 165, 233, 0.5);
     }
 
+    /* Button 2: ডাউনলোড */
     .btn-download {
-      background: rgba(229, 184, 66, 0.12);
-      border: 1px solid rgba(229, 184, 66, 0.48);
-      color: var(--accent-gold);
-      padding: 8px 10px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-family: var(--font-body);
-      font-size: 0.85rem;
-      font-weight: 600;
-      display: inline-flex;
+      background: rgba(56, 189, 248, 0.12);
+      border-color: rgba(56, 189, 248, 0.38);
+      color: var(--cyan-bright);
+    }
+    .btn-download:hover {
+      background: rgba(56, 189, 248, 0.25);
+      border-color: var(--cyan-bright);
+      color: #FFFFFF;
+      transform: translateY(-1px);
+    }
+
+    /* Button 3: কুইজ */
+    .btn-quiz {
+      background: rgba(16, 185, 129, 0.15);
+      border-color: rgba(16, 185, 129, 0.5);
+      color: var(--emerald-glow);
+    }
+    .btn-quiz:hover {
+      background: var(--emerald-mint);
+      border-color: var(--emerald-mint);
+      color: var(--primary-dark);
+      font-weight: 700;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(16, 185, 129, 0.4);
+    }
+
+    /* QUIZ MODAL */
+    .quiz-modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(4, 9, 20, 0.85);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      display: none;
       align-items: center;
       justify-content: center;
-      gap: 6px;
-      transition: all 0.2s ease;
-      white-space: nowrap;
+      z-index: 1000;
+      padding: 16px;
     }
 
-    .btn-download:hover {
-      background: var(--accent-gold);
-      color: var(--primary-dark);
-      transform: translateY(-1px);
+    .quiz-modal {
+      background: linear-gradient(145deg, #0B1930 0%, #071124 100%);
+      border: 1px solid var(--cyan-bright);
+      border-radius: 18px;
+      max-width: 580px;
+      width: 100%;
+      padding: 24px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 30px rgba(56, 189, 248, 0.3);
+      position: relative;
+      animation: modalFade 0.25s ease;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+
+    @keyframes modalFade {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .quiz-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+      padding-bottom: 14px;
+      margin-bottom: 18px;
+    }
+
+    .quiz-close-btn {
+      background: rgba(255, 255, 255, 0.1);
+      border: none;
+      color: var(--text-dim);
+      font-size: 1.2rem;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+    }
+
+    .quiz-close-btn:hover {
+      background: rgba(239, 68, 68, 0.2);
+      color: #EF4444;
+    }
+
+    .quiz-q-box {
+      background: rgba(14, 31, 58, 0.6);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      border-radius: 12px;
+      padding: 14px;
+      margin-bottom: 14px;
+    }
+
+    .quiz-q-title {
+      font-size: 0.98rem;
       font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 10px;
+    }
+
+    .quiz-option {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 12px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.04);
+      margin-bottom: 6px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: all 0.2s;
+    }
+
+    .quiz-option:hover {
+      background: rgba(56, 189, 248, 0.15);
+    }
+
+    .quiz-option input[type="radio"] {
+      accent-color: var(--cyan-bright);
+    }
+
+    .quiz-submit-btn {
+      width: 100%;
+      padding: 12px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+      color: #FFFFFF;
+      font-weight: 700;
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+      margin-top: 10px;
+      box-shadow: 0 4px 14px rgba(16, 185, 129, 0.4);
+      transition: all 0.2s;
+    }
+
+    .quiz-submit-btn:hover {
+      background: #059669;
+      transform: translateY(-1px);
+    }
+
+    .quiz-result-box {
+      display: none;
+      text-align: center;
+      padding: 16px;
+      border-radius: 12px;
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid var(--emerald-mint);
+      margin-top: 14px;
     }
 
     /* Footer */
     footer {
-      background: #030B17;
-      border-top: 1px solid rgba(229, 184, 66, 0.22);
+      background: #040A14;
+      border-top: 1px solid rgba(56, 189, 248, 0.2);
       padding: 24px 16px;
       text-align: center;
       color: var(--text-dim);
@@ -553,7 +719,7 @@
     }
 
     .footer-brand {
-      color: var(--accent-gold);
+      color: var(--cyan-bright);
       font-weight: 700;
     }
 
@@ -612,11 +778,16 @@
         font-size: 1.15rem;
       }
       .lesson-actions {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 5px;
+      }
+      .btn-action {
+        font-size: 0.78rem;
+        padding: 7px 4px;
       }
     }
 
-    @media (max-width: 380px) {
+    @media (max-width: 360px) {
       .lesson-actions {
         grid-template-columns: 1fr;
       }
@@ -628,7 +799,7 @@
   <!-- Header -->
   <header>
     <div class="header-container">
-      <a href="#" onclick="showAllChapters(); return false;" class="brand">
+      <a href="#" onclick="showAllChapters(); return false;" class="brand" title="হোমপেজে ফিরুন">
         <img src="assets/logo_user.png" alt="মারকাযুল ঈমান" onerror="this.style.display='none'">
         <div class="brand-text">
           <h1>মারকাযুল ঈমান</h1>
@@ -649,10 +820,10 @@
   <section class="hero">
     <div class="hero-badge">
       <i class="fa-solid fa-book-open"></i>
-      <span>৫টি অধ্যায় • ৩৫টি সচিত্র পাঠ</span>
+      <span>৫টি অধ্যায় • ৩৫টি পাঠ</span>
     </div>
     <h2>ফারজে আইন কিতাবের প্রেজেন্টেশন</h2>
-    <p>দ্বীনের অপরিহার্য জ্ঞান অর্জনের লক্ষ্যে ৫টি মৌলিক অধ্যায়ের অধীনে মোট ৩৫টি সচিত্র ডিজিটাল স্লাইড ও প্রিন্ট-রেডি হ্যান্ডআউট সংকলন।</p>
+    <p>দ্বীনের অপরিহার্য জ্ঞান অর্জনের লক্ষ্যে ৫টি মৌলিক অধ্যায়ের অধীনে মোট ৩৫টি ডিজিটাল স্লাইড ও প্রিন্ট-রেডি হ্যান্ডআউট সংকলন।</p>
     
     <!-- Search Box -->
     <div class="search-box">
@@ -675,24 +846,56 @@
     <!-- 5 CHAPTER SQUARE CARDS GRID -->
     <div class="chapters-grid" id="chaptersView"></div>
 
-    <!-- LESSONS GRID VIEW -->
+    <!-- LESSONS GRID VIEW (Achievement Cards) -->
     <div class="lessons-grid" id="lessonsView" style="display: none;"></div>
   </main>
+
+  <!-- QUIZ MODAL -->
+  <div class="quiz-modal-backdrop" id="quizModal">
+    <div class="quiz-modal">
+      <div class="quiz-header">
+        <div>
+          <span style="background: rgba(16,185,129,0.2); border: 1px solid var(--emerald-mint); color: var(--emerald-glow); font-size: 0.76rem; font-weight: 700; padding: 2px 8px; border-radius: 4px;">
+            <i class="fa-solid fa-trophy"></i> আত্মমূল্যায়ন কুইজ
+          </span>
+          <h3 id="quizTitle" style="color: #FFFFFF; font-size: 1.15rem; margin-top: 6px;"></h3>
+        </div>
+        <button class="quiz-close-btn" onclick="closeQuiz()">&times;</button>
+      </div>
+
+      <div id="quizQuestionsContainer"></div>
+
+      <button class="quiz-submit-btn" id="quizSubmitBtn" onclick="submitQuiz()">
+        <i class="fa-solid fa-check-circle"></i> উত্তর যাচাই করুন
+      </button>
+
+      <div class="quiz-result-box" id="quizResultBox"></div>
+    </div>
+  </div>
 
   <!-- Footer -->
   <footer>
     <p>© ২০২৬ <span class="footer-brand">মারকাযুল ঈমান</span> • দাওয়াহ বিভাগ • উপশহর, বগুড়া</p>
-    <p style="margin-top: 4px; font-size: 0.78rem; color: #96AAC2;">ওয়েবসাইট: markazuliman.com • সহিহ ইলম ও আমলের উন্মুক্ত ডিজিটাল সংকলন</p>
+    <p style="margin-top: 4px; font-size: 0.78rem; color: #94A3B8;">ওয়েবসাইট: markazuliman.com • সহিহ ইলম ও আমলের উন্মুক্ত ডিজিটাল সংকলন</p>
   </footer>
 
   <script>
     let portalData = null;
     let currentChapterId = null;
+    let activeQuizLesson = null;
 
+    // Cache-busting fetch ensures fresh data on every page load
     async function loadData() {
       try {
-        const res = await fetch('portal-data.json');
+        const res = await fetch('portal-data.json?t=' + Date.now(), { cache: 'no-store' });
         portalData = await res.json();
+        
+        // Double-check Chapter 1 name is strictly 'আকিদা'
+        const ch1 = portalData.chapters.find(c => c.id === 1);
+        if (ch1) {
+          ch1.name = 'আকিদা';
+        }
+
         renderChapters();
       } catch (e) {
         console.error('Failed to load portal data:', e);
@@ -717,15 +920,9 @@
             </div>
           </div>
           <div class="chapter-body">
-            <div>
-              <h3>${chap.name}</h3>
-              <div class="chapter-sub">${chap.english || ''}</div>
-              <p>${chap.desc || ''}</p>
-            </div>
-            <div class="chapter-footer-link">
-              <span>পাঠসমূহ দেখুন</span>
-              <i class="fa-solid fa-arrow-right"></i>
-            </div>
+            <h3>${chap.name}</h3>
+            <div class="chapter-sub">${chap.english || ''}</div>
+            <p>${chap.desc || ''}</p>
           </div>
         `;
         container.appendChild(card);
@@ -767,7 +964,7 @@
       if (lessonsList.length === 0) {
         container.innerHTML = `
           <div style="grid-column: 1/-1; text-align: center; padding: 40px; color: var(--text-dim);">
-            <i class="fa-solid fa-magnifying-glass" style="font-size: 2.2rem; margin-bottom: 10px; color: var(--accent-gold);"></i>
+            <i class="fa-solid fa-magnifying-glass" style="font-size: 2.2rem; margin-bottom: 10px; color: var(--cyan-bright);"></i>
             <h3 style="color: var(--text-main);">কোনো পাঠ পাওয়া যায়নি</h3>
           </div>
         `;
@@ -784,20 +981,24 @@
         card.innerHTML = `
           <div>
             <div class="lesson-header">
-              <span class="lesson-num">পাঠ ${l.bengaliNum}</span>
+              <span class="lesson-num"><i class="fa-solid fa-award"></i> পাঠ ${l.bengaliNum}</span>
               <span class="lesson-chap-tag">${chap ? chap.name : ''}</span>
             </div>
             <h4 class="lesson-title">${l.title}</h4>
           </div>
           <div class="lesson-actions">
-            <a href="${l.slideUrl}" target="_blank" class="btn-slide" title="পূর্ণাঙ্গ ইন্টারেক্টিভ স্লাইড দেখুন">
+            <a href="${l.slideUrl}" target="_blank" class="btn-action btn-slide" title="স্লাইড দেখুন">
               <i class="fa-solid fa-play"></i>
-              <span>স্লাইড দেখুন</span>
+              <span>স্লাইড</span>
             </a>
-            <a href="${downloadUrl}" target="_blank" class="btn-download" title="সরাসরি PDF ডাউনলোড করুন">
+            <a href="${downloadUrl}" target="_blank" class="btn-action btn-download" title="PDF ডাউনলোড করুন">
               <i class="fa-solid fa-download"></i>
-              <span>ডাউনলোড PDF</span>
+              <span>ডাউনলোড</span>
             </a>
+            <button onclick="openQuiz(${l.id})" class="btn-action btn-quiz" title="কুইজ খেলুন ও যাচাই করুন">
+              <i class="fa-solid fa-circle-question"></i>
+              <span>কুইজ</span>
+            </button>
           </div>
         `;
         container.appendChild(card);
@@ -831,6 +1032,107 @@
 
       renderLessons(results);
     }
+
+    /* QUIZ SYSTEM */
+    const quizDatabase = {
+      1: [
+        { q: "১. 'আকিদা' শব্দের আভিধানিক অর্থ কী?", options: ["দৃঢ় বিশ্বাস ও গ্রন্থিবদ্ধ করা", "দৈনন্দিন আমল", "নামাজের আহকাম", "দান-সদকা"], ans: 0 },
+        { q: "২. ঈমানের মূল ভিত্তি কয়টি বিষয়ের ওপর প্রতিষ্ঠিত?", options: ["৩টি", "৫টি", "৭টি (আরকানুল ঈমান)", "১০টি"], ans: 2 },
+        { q: "৩. ইসলাম ও ঈমানের মধ্যে মৌলিক সম্পর্ক কী?", options: ["ঈমান অন্তরের বিশ্বাস ও ইসলাম বাহ্যিক আনুগত্য", "উভয়টি সম্পূর্ণ ভিন্ন", "কোনো সম্পর্ক নেই", "শুধু মুখের উচ্চারণ"], ans: 0 }
+      ],
+      2: [
+        { q: "১. তাওহিদের মূল ঘোষণা কোনটি?", options: ["লা ইলাহা ইল্লাল্লাহ", "সুবহানাল্লাহ", "আলহামদুলিল্লাহ", "আল্লাহু আকবার"], ans: 0 },
+        { q: "২. তাওহিদ প্রধানত কয় ভাগে বিভক্ত?", options: ["৩ ভাগে (রুবুবিয়াত, উলুহিয়াত, আসমা ওয়াস সিফাত)", "২ ভাগে", "৪ ভাগে", "৫ ভাগে"], ans: 0 },
+        { q: "৩. আল্লাহর সাথে কাউকে শরিক করাকে কী বলে?", options: ["শিরক", "বিদআত", "ফাসেকী", "নেফাক"], ans: 0 }
+      ]
+    };
+
+    function openQuiz(lessonId) {
+      activeQuizLesson = portalData.lessons.find(l => l.id === lessonId);
+      if (!activeQuizLesson) return;
+
+      document.getElementById('quizTitle').innerText = `পাঠ ${activeQuizLesson.bengaliNum}: ${activeQuizLesson.title}`;
+      const container = document.getElementById('quizQuestionsContainer');
+      const resultBox = document.getElementById('quizResultBox');
+      resultBox.style.display = 'none';
+      document.getElementById('quizSubmitBtn').style.display = 'block';
+
+      // Load specific questions or dynamic lesson questions
+      const questions = quizDatabase[lessonId] || [
+        { q: `১. '${activeQuizLesson.title}' পাঠটি দ্বীনের কোন শাখার অন্তর্ভুক্ত?`, options: ["ফরজে আইন মৌলিক জ্ঞান", "ঐচ্ছিক জ্ঞান", "দুনিয়াবি সাধারণ জ্ঞান", "ঐতিহাসিক তথ্য"], ans: 0 },
+        { q: `২. এই পাঠের বিধান শিক্ষা করা প্রত্যেক মুসলিমের জন্য কী?`, options: ["ফরজে আইন (অপরিহার্য দায়িত্ব)", "মুস্তাহাব", "মাকরুহ", "মুয়ামালাত"], ans: 0 },
+        { q: `৩. সহিহ ইলম অর্জনের পর সর্বাধিক গুরুত্বপূর্ণ দায়িত্ব কোনটি?`, options: ["নিষ্ঠার সাথে আমলে পরিণত করা", "শুধু মুখস্থ রাখা", "অন্যদের তর্ক করা", "কোনোটিই নয়"], ans: 0 }
+      ];
+
+      container.innerHTML = questions.map((item, idx) => `
+        <div class="quiz-q-box" data-ans="${item.ans}">
+          <div class="quiz-q-title">${item.q}</div>
+          ${item.options.map((opt, oIdx) => `
+            <label class="quiz-option">
+              <input type="radio" name="q_${idx}" value="${oIdx}">
+              <span>${opt}</span>
+            </label>
+          `).join('')}
+        </div>
+      `).join('');
+
+      document.getElementById('quizModal').style.display = 'flex';
+    }
+
+    function closeQuiz() {
+      document.getElementById('quizModal').style.display = 'none';
+    }
+
+    function submitQuiz() {
+      const qBoxes = document.querySelectorAll('.quiz-q-box');
+      let score = 0;
+      let total = qBoxes.length;
+      let allAnswered = true;
+
+      qBoxes.forEach((box, idx) => {
+        const correctAns = parseInt(box.getAttribute('data-ans'));
+        const selected = box.querySelector(`input[name="q_${idx}"]:checked`);
+        if (!selected) {
+          allAnswered = false;
+        } else {
+          const val = parseInt(selected.value);
+          if (val === correctAns) {
+            score++;
+            box.style.borderColor = '#10B981';
+            box.style.background = 'rgba(16, 185, 129, 0.12)';
+          } else {
+            box.style.borderColor = '#EF4444';
+            box.style.background = 'rgba(239, 68, 68, 0.12)';
+          }
+        }
+      });
+
+      if (!allAnswered) {
+        alert('দয়া করে সবগুলো প্রশ্নের উত্তর নির্বাচন করুন।');
+        return;
+      }
+
+      const resultBox = document.getElementById('quizResultBox');
+      resultBox.style.display = 'block';
+      resultBox.innerHTML = `
+        <h4 style="color: #38BDF8; font-size: 1.15rem; margin-bottom: 6px;">
+          <i class="fa-solid fa-trophy" style="color: #34D399;"></i> কুইজ ফলাফল: ${score} / ${total}
+        </h4>
+        <p style="color: #CBD5E1; font-size: 0.9rem;">
+          ${score === total ? 'মাশাআল্লাহ! আপনি পূর্ণ নম্বর পেয়ে পাঠটি সফলভাবে আয়ত্ত করেছেন! 🌟' : 'আলহামদুলিল্লাহ! আবার চেষ্টা করে পূর্ণ জ্ঞান অর্জন করুন।'}
+        </p>
+      `;
+
+      document.getElementById('quizSubmitBtn').style.display = 'none';
+    }
+
+    // Close modal on background click
+    window.onclick = function(event) {
+      const modal = document.getElementById('quizModal');
+      if (event.target === modal) {
+        closeQuiz();
+      }
+    };
 
     loadData();
   </script>
