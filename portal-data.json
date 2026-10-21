@@ -9,7 +9,7 @@
       "desc": "ঈমান, ইসলাম, তাওহিদ, রিসালাত, মালাইকা ও আখেরাতের মৌলিক বিশ্বাস",
       "color": "#1D4F8D",
       "badge": "পাঠ ০১ – ১০",
-      "bgImg": "https://images.unsplash.com/photo-1609599006353-e629aaabfeae?auto=format&fit=crop&w=800&q=80"
+      "bgImg": "assets/ch_akida.jpg"
     },
     {
       "id": 2,
@@ -20,7 +20,7 @@
       "desc": "পবিত্রতা, পাঁচ ওয়াক্ত সালাত, সিয়াম, যাকাত, হজ্ব ও সংশ্লিষ্ট বিধান",
       "color": "#1A5799",
       "badge": "পাঠ ১১ – ১৯",
-      "bgImg": "https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?auto=format&fit=crop&w=800&q=80"
+      "bgImg": "https://images.unsplash.com/photo-1542816417-0983c9c9ad53?auto=format&fit=crop&w=800&q=80"
     },
     {
       "id": 3,

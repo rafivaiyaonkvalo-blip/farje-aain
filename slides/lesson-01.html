@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="bn">
 <head>
   <meta charset="UTF-8">
@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Sans+Bengali:wght@400;500;600;700;800&family=Noto+Serif+Bengali:wght@500;600;700;800&family=Hind+Siliguri:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <style>
     :root {
       --teal-deep: #0B6E5F;
@@ -105,7 +106,7 @@
       width: 100%;
       max-width: 1120px;
       aspect-ratio: 16 / 9;
-      background: var(--ivory);
+      background: #094F45;
       box-shadow: 0 25px 65px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.1);
       border-radius: 16px;
       position: relative;
@@ -123,15 +124,18 @@
     }
 
     .slide {
-      position: absolute;
-      inset: 0;
+      position: absolute !important;
+      inset: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
       display: none;
       flex-direction: column;
-      padding: 34px 50px;
+      padding: 30px 48px;
       opacity: 0;
       transition: opacity 0.25s ease-in-out, transform 0.25s ease-out;
       overflow: hidden;
       transform: scale(0.99);
+      background: var(--ivory);
     }
     .slide.active {
       display: flex;
@@ -140,12 +144,16 @@
     }
 
     .slide-dark {
-      background: linear-gradient(135deg, #094F45 0%, #0B6E5F 50%, #15344D 100%);
+      background: linear-gradient(135deg, #094F45 0%, #0B6E5F 50%, #15344D 100%) !important;
       color: var(--white);
       justify-content: center;
       align-items: center;
       text-align: center;
-      position: relative;
+      position: absolute !important;
+      inset: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      box-sizing: border-box;
     }
     .border-decor {
       position: absolute;
@@ -159,7 +167,7 @@
       display: flex;
       align-items: flex-start;
       justify-content: space-between;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
       padding-bottom: 10px;
       border-bottom: 2.5px solid var(--gold);
     }
@@ -167,14 +175,14 @@
       display: inline-block;
       background: var(--teal-deep);
       color: var(--white);
-      font-size: 11.5px;
+      font-size: 13px;
       font-weight: 700;
-      padding: 3px 14px;
+      padding: 4px 16px;
       border-radius: 14px;
       margin-bottom: 6px;
     }
     .slide-title {
-      font-size: 26px;
+      font-size: 30px;
       font-weight: 800;
       color: var(--navy);
       letter-spacing: -0.2px;
@@ -195,7 +203,7 @@
       background: var(--white);
       border: 1.5px solid var(--border);
       border-radius: 12px;
-      padding: 18px 22px;
+      padding: 18px 24px;
       display: flex;
       flex-direction: column;
       box-shadow: 0 6px 16px rgba(27, 58, 92, 0.05);
@@ -203,9 +211,9 @@
     .card-banner {
       background: var(--teal-deep);
       color: var(--white);
-      margin: -18px -22px 14px -22px;
-      padding: 9px 20px;
-      font-size: 14.5px;
+      margin: -18px -24px 14px -24px;
+      padding: 10px 22px;
+      font-size: 17px;
       font-weight: 700;
       border-top-left-radius: 10px;
       border-top-right-radius: 10px;
@@ -217,13 +225,13 @@
       background: var(--navy);
     }
     .card-body {
-      font-size: 15px;
-      line-height: 1.68;
+      font-size: 17.5px;
+      line-height: 1.7;
       color: #2D3139;
       flex: 1;
     }
     .card-body p {
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
     .card-body p:last-child {
       margin-bottom: 0;
@@ -237,28 +245,30 @@
       padding: 18px 26px;
       text-align: center;
       box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+      font-size: 20px;
     }
     .ar-text {
       font-family: 'Amiri', serif;
-      font-size: 28px;
+      font-size: 32px;
       color: var(--gold);
       font-weight: 700;
-      margin: 6px 0;
+      margin: 8px 0;
       direction: rtl;
     }
     .banner-box {
       background: #E6F3EE;
       border-left: 4px solid var(--teal-deep);
       color: #084D43;
-      padding: 10px 18px;
+      padding: 12px 20px;
       border-radius: 8px;
-      font-size: 14px;
+      font-size: 17px;
+      line-height: 1.6;
       font-weight: 600;
       margin-bottom: 16px;
     }
     .footer-note {
       margin-top: auto;
-      font-size: 12px;
+      font-size: 13.5px;
       color: var(--muted);
       text-align: right;
       padding-top: 8px;
@@ -352,6 +362,10 @@
 
   <div class="top-bar">
     <div class="brand">
+      <a href="../index.html" class="btn-sm" title="মূল পোর্টালে ফিরে যান" style="text-decoration: none; color: #38BDF8; background: rgba(56, 189, 248, 0.15); border: 1px solid rgba(56, 189, 248, 0.45); font-weight: 700; padding: 7px 15px; border-radius: 8px; display: inline-flex; align-items: center; gap: 7px;">
+        <i class="fa-solid fa-arrow-left"></i>
+        <span>মূল পেজে ফিরুন</span>
+      </a>
       <img src="../assets/logo_user.png" alt="Markazul Iman Logo">
       <div>
         <div class="title-text">
@@ -387,27 +401,27 @@
       </div>
       <div style="width: 140px; height: 3px; background: var(--gold); margin: 0 auto 22px;"></div>
       
-      <div style="display: flex; gap: 14px; justify-content: center; width: 100%; max-width: 900px;">
-        <div style="flex: 1; background: rgba(14, 38, 61, 0.85); border: 1px solid var(--teal-mid); border-radius: 10px; padding: 14px; text-align: left; font-size: 13.5px; line-height: 1.55;">
-          <strong style="color: var(--gold);">১. আকিদা ও ঈমান</strong><br>
+      <div style="display: flex; gap: 14px; justify-content: center; width: 100%; max-width: 920px;">
+        <div style="flex: 1; background: rgba(14, 38, 61, 0.85); border: 1px solid var(--teal-mid); border-radius: 10px; padding: 15px 18px; text-align: left; font-size: 15px; line-height: 1.6;">
+          <strong style="color: var(--gold); font-size: 16px;">১. আকিদা ও ঈমান</strong><br>
           • আকিদা কী?<br>
           • আরকানুল ঈমান (৭টি স্তম্ভ)<br>
           • ঈমানের মূল ভিত্তি ও সংক্ষিপ্ত রূপ
         </div>
-        <div style="flex: 1; background: rgba(14, 38, 61, 0.85); border: 1px solid var(--teal-mid); border-radius: 10px; padding: 14px; text-align: left; font-size: 13.5px; line-height: 1.55;">
-          <strong style="color: var(--gold);">২. উপাদান ও পার্থক্য</strong><br>
+        <div style="flex: 1; background: rgba(14, 38, 61, 0.85); border: 1px solid var(--teal-mid); border-radius: 10px; padding: 15px 18px; text-align: left; font-size: 15px; line-height: 1.6;">
+          <strong style="color: var(--gold); font-size: 16px;">২. উপাদান ও পার্থক্য</strong><br>
           • ঈমান কী? (৩টি বিষয়)<br>
           • মূল ভিত্তি ও পরিপূরক<br>
           • আকিদা ও ঈমানের পার্থক্য
         </div>
-        <div style="flex: 1; background: rgba(14, 38, 61, 0.85); border: 1px solid var(--teal-mid); border-radius: 10px; padding: 14px; text-align: left; font-size: 13.5px; line-height: 1.55;">
-          <strong style="color: var(--gold);">৩. ইসলাম ও দলিল</strong><br>
+        <div style="flex: 1; background: rgba(14, 38, 61, 0.85); border: 1px solid var(--teal-mid); border-radius: 10px; padding: 15px 18px; text-align: left; font-size: 15px; line-height: 1.6;">
+          <strong style="color: var(--gold); font-size: 16px;">৩. ইসলাম ও দলিল</strong><br>
           • ইসলাম কী? (৫টি স্তম্ভ)<br>
           • ঈমান ও ইসলামের পার্থক্য<br>
           • ৩টি দলিল ও অনুশীলনী
         </div>
       </div>
-      <div style="margin-top: 22px; font-size: 13px; color: #BEE3D6;">
+      <div style="margin-top: 22px; font-size: 14px; color: #BEE3D6;">
         মারকাযুল ঈমান লিদিরাসাতিস সুন্নাতি ওয়াল কুরআন • উপশহর, বগুড়া • markazuliman.com
       </div>
     </div>
@@ -797,26 +811,26 @@
         </div>
         <img src="../assets/logo_user.png" alt="Logo" class="header-logo">
       </div>
-      <div style="display: flex; flex-direction: column; gap: 8px;">
-        <div class="card" style="padding: 10px 18px; display: flex; flex-direction: row; align-items: center; gap: 12px;">
-          <span style="background: var(--teal-deep); color: white; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700;">১</span>
-          <strong style="font-size: 14.5px; color: var(--charcoal);">ইসলামি আকিদার মৌলিক ও প্রধান বিষয়গুলো কী কী?</strong>
+      <div style="display: flex; flex-direction: column; gap: 9px;">
+        <div class="card" style="padding: 12px 20px; display: flex; flex-direction: row; align-items: center; gap: 14px;">
+          <span style="background: var(--teal-deep); color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 700; flex-shrink: 0;">১</span>
+          <strong style="font-size: 17.5px; color: var(--charcoal);">ইসলামি আকিদার মৌলিক ও প্রধান বিষয়গুলো কী কী?</strong>
         </div>
-        <div class="card" style="padding: 10px 18px; display: flex; flex-direction: row; align-items: center; gap: 12px;">
-          <span style="background: var(--teal-deep); color: white; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700;">২</span>
-          <strong style="font-size: 14.5px; color: var(--charcoal);">আরকানুল ঈমান বা ঈমানের স্তম্ভসমূহের মূল বিষয় কোনটি?</strong>
+        <div class="card" style="padding: 12px 20px; display: flex; flex-direction: row; align-items: center; gap: 14px;">
+          <span style="background: var(--teal-deep); color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 700; flex-shrink: 0;">২</span>
+          <strong style="font-size: 17.5px; color: var(--charcoal);">আরকানুল ঈমান বা ঈমানের স্তম্ভসমূহের মূল বিষয় কোনটি?</strong>
         </div>
-        <div class="card" style="padding: 10px 18px; display: flex; flex-direction: row; align-items: center; gap: 12px;">
-          <span style="background: var(--teal-deep); color: white; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700;">৩</span>
-          <strong style="font-size: 14.5px; color: var(--charcoal);">ঈমান কয়টি বিষয়ের সমষ্টি এবং সেগুলো কী কী?</strong>
+        <div class="card" style="padding: 12px 20px; display: flex; flex-direction: row; align-items: center; gap: 14px;">
+          <span style="background: var(--teal-deep); color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 700; flex-shrink: 0;">৩</span>
+          <strong style="font-size: 17.5px; color: var(--charcoal);">ঈমান কয়টি বিষয়ের সমষ্টি এবং সেগুলো কী কী?</strong>
         </div>
-        <div class="card" style="padding: 10px 18px; display: flex; flex-direction: row; align-items: center; gap: 12px;">
-          <span style="background: var(--teal-deep); color: white; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700;">৪</span>
-          <strong style="font-size: 14.5px; color: var(--charcoal);">ঈমান ও আকিদার মধ্যে পার্থক্য কী?</strong>
+        <div class="card" style="padding: 12px 20px; display: flex; flex-direction: row; align-items: center; gap: 14px;">
+          <span style="background: var(--teal-deep); color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 700; flex-shrink: 0;">৪</span>
+          <strong style="font-size: 17.5px; color: var(--charcoal);">ঈমান ও আকিদার মধ্যে পার্থক্য কী?</strong>
         </div>
-        <div class="card" style="padding: 10px 18px; display: flex; flex-direction: row; align-items: center; gap: 12px;">
-          <span style="background: var(--teal-deep); color: white; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700;">৫</span>
-          <strong style="font-size: 14.5px; color: var(--charcoal);">সংক্ষেপে ঈমান ও ইসলামের পার্থক্য উল্লেখ করুন।</strong>
+        <div class="card" style="padding: 12px 20px; display: flex; flex-direction: row; align-items: center; gap: 14px;">
+          <span style="background: var(--teal-deep); color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 700; flex-shrink: 0;">৫</span>
+          <strong style="font-size: 17.5px; color: var(--charcoal);">সংক্ষেপে ঈমান ও ইসলামের পার্থক্য উল্লেখ করুন।</strong>
         </div>
       </div>
       <div class="footer-note">
@@ -829,21 +843,21 @@
     <div class="slide slide-dark">
       <div class="border-decor"></div>
       <img src="../assets/logo_user.png" alt="Logo" style="height: 60px; margin-bottom: 12px; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.4));">
-      <div style="font-family: 'Amiri', serif; font-size: 44px; font-weight: 700; color: var(--gold); margin-bottom: 10px;">
+      <div style="font-family: 'Amiri', serif; font-size: 48px; font-weight: 700; color: var(--gold); margin-bottom: 12px;">
         جَزَاكُمُ اللهُ خَيْرًا
       </div>
-      <p style="font-size: 18px; line-height: 1.6; color: var(--white); max-width: 650px; margin-bottom: 18px;">
+      <p style="font-size: 20px; line-height: 1.7; color: var(--white); max-width: 720px; margin-bottom: 20px;">
         আল্লাহ তাআলা আমাদের সকলকে সহিহ আকিদা ও বিশুদ্ধ ঈমান ধারণ করে<br>
         খাঁটি মুসলিম হিসেবে জীবন যাপন করার তাওফিক দান করুন। আমীন।
       </p>
       <div style="width: 140px; height: 2px; background: var(--gold); margin: 0 auto 20px;"></div>
-      <div style="font-size: 21px; font-weight: 700; color: var(--gold); margin-bottom: 6px;">
+      <div style="font-size: 23px; font-weight: 700; color: var(--gold); margin-bottom: 8px;">
         মারকাযুল ঈমান লিদিরাসাতিস সুন্নাতি ওয়াল কুরআন
       </div>
-      <div style="font-size: 15px; color: var(--ivory); margin-bottom: 14px;">
+      <div style="font-size: 16px; color: var(--ivory); margin-bottom: 14px;">
         দাওয়াহ বিভাগ • উপশহর, বগুড়া
       </div>
-      <div style="font-size: 13.5px; color: #B4D6C7;">
+      <div style="font-size: 14.5px; color: #B4D6C7;">
         অফিসিয়াল ওয়েবসাইট: <strong>markazuliman.com</strong>
       </div>
     </div>

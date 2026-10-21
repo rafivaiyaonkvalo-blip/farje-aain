@@ -578,132 +578,299 @@
       box-shadow: 0 4px 14px rgba(16, 185, 129, 0.4);
     }
 
-    /* QUIZ MODAL */
+    /* QUIZ SYSTEM STYLES */
     .quiz-modal-backdrop {
       position: fixed;
       inset: 0;
-      background: rgba(4, 9, 20, 0.85);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
+      background: rgba(3, 8, 18, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       display: none;
       align-items: center;
       justify-content: center;
       z-index: 1000;
-      padding: 16px;
+      padding: 14px;
     }
 
     .quiz-modal {
-      background: linear-gradient(145deg, #0B1930 0%, #071124 100%);
-      border: 1px solid var(--cyan-bright);
-      border-radius: 18px;
-      max-width: 580px;
+      background: linear-gradient(150deg, #0A172A 0%, #060F1E 100%);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      border-radius: 20px;
+      max-width: 660px;
       width: 100%;
       padding: 24px;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 30px rgba(56, 189, 248, 0.3);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9), 0 0 35px rgba(56, 189, 248, 0.25);
       position: relative;
       animation: modalFade 0.25s ease;
-      max-height: 90vh;
+      max-height: 92vh;
       overflow-y: auto;
+      display: flex;
+      flex-direction: column;
     }
 
     @keyframes modalFade {
-      from { opacity: 0; transform: scale(0.95); }
-      to { opacity: 1; transform: scale(1); }
+      from { opacity: 0; transform: scale(0.96) translateY(10px); }
+      to { opacity: 1; transform: scale(1) translateY(0); }
     }
 
     .quiz-header {
       display: flex;
-      align-items: flex-start;
+      align-items: center;
       justify-content: space-between;
-      border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+      border-bottom: 1px solid rgba(56, 189, 248, 0.18);
       padding-bottom: 14px;
       margin-bottom: 18px;
     }
 
-    .quiz-close-btn {
-      background: rgba(255, 255, 255, 0.1);
-      border: none;
+    .quiz-badge {
+      background: rgba(16, 185, 129, 0.18);
+      border: 1px solid var(--emerald-mint);
+      color: var(--emerald-glow);
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .quiz-actions-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .quiz-icon-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
       color: var(--text-dim);
-      font-size: 1.2rem;
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
+      font-size: 0.95rem;
       transition: all 0.2s;
     }
-
-    .quiz-close-btn:hover {
-      background: rgba(239, 68, 68, 0.2);
-      color: #EF4444;
+    .quiz-icon-btn:hover {
+      background: rgba(56, 189, 248, 0.2);
+      color: var(--cyan-bright);
+      border-color: var(--cyan-bright);
     }
 
-    .quiz-q-box {
-      background: rgba(14, 31, 58, 0.6);
-      border: 1px solid rgba(56, 189, 248, 0.2);
+    /* Screen 1: Mode Selection Cards */
+    .quiz-mode-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin: 18px 0;
+    }
+    .quiz-mode-card {
+      background: rgba(15, 28, 48, 0.7);
+      border: 1.5px solid rgba(56, 189, 248, 0.25);
       border-radius: 12px;
-      padding: 14px;
-      margin-bottom: 14px;
-    }
-
-    .quiz-q-title {
-      font-size: 0.98rem;
-      font-weight: 700;
-      color: #FFFFFF;
-      margin-bottom: 10px;
-    }
-
-    .quiz-option {
+      padding: 16px 18px;
+      cursor: pointer;
       display: flex;
       align-items: center;
-      gap: 10px;
-      padding: 8px 12px;
-      border-radius: 8px;
-      background: rgba(255, 255, 255, 0.04);
-      margin-bottom: 6px;
-      cursor: pointer;
-      font-size: 0.9rem;
-      transition: all 0.2s;
+      justify-content: space-between;
+      transition: all 0.25s ease;
+    }
+    .quiz-mode-card:hover, .quiz-mode-card.selected {
+      background: rgba(14, 165, 233, 0.15);
+      border-color: var(--cyan-bright);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(14, 165, 233, 0.3);
+    }
+    .quiz-mode-card.selected {
+      border-color: var(--emerald-mint);
+      background: rgba(16, 185, 129, 0.15);
     }
 
-    .quiz-option:hover {
-      background: rgba(56, 189, 248, 0.15);
-    }
-
-    .quiz-option input[type="radio"] {
-      accent-color: var(--cyan-bright);
-    }
-
-    .quiz-submit-btn {
+    /* Screen 2: Active Quiz Playing */
+    .quiz-progress-track {
       width: 100%;
-      padding: 12px;
+      height: 6px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 4px;
+      margin-bottom: 16px;
+      overflow: hidden;
+    }
+    .quiz-progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #38BDF8, #10B981);
+      transition: width 0.3s ease;
+      box-shadow: 0 0 10px #38BDF8;
+    }
+    .quiz-meta-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      font-size: 0.88rem;
+    }
+    .quiz-counter-text {
+      color: var(--cyan-bright);
+      font-weight: 700;
+    }
+    .quiz-live-score {
+      color: var(--text-dim);
+      font-size: 0.82rem;
+    }
+
+    .quiz-question-box {
+      background: rgba(14, 27, 47, 0.75);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      border-radius: 14px;
+      padding: 18px;
+      margin-bottom: 18px;
+    }
+    .quiz-question-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      line-height: 1.5;
+    }
+
+    .quiz-options-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .quiz-opt-btn {
+      background: rgba(18, 34, 58, 0.85);
+      border: 1.5px solid rgba(255, 255, 255, 0.12);
       border-radius: 10px;
+      padding: 12px 16px;
+      color: #F1F5F9;
+      font-size: 0.98rem;
+      font-family: inherit;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transition: all 0.2s ease;
+      text-align: left;
+      width: 100%;
+    }
+    .quiz-opt-btn:hover:not(:disabled) {
+      background: rgba(56, 189, 248, 0.18);
+      border-color: var(--cyan-bright);
+      transform: translateX(4px);
+    }
+    .quiz-opt-btn.correct {
+      background: rgba(16, 185, 129, 0.25) !important;
+      border-color: #10B981 !important;
+      color: #A7F3D0 !important;
+      box-shadow: 0 0 16px rgba(16, 185, 129, 0.4);
+    }
+    .quiz-opt-btn.wrong {
+      background: rgba(239, 68, 68, 0.25) !important;
+      border-color: #EF4444 !important;
+      color: #FECACA !important;
+      box-shadow: 0 0 16px rgba(239, 68, 68, 0.4);
+    }
+    .quiz-opt-badge {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.82rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .quiz-explanation-box {
+      margin-top: 14px;
+      padding: 12px 16px;
+      background: rgba(14, 165, 233, 0.12);
+      border-left: 3.5px solid var(--cyan-bright);
+      border-radius: 8px;
+      color: #E2E8F0;
+      font-size: 0.9rem;
+      line-height: 1.55;
+      display: none;
+      animation: modalFade 0.2s ease;
+    }
+
+    /* Screen 3: Results */
+    .quiz-result-card {
+      text-align: center;
+      padding: 20px 10px;
+    }
+    .quiz-score-circle {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 4px solid var(--emerald-mint);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+      background: radial-gradient(circle, rgba(16, 185, 129, 0.25) 0%, rgba(10, 23, 42, 0) 70%);
+      box-shadow: 0 0 25px rgba(16, 185, 129, 0.4);
+    }
+    .quiz-score-num {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: #FFFFFF;
+      line-height: 1;
+    }
+    .quiz-stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 10px;
+      margin: 20px 0;
+    }
+    .quiz-stat-box {
+      background: rgba(14, 27, 47, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 10px;
+    }
+    .quiz-btn-primary {
       background: linear-gradient(135deg, #10B981 0%, #059669 100%);
       color: #FFFFFF;
       font-weight: 700;
-      font-size: 1rem;
+      padding: 11px 22px;
+      border-radius: 8px;
       border: none;
       cursor: pointer;
-      margin-top: 10px;
-      box-shadow: 0 4px 14px rgba(16, 185, 129, 0.4);
+      font-size: 0.95rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
       transition: all 0.2s;
     }
-
-    .quiz-submit-btn:hover {
+    .quiz-btn-primary:hover {
       background: #059669;
       transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(16, 185, 129, 0.4);
     }
-
-    .quiz-result-box {
-      display: none;
-      text-align: center;
-      padding: 16px;
-      border-radius: 12px;
-      background: rgba(16, 185, 129, 0.15);
-      border: 1px solid var(--emerald-mint);
-      margin-top: 14px;
+    .quiz-btn-secondary {
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      color: var(--cyan-bright);
+      font-weight: 600;
+      padding: 11px 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.92rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      transition: all 0.2s;
+    }
+    .quiz-btn-secondary:hover {
+      background: rgba(56, 189, 248, 0.25);
+      color: #FFFFFF;
     }
 
     /* Footer */
@@ -853,23 +1020,152 @@
   <!-- QUIZ MODAL -->
   <div class="quiz-modal-backdrop" id="quizModal">
     <div class="quiz-modal">
+      
+      <!-- Top Modal Header -->
       <div class="quiz-header">
         <div>
-          <span style="background: rgba(16,185,129,0.2); border: 1px solid var(--emerald-mint); color: var(--emerald-glow); font-size: 0.76rem; font-weight: 700; padding: 2px 8px; border-radius: 4px;">
+          <span class="quiz-badge">
             <i class="fa-solid fa-trophy"></i> আত্মমূল্যায়ন কুইজ
           </span>
           <h3 id="quizTitle" style="color: #FFFFFF; font-size: 1.15rem; margin-top: 6px;"></h3>
         </div>
-        <button class="quiz-close-btn" onclick="closeQuiz()">&times;</button>
+        <div class="quiz-actions-bar">
+          <button class="quiz-icon-btn" id="quizSoundToggleBtn" onclick="toggleQuizSound()" title="সাউন্ড চালু/বন্ধ">
+            <i class="fa-solid fa-volume-high" id="quizSoundIcon"></i>
+          </button>
+          <button class="quiz-icon-btn" onclick="closeQuiz()" title="বন্ধ করুন">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
       </div>
 
-      <div id="quizQuestionsContainer"></div>
+      <!-- SCREEN 1: MODE SELECTOR SCREEN -->
+      <div id="quizModeScreen">
+        <div style="text-align: center; margin-bottom: 16px;">
+          <p style="color: var(--text-dim); font-size: 0.92rem;">
+            এই পাঠের জন্য <strong style="color: var(--cyan-bright);">১০০টি যাচাইকৃত বহুনির্বাচনী প্রশ্নব্যাংক</strong> প্রস্তুত রয়েছে। আপনার পছন্দসই কুইজ মোড নির্বাচন করুন:
+          </p>
+        </div>
 
-      <button class="quiz-submit-btn" id="quizSubmitBtn" onclick="submitQuiz()">
-        <i class="fa-solid fa-check-circle"></i> উত্তর যাচাই করুন
-      </button>
+        <div class="quiz-mode-grid">
+          <div class="quiz-mode-card selected" onclick="selectQuizMode(10, this)">
+            <div>
+              <h4 style="color: #FFFFFF; font-size: 1.05rem; margin-bottom: 4px;">
+                <i class="fa-solid fa-bolt" style="color: var(--cyan-bright);"></i> কুইক টেস্ট (১০টি প্রশ্ন)
+              </h4>
+              <p style="color: var(--text-dim); font-size: 0.82rem;">দ্রুত প্রস্তুতি ও মৌলিক জ্ঞান যাচাইয়ের জন্য আদর্শ (৫ মিনিট)</p>
+            </div>
+            <span style="font-weight: 700; color: var(--cyan-bright); font-size: 0.9rem;">১০ প্রশ্ন</span>
+          </div>
 
-      <div class="quiz-result-box" id="quizResultBox"></div>
+          <div class="quiz-mode-card" onclick="selectQuizMode(25, this)">
+            <div>
+              <h4 style="color: #FFFFFF; font-size: 1.05rem; margin-bottom: 4px;">
+                <i class="fa-solid fa-bullseye" style="color: var(--emerald-mint);"></i> স্ট্যান্ডার্ড টেস্ট (২৫টি প্রশ্ন)
+              </h4>
+              <p style="color: var(--text-dim); font-size: 0.82rem;">গভীর মূল্যায়ন ও আত্মবিশ্বাসী প্রস্তুতির জন্য (১৫ মিনিট)</p>
+            </div>
+            <span style="font-weight: 700; color: var(--emerald-mint); font-size: 0.9rem;">২৫ প্রশ্ন</span>
+          </div>
+
+          <div class="quiz-mode-card" onclick="selectQuizMode(100, this)">
+            <div>
+              <h4 style="color: #FFFFFF; font-size: 1.05rem; margin-bottom: 4px;">
+                <i class="fa-solid fa-award" style="color: #F59E0B;"></i> পূর্ণাঙ্গ ১০০ প্রশ্ন চ্যালেঞ্জ
+              </h4>
+              <p style="color: var(--text-dim); font-size: 0.82rem;">সম্পূর্ণ পাঠের এ টু জেড পুঙ্খানুপুঙ্খ মাস্টার করুন</p>
+            </div>
+            <span style="font-weight: 700; color: #F59E0B; font-size: 0.9rem;">১০০ প্রশ্ন</span>
+          </div>
+        </div>
+
+        <button class="quiz-btn-primary" style="width: 100%; justify-content: center; padding: 13px; font-size: 1.02rem; margin-top: 8px;" onclick="startQuizGame()">
+          <span>কুইজ শুরু করুন</span> <i class="fa-solid fa-play"></i>
+        </button>
+      </div>
+
+      <!-- SCREEN 2: ACTIVE QUIZ PLAY SCREEN -->
+      <div id="quizPlayScreen" style="display: none;">
+        <div class="quiz-progress-track">
+          <div class="quiz-progress-fill" id="quizProgressBar" style="width: 0%;"></div>
+        </div>
+
+        <div class="quiz-meta-row">
+          <span class="quiz-counter-text" id="quizProgressText">প্রশ্ন ১ / ১০</span>
+          <span class="quiz-live-score" id="quizLiveScore">✓ ০ | ✗ ০</span>
+        </div>
+
+        <div class="quiz-question-box">
+          <h4 class="quiz-question-title" id="quizQuestionText"></h4>
+        </div>
+
+        <div class="quiz-options-list" id="quizOptionsContainer"></div>
+
+        <div class="quiz-explanation-box" id="quizExplanationBox"></div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px;">
+          <button class="quiz-btn-secondary" onclick="abortToModeSelect()">
+            <i class="fa-solid fa-rotate-left"></i> <span>মোড বদলান</span>
+          </button>
+          <button class="quiz-btn-primary" id="quizNextBtn" onclick="nextQuestion()" style="display: none;">
+            <span>পরবর্তী প্রশ্ন</span> <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- SCREEN 3: RESULT & APPRAISAL SCREEN -->
+      <div id="quizResultScreen" style="display: none;">
+        <div class="quiz-result-card">
+          <div class="quiz-score-circle" id="quizScoreCircle">
+            <span class="quiz-score-num" id="quizPercentText">১০০%</span>
+            <span style="font-size: 0.72rem; color: #94A3B8; text-transform: uppercase; font-weight: 700;">স্কোর</span>
+          </div>
+
+          <h3 id="quizAppraisalTitle" style="color: #FFFFFF; font-size: 1.3rem; margin-bottom: 6px;"></h3>
+          <p id="quizAppraisalDesc" style="color: #CBD5E1; font-size: 0.92rem; max-width: 480px; margin: 0 auto;"></p>
+
+          <div class="quiz-stats-grid">
+            <div class="quiz-stat-box">
+              <div style="color: var(--cyan-bright); font-size: 0.8rem; font-weight: 600;">মোট প্রশ্ন</div>
+              <div style="color: #FFFFFF; font-size: 1.3rem; font-weight: 700;" id="quizStatTotal">০</div>
+            </div>
+            <div class="quiz-stat-box">
+              <div style="color: var(--emerald-mint); font-size: 0.8rem; font-weight: 600;">সঠিক উত্তর</div>
+              <div style="color: var(--emerald-mint); font-size: 1.3rem; font-weight: 700;" id="quizStatCorrect">০</div>
+            </div>
+            <div class="quiz-stat-box">
+              <div style="color: #EF4444; font-size: 0.8rem; font-weight: 600;">ভুল উত্তর</div>
+              <div style="color: #EF4444; font-size: 1.3rem; font-weight: 700;" id="quizStatWrong">০</div>
+            </div>
+          </div>
+
+          <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 14px;">
+            <button class="quiz-btn-secondary" id="quizReviewBtn" onclick="showReviewMistakes()">
+              <i class="fa-solid fa-eye"></i> <span>ভুল উত্তরগুলো দেখুন</span>
+            </button>
+            <button class="quiz-btn-primary" onclick="restartCurrentQuiz()">
+              <i class="fa-solid fa-rotate-right"></i> <span>পুনরায় খেলুন</span>
+            </button>
+            <button class="quiz-btn-secondary" onclick="closeQuiz()">
+              <span>বন্ধ করুন</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- SCREEN 4: REVIEW MISTAKES SCREEN -->
+      <div id="quizReviewScreen" style="display: none;">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
+          <h4 style="color: var(--cyan-bright); font-size: 1.05rem;">
+            <i class="fa-solid fa-book-open"></i> ভুল উত্তরগুলোর পর্যালোচনা
+          </h4>
+          <button class="quiz-btn-secondary" style="padding: 6px 14px; font-size: 0.82rem;" onclick="backToResultScreen()">
+            ← ফলাফলে ফিরুন
+          </button>
+        </div>
+        <div id="quizReviewList" style="display: flex; flex-direction: column; gap: 12px; max-height: 60vh; overflow-y: auto;"></div>
+      </div>
+
     </div>
   </div>
 
@@ -1033,98 +1329,388 @@
       renderLessons(results);
     }
 
-    /* QUIZ SYSTEM */
-    const quizDatabase = {
-      1: [
-        { q: "১. 'আকিদা' শব্দের আভিধানিক অর্থ কী?", options: ["দৃঢ় বিশ্বাস ও গ্রন্থিবদ্ধ করা", "দৈনন্দিন আমল", "নামাজের আহকাম", "দান-সদকা"], ans: 0 },
-        { q: "২. ঈমানের মূল ভিত্তি কয়টি বিষয়ের ওপর প্রতিষ্ঠিত?", options: ["৩টি", "৫টি", "৭টি (আরকানুল ঈমান)", "১০টি"], ans: 2 },
-        { q: "৩. ইসলাম ও ঈমানের মধ্যে মৌলিক সম্পর্ক কী?", options: ["ঈমান অন্তরের বিশ্বাস ও ইসলাম বাহ্যিক আনুগত্য", "উভয়টি সম্পূর্ণ ভিন্ন", "কোনো সম্পর্ক নেই", "শুধু মুখের উচ্চারণ"], ans: 0 }
-      ],
-      2: [
-        { q: "১. তাওহিদের মূল ঘোষণা কোনটি?", options: ["লা ইলাহা ইল্লাল্লাহ", "সুবহানাল্লাহ", "আলহামদুলিল্লাহ", "আল্লাহু আকবার"], ans: 0 },
-        { q: "২. তাওহিদ প্রধানত কয় ভাগে বিভক্ত?", options: ["৩ ভাগে (রুবুবিয়াত, উলুহিয়াত, আসমা ওয়াস সিফাত)", "২ ভাগে", "৪ ভাগে", "৫ ভাগে"], ans: 0 },
-        { q: "৩. আল্লাহর সাথে কাউকে শরিক করাকে কী বলে?", options: ["শিরক", "বিদআত", "ফাসেকী", "নেফাক"], ans: 0 }
-      ]
+    /* QUIZ SYSTEM CONTROLLER */
+    const bnDigits = ['০', '১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯'];
+    function toBn(num) {
+      return String(num).split('').map(d => bnDigits[d] || d).join('');
+    }
+
+    const quizState = {
+      lessonId: null,
+      lessonTitle: '',
+      allQuestions: [],
+      activeQuestions: [],
+      currentIndex: 0,
+      score: 0,
+      wrongCount: 0,
+      mistakes: [],
+      selectedMode: 10,
+      soundEnabled: localStorage.getItem('farje_quiz_sound') !== 'false',
+      audioCtx: null
     };
 
-    function openQuiz(lessonId) {
+    // Shariah-compliant Web Audio synthesizer (pure synthesized frequencies, zero musical instruments)
+    function getAudioContext() {
+      if (!quizState.audioCtx) {
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        if (AudioContext) {
+          quizState.audioCtx = new AudioContext();
+        }
+      }
+      if (quizState.audioCtx && quizState.audioCtx.state === 'suspended') {
+        quizState.audioCtx.resume();
+      }
+      return quizState.audioCtx;
+    }
+
+    function playTone(freq, duration, type = 'sine', rampTo = null) {
+      if (!quizState.soundEnabled) return;
+      try {
+        const ctx = getAudioContext();
+        if (!ctx) return;
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = type;
+        osc.frequency.setValueAtTime(freq, ctx.currentTime);
+        if (rampTo) {
+          osc.frequency.exponentialRampToValueAtTime(rampTo, ctx.currentTime + duration);
+        }
+        gain.gain.setValueAtTime(0.12, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + duration);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start();
+        osc.stop(ctx.currentTime + duration);
+      } catch (e) {
+        // audio might be restricted by browser policy
+      }
+    }
+
+    function playSuccessSound() {
+      playTone(587.33, 0.18, 'sine', 880); // D5 -> A5 ascending harmonic tone
+    }
+
+    function playWrongSound() {
+      playTone(240, 0.22, 'triangle', 180); // Soft descending low tone
+    }
+
+    function playVictorySound() {
+      if (!quizState.soundEnabled) return;
+      setTimeout(() => playTone(523.25, 0.2, 'sine'), 50);
+      setTimeout(() => playTone(659.25, 0.2, 'sine'), 180);
+      setTimeout(() => playTone(783.99, 0.35, 'sine'), 320);
+    }
+
+    function toggleQuizSound() {
+      quizState.soundEnabled = !quizState.soundEnabled;
+      localStorage.setItem('farje_quiz_sound', quizState.soundEnabled);
+      updateSoundIcon();
+    }
+
+    function updateSoundIcon() {
+      const icon = document.getElementById('quizSoundIcon');
+      if (icon) {
+        icon.className = quizState.soundEnabled ? 'fa-solid fa-volume-high' : 'fa-solid fa-volume-xmark';
+        icon.style.color = quizState.soundEnabled ? 'var(--cyan-bright)' : 'var(--text-dim)';
+      }
+    }
+
+    // Open Quiz Modal & Fetch Lesson 100-MCQ Bank
+    async function openQuiz(lessonId) {
       activeQuizLesson = portalData.lessons.find(l => l.id === lessonId);
       if (!activeQuizLesson) return;
 
-      document.getElementById('quizTitle').innerText = `পাঠ ${activeQuizLesson.bengaliNum}: ${activeQuizLesson.title}`;
-      const container = document.getElementById('quizQuestionsContainer');
-      const resultBox = document.getElementById('quizResultBox');
-      resultBox.style.display = 'none';
-      document.getElementById('quizSubmitBtn').style.display = 'block';
+      quizState.lessonId = lessonId;
+      quizState.lessonTitle = `পাঠ ${activeQuizLesson.bengaliNum}: ${activeQuizLesson.title}`;
+      document.getElementById('quizTitle').innerText = quizState.lessonTitle;
+      updateSoundIcon();
 
-      // Load specific questions or dynamic lesson questions
-      const questions = quizDatabase[lessonId] || [
-        { q: `১. '${activeQuizLesson.title}' পাঠটি দ্বীনের কোন শাখার অন্তর্ভুক্ত?`, options: ["ফরজে আইন মৌলিক জ্ঞান", "ঐচ্ছিক জ্ঞান", "দুনিয়াবি সাধারণ জ্ঞান", "ঐতিহাসিক তথ্য"], ans: 0 },
-        { q: `২. এই পাঠের বিধান শিক্ষা করা প্রত্যেক মুসলিমের জন্য কী?`, options: ["ফরজে আইন (অপরিহার্য দায়িত্ব)", "মুস্তাহাব", "মাকরুহ", "মুয়ামালাত"], ans: 0 },
-        { q: `৩. সহিহ ইলম অর্জনের পর সর্বাধিক গুরুত্বপূর্ণ দায়িত্ব কোনটি?`, options: ["নিষ্ঠার সাথে আমলে পরিণত করা", "শুধু মুখস্থ রাখা", "অন্যদের তর্ক করা", "কোনোটিই নয়"], ans: 0 }
+      const numStr = String(lessonId).padStart(2, '0');
+      document.getElementById('quizModal').style.display = 'flex';
+      
+      // Reset screens
+      document.getElementById('quizModeScreen').style.display = 'block';
+      document.getElementById('quizPlayScreen').style.display = 'none';
+      document.getElementById('quizResultScreen').style.display = 'none';
+      document.getElementById('quizReviewScreen').style.display = 'none';
+
+      try {
+        const res = await fetch(`quiz-data/quiz-lesson-${numStr}.json?t=` + Date.now(), { cache: 'no-store' });
+        if (res.ok) {
+          quizState.allQuestions = await res.json();
+        } else {
+          // Fallback if network issue
+          quizState.allQuestions = generateFallbackQuestions(activeQuizLesson);
+        }
+      } catch (e) {
+        console.warn('Using local fallback questions:', e);
+        quizState.allQuestions = generateFallbackQuestions(activeQuizLesson);
+      }
+    }
+
+    function generateFallbackQuestions(lesson) {
+      return [
+        { id: 1, q: `১. '${lesson.title}' পাঠটি শরিয়তের কোন বিষয়ের অন্তর্ভুক্ত?`, options: ["ফরজে আইন আবশ্যক জ্ঞান", "ঐচ্ছিক জ্ঞান", "সাধারণ দুনিয়াবি তথ্য", "প্রচলিত সংস্কৃতি"], ans: 0, explanation: "কিতাবুল ফারজে আইন প্রতিটি মুসলিমের জন্য আবশ্যক ধর্মীয় জ্ঞানের সংকলন।" },
+        { id: 2, q: `২. এই পাঠের মৌলিক হুকুম জানা প্রত্যেক মুসলিমের ওপর কী?`, options: ["ফরজে আইন (বাধ্যতামূলক)", "মুস্তাহাব", "মাকরুহ", "নফল"], ans: 0, explanation: "ফরজে আইন বিষয়ের ইলম অর্জন করা প্রত্যেকের ওপর ব্যক্তিগত ফরজ।" },
+        { id: 3, q: `৩. শরিয়তের যেকোনো বিধান পালনের মূল লক্ষ্য কোনটি?`, options: ["আল্লাহ তাআলার সন্তুষ্টি ও নাজাত", "মানুষের প্রশংসা", "লোকদেখানো", "পার্থিব সম্পদ"], ans: 0, explanation: "সকল আমল কেবল আল্লাহর সন্তুষ্টির উদ্দেশ্যে একনিষ্ঠভাবে আদায় করতে হয়।" }
       ];
+    }
 
-      container.innerHTML = questions.map((item, idx) => `
-        <div class="quiz-q-box" data-ans="${item.ans}">
-          <div class="quiz-q-title">${item.q}</div>
-          ${item.options.map((opt, oIdx) => `
-            <label class="quiz-option">
-              <input type="radio" name="q_${idx}" value="${oIdx}">
-              <span>${opt}</span>
-            </label>
-          `).join('')}
-        </div>
+    function selectQuizMode(count, el) {
+      quizState.selectedMode = count;
+      document.querySelectorAll('.quiz-mode-card').forEach(c => c.classList.remove('selected'));
+      if (el) el.classList.add('selected');
+    }
+
+    function startQuizGame() {
+      const totalAvailable = quizState.allQuestions.length;
+      const count = Math.min(quizState.selectedMode, totalAvailable);
+      
+      // Shuffle if less than total, or sequential if full challenge
+      if (count < totalAvailable) {
+        const shuffled = [...quizState.allQuestions].sort(() => 0.5 - Math.random());
+        quizState.activeQuestions = shuffled.slice(0, count);
+      } else {
+        quizState.activeQuestions = [...quizState.allQuestions];
+      }
+
+      quizState.currentIndex = 0;
+      quizState.score = 0;
+      quizState.wrongCount = 0;
+      quizState.mistakes = [];
+
+      document.getElementById('quizModeScreen').style.display = 'none';
+      document.getElementById('quizPlayScreen').style.display = 'block';
+
+      renderCurrentQuestion();
+    }
+
+    const optLetters = ['ক', 'খ', 'গ', 'ঘ'];
+
+    function renderCurrentQuestion() {
+      const total = quizState.activeQuestions.length;
+      const currentQ = quizState.activeQuestions[quizState.currentIndex];
+
+      // Progress bar & texts
+      const pct = ((quizState.currentIndex) / total) * 100;
+      document.getElementById('quizProgressBar').style.width = `${pct}%`;
+      document.getElementById('quizProgressText').innerText = `প্রশ্ন ${toBn(quizState.currentIndex + 1)} / ${toBn(total)}`;
+      document.getElementById('quizLiveScore').innerText = `✓ ${toBn(quizState.score)} | ✗ ${toBn(quizState.wrongCount)}`;
+
+      // Question title
+      document.getElementById('quizQuestionText').innerText = currentQ.q;
+
+      // Options
+      const optionsContainer = document.getElementById('quizOptionsContainer');
+      optionsContainer.innerHTML = currentQ.options.map((opt, idx) => `
+        <button class="quiz-opt-btn" onclick="handleOptionClick(${idx})" data-index="${idx}">
+          <span class="quiz-opt-badge">${optLetters[idx] || (idx + 1)}</span>
+          <span>${opt}</span>
+        </button>
       `).join('');
 
-      document.getElementById('quizModal').style.display = 'flex';
+      // Hide explanation and next button
+      document.getElementById('quizExplanationBox').style.display = 'none';
+      document.getElementById('quizNextBtn').style.display = 'none';
+    }
+
+    function handleOptionClick(selectedIdx) {
+      const currentQ = quizState.activeQuestions[quizState.currentIndex];
+      const buttons = document.querySelectorAll('.quiz-opt-btn');
+      
+      // Disable further clicks on current question
+      buttons.forEach(b => b.disabled = true);
+
+      const isCorrect = (selectedIdx === currentQ.ans);
+
+      buttons.forEach((btn, idx) => {
+        if (idx === currentQ.ans) {
+          btn.classList.add('correct');
+          btn.innerHTML += ` <i class="fa-solid fa-check" style="margin-left:auto; color:#10B981;"></i>`;
+        } else if (idx === selectedIdx && !isCorrect) {
+          btn.classList.add('wrong');
+          btn.innerHTML += ` <i class="fa-solid fa-xmark" style="margin-left:auto; color:#EF4444;"></i>`;
+        }
+      });
+
+      if (isCorrect) {
+        quizState.score++;
+        playSuccessSound();
+      } else {
+        quizState.wrongCount++;
+        quizState.mistakes.push({
+          question: currentQ.q,
+          selected: currentQ.options[selectedIdx],
+          correct: currentQ.options[currentQ.ans],
+          explanation: currentQ.explanation
+        });
+        playWrongSound();
+      }
+
+      // Update live score
+      document.getElementById('quizLiveScore').innerText = `✓ ${toBn(quizState.score)} | ✗ ${toBn(quizState.wrongCount)}`;
+
+      // Show educational explanation
+      const expBox = document.getElementById('quizExplanationBox');
+      expBox.style.display = 'block';
+      expBox.innerHTML = `
+        <div style="font-weight: 700; color: var(--cyan-bright); margin-bottom: 4px; display: flex; align-items: center; gap: 6px;">
+          <i class="fa-solid fa-lightbulb"></i> <span>সহিহ ব্যাখ্যা ও কিতাবের রেফারেন্স:</span>
+        </div>
+        <div>${currentQ.explanation || 'সহিহ সুন্নাহ ও কিতাবুল ফারজে আইনের মূল পাঠ অনুসারে এটি প্রমাণিত।'}</div>
+      `;
+
+      // Show next button
+      const nextBtn = document.getElementById('quizNextBtn');
+      nextBtn.style.display = 'inline-flex';
+      const isLast = (quizState.currentIndex === quizState.activeQuestions.length - 1);
+      nextBtn.innerHTML = isLast 
+        ? `<span>ফলাফল দেখুন</span> <i class="fa-solid fa-trophy"></i>` 
+        : `<span>পরবর্তী প্রশ্ন</span> <i class="fa-solid fa-arrow-right"></i>`;
+    }
+
+    function nextQuestion() {
+      if (quizState.currentIndex < quizState.activeQuestions.length - 1) {
+        quizState.currentIndex++;
+        renderCurrentQuestion();
+      } else {
+        showQuizResult();
+      }
+    }
+
+    function showQuizResult() {
+      document.getElementById('quizPlayScreen').style.display = 'none';
+      document.getElementById('quizResultScreen').style.display = 'block';
+
+      const total = quizState.activeQuestions.length;
+      const score = quizState.score;
+      const wrong = quizState.wrongCount;
+      const pct = Math.round((score / total) * 100);
+
+      document.getElementById('quizPercentText').innerText = `${toBn(pct)}%`;
+      document.getElementById('quizStatTotal').innerText = toBn(total);
+      document.getElementById('quizStatCorrect').innerText = toBn(score);
+      document.getElementById('quizStatWrong').innerText = toBn(wrong);
+
+      // Circle border color
+      const circle = document.getElementById('quizScoreCircle');
+      if (pct >= 80) {
+        circle.style.borderColor = 'var(--emerald-mint)';
+        circle.style.boxShadow = '0 0 25px rgba(16, 185, 129, 0.4)';
+      } else if (pct >= 60) {
+        circle.style.borderColor = 'var(--cyan-bright)';
+        circle.style.boxShadow = '0 0 25px rgba(56, 189, 248, 0.4)';
+      } else {
+        circle.style.borderColor = '#EF4444';
+        circle.style.boxShadow = '0 0 25px rgba(239, 68, 68, 0.4)';
+      }
+
+      // Appraisal text
+      const titleEl = document.getElementById('quizAppraisalTitle');
+      const descEl = document.getElementById('quizAppraisalDesc');
+
+      if (pct >= 90) {
+        titleEl.innerText = 'মাশাআল্লাহ! মুমতাজ (মাস্টার লেভেল)';
+        titleEl.style.color = '#34D399';
+        descEl.innerText = 'আপনার প্রস্তুতি অত্যন্ত প্রশংসনীয় ও নিখুঁত! আপনি এই পাঠের মৌলিক জ্ঞান সফলভাবে আয়ত্ত করেছেন। 🌟';
+        playVictorySound();
+      } else if (pct >= 75) {
+        titleEl.innerText = 'আলহামদুলিল্লাহ! জায়্যিদ জিদ্দান (খুব ভালো)';
+        titleEl.style.color = 'var(--cyan-bright)';
+        descEl.innerText = 'আপনার প্রস্তুতি বেশ ভালো হয়েছে! কিছু বিষয়ে আরেকটু নজর দিলে আপনি শতভাগ নম্বর অর্জন করতে পারবেন।';
+      } else if (pct >= 50) {
+        titleEl.innerText = 'জায়্যিদ (সন্তোষজনক)';
+        titleEl.style.color = '#FBBF24';
+        descEl.innerText = 'ভালো চেষ্টা করেছেন। পাঠের স্লাইডগুলো এবং কিতাবের মূল টেক্সট আরেকবার মনোযোগ দিয়ে পড়ার অনুরোধ রইল।';
+      } else {
+        titleEl.innerText = 'পুনরায় অনুশীলনের অনুরোধ';
+        titleEl.style.color = '#F87171';
+        descEl.innerText = 'এই পাঠের বেশ কিছু মৌলিক বিধান এখনো আয়ত্ত হয়নি। স্লাইডটি মনোযোগ দিয়ে পড়ে পুনরায় কুইজে অংশ নিন।';
+      }
+
+      // Review mistakes button
+      const reviewBtn = document.getElementById('quizReviewBtn');
+      if (quizState.mistakes.length > 0) {
+        reviewBtn.style.display = 'inline-flex';
+        reviewBtn.innerHTML = `<i class="fa-solid fa-eye"></i> <span>ভুল উত্তরগুলো দেখুন (${toBn(quizState.mistakes.length)})</span>`;
+      } else {
+        reviewBtn.style.display = 'none';
+      }
+    }
+
+    function showReviewMistakes() {
+      document.getElementById('quizResultScreen').style.display = 'none';
+      document.getElementById('quizReviewScreen').style.display = 'block';
+
+      const container = document.getElementById('quizReviewList');
+      container.innerHTML = quizState.mistakes.map((m, idx) => `
+        <div style="background: rgba(14, 27, 47, 0.75); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; padding: 14px;">
+          <div style="font-weight: 700; color: #FFFFFF; font-size: 0.98rem; margin-bottom: 8px;">
+            ${m.question}
+          </div>
+          <div style="color: #F87171; font-size: 0.88rem; margin-bottom: 4px;">
+            <i class="fa-solid fa-xmark"></i> আপনার দেওয়া উত্তর: <strong>${m.selected}</strong>
+          </div>
+          <div style="color: #34D399; font-size: 0.88rem; margin-bottom: 8px;">
+            <i class="fa-solid fa-check"></i> সঠিক উত্তর: <strong>${m.correct}</strong>
+          </div>
+          <div style="font-size: 0.84rem; color: #CBD5E1; background: rgba(56, 189, 248, 0.1); padding: 8px 12px; border-radius: 6px; border-left: 3px solid var(--cyan-bright);">
+            💡 <strong>ব্যাখ্যা:</strong> ${m.explanation}
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function backToResultScreen() {
+      document.getElementById('quizReviewScreen').style.display = 'none';
+      document.getElementById('quizResultScreen').style.display = 'block';
+    }
+
+    function restartCurrentQuiz() {
+      startQuizGame();
+    }
+
+    function abortToModeSelect() {
+      document.getElementById('quizPlayScreen').style.display = 'none';
+      document.getElementById('quizModeScreen').style.display = 'block';
     }
 
     function closeQuiz() {
       document.getElementById('quizModal').style.display = 'none';
     }
 
-    function submitQuiz() {
-      const qBoxes = document.querySelectorAll('.quiz-q-box');
-      let score = 0;
-      let total = qBoxes.length;
-      let allAnswered = true;
+    // Keyboard support: 1, 2, 3, 4 to select options; Enter/ArrowRight to advance; Escape to close
+    document.addEventListener('keydown', (e) => {
+      const modal = document.getElementById('quizModal');
+      if (!modal || modal.style.display !== 'flex') return;
 
-      qBoxes.forEach((box, idx) => {
-        const correctAns = parseInt(box.getAttribute('data-ans'));
-        const selected = box.querySelector(`input[name="q_${idx}"]:checked`);
-        if (!selected) {
-          allAnswered = false;
-        } else {
-          const val = parseInt(selected.value);
-          if (val === correctAns) {
-            score++;
-            box.style.borderColor = '#10B981';
-            box.style.background = 'rgba(16, 185, 129, 0.12)';
-          } else {
-            box.style.borderColor = '#EF4444';
-            box.style.background = 'rgba(239, 68, 68, 0.12)';
-          }
-        }
-      });
-
-      if (!allAnswered) {
-        alert('দয়া করে সবগুলো প্রশ্নের উত্তর নির্বাচন করুন।');
+      if (e.key === 'Escape') {
+        closeQuiz();
         return;
       }
 
-      const resultBox = document.getElementById('quizResultBox');
-      resultBox.style.display = 'block';
-      resultBox.innerHTML = `
-        <h4 style="color: #38BDF8; font-size: 1.15rem; margin-bottom: 6px;">
-          <i class="fa-solid fa-trophy" style="color: #34D399;"></i> কুইজ ফলাফল: ${score} / ${total}
-        </h4>
-        <p style="color: #CBD5E1; font-size: 0.9rem;">
-          ${score === total ? 'মাশাআল্লাহ! আপনি পূর্ণ নম্বর পেয়ে পাঠটি সফলভাবে আয়ত্ত করেছেন! 🌟' : 'আলহামদুলিল্লাহ! আবার চেষ্টা করে পূর্ণ জ্ঞান অর্জন করুন।'}
-        </p>
-      `;
-
-      document.getElementById('quizSubmitBtn').style.display = 'none';
-    }
+      const playScreen = document.getElementById('quizPlayScreen');
+      if (playScreen && playScreen.style.display === 'block') {
+        if (e.key === '1' || e.key === '১') {
+          const btn = document.querySelector('.quiz-opt-btn[data-index="0"]');
+          if (btn && !btn.disabled) handleOptionClick(0);
+        } else if (e.key === '2' || e.key === '২') {
+          const btn = document.querySelector('.quiz-opt-btn[data-index="1"]');
+          if (btn && !btn.disabled) handleOptionClick(1);
+        } else if (e.key === '3' || e.key === '৩') {
+          const btn = document.querySelector('.quiz-opt-btn[data-index="2"]');
+          if (btn && !btn.disabled) handleOptionClick(2);
+        } else if (e.key === '4' || e.key === '৪') {
+          const btn = document.querySelector('.quiz-opt-btn[data-index="3"]');
+          if (btn && !btn.disabled) handleOptionClick(3);
+        } else if (e.key === 'Enter' || e.key === 'ArrowRight' || e.key === ' ') {
+          const nextBtn = document.getElementById('quizNextBtn');
+          if (nextBtn && nextBtn.style.display !== 'none') {
+            nextQuestion();
+          }
+        }
+      }
+    });
 
     // Close modal on background click
     window.onclick = function(event) {
