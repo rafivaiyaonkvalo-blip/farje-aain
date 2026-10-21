@@ -900,7 +900,44 @@
 
 
 
-    /* Chapter View Header Quiz Button */
+    /* Simple Book Quiz Button */
+    .simple-quiz-cta-row {
+      display: flex;
+      justify-content: center;
+      margin-top: 14px;
+      margin-bottom: 2px;
+    }
+    .simple-book-quiz-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, rgba(217, 119, 6, 0.22) 0%, rgba(13, 148, 136, 0.28) 100%);
+      border: 1.5px solid rgba(245, 158, 11, 0.5);
+      color: #FBBF24;
+      padding: 9px 22px;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      font-family: var(--font-body);
+      cursor: pointer;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+      text-decoration: none;
+    }
+    .simple-book-quiz-btn:hover {
+      background: linear-gradient(135deg, rgba(217, 119, 6, 0.38) 0%, rgba(13, 148, 136, 0.42) 100%);
+      border-color: #FBBF24;
+      color: #FFFFFF;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(245, 158, 11, 0.35);
+    }
+    .simple-book-quiz-btn i {
+      color: #F59E0B;
+      font-size: 0.95rem;
+    }
+    .simple-book-quiz-btn:hover i {
+      color: #FFFFFF;
+    }
     .chapter-quiz-btn {
       display: inline-flex;
       align-items: center;
@@ -1126,6 +1163,14 @@
     <div class="search-box">
       <i class="fa-solid fa-magnifying-glass"></i>
       <input type="text" id="searchInput" placeholder="পাঠের নাম বা নম্বর দিয়ে খুঁজুন (যেমন: তাওহিদ, সালাত, ১২)..." oninput="handleSearch()">
+    </div>
+
+    <!-- Simple Book Quiz Button -->
+    <div class="simple-quiz-cta-row" id="simpleQuizCta">
+      <button class="simple-book-quiz-btn" onclick="openMegaBookQuiz()" title="সম্পূর্ণ কিতাবের সমন্বিত কুইজ খেলুন">
+        <i class="fa-solid fa-trophy"></i>
+        <span>সম্পূর্ণ কিতাবের কুইজ</span>
+      </button>
     </div>
   </section>
 
@@ -1455,6 +1500,9 @@
       const chap = portalData.chapters.find(c => c.id === chapterId);
       if (!chap) return;
 
+      const quizCta = document.getElementById('simpleQuizCta');
+      if (quizCta) quizCta.style.display = 'none';
+
       document.getElementById('chaptersView').style.display = 'none';
       document.getElementById('lessonsView').style.display = 'grid';
       document.getElementById('viewHeader').style.display = 'flex';
@@ -1472,6 +1520,10 @@
     function showAllChapters() {
       currentChapterId = null;
       document.getElementById('searchInput').value = '';
+
+      const quizCta = document.getElementById('simpleQuizCta');
+      if (quizCta) quizCta.style.display = 'flex';
+
       document.getElementById('chaptersView').style.display = 'grid';
       document.getElementById('lessonsView').style.display = 'none';
       document.getElementById('viewHeader').style.display = 'none';
@@ -1536,6 +1588,9 @@
         }
         return;
       }
+
+      const quizCta = document.getElementById('simpleQuizCta');
+      if (quizCta) quizCta.style.display = 'none';
 
       document.getElementById('chaptersView').style.display = 'none';
       document.getElementById('lessonsView').style.display = 'grid';
