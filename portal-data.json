@@ -1,17 +1,6 @@
 {
   "chapters": [
     {
-      "id": 0,
-      "key": "০০_ভূমিকা",
-      "name": "ভূমিকা (শুরুর আগে)",
-      "english": "Introduction",
-      "icon": "fa-book-bookmark",
-      "desc": "দ্বীনি ইলম অর্জন ও ফারজে আইন পাঠের সূচনা, উদ্দেশ্য ও প্রাথমিক শর্তাবলি",
-      "color": "#0B6E5F",
-      "badge": "পাঠ ০০",
-      "bgImg": "assets/ch_akida.jpg"
-    },
-    {
       "id": 1,
       "key": "০১_আকিদা",
       "name": "আকিদা",
@@ -19,7 +8,7 @@
       "icon": "fa-kaaba",
       "desc": "ঈমান, ইসলাম, তাওহিদ, রিসালাত, মালাইকা ও আখেরাতের মৌলিক বিশ্বাস",
       "color": "#1D4F8D",
-      "badge": "পাঠ ০১ – ১০",
+      "badge": "পাঠ ০০ – ১০",
       "bgImg": "assets/ch_akida.jpg"
     },
     {
@@ -71,8 +60,8 @@
     {
       "id": 0,
       "bengaliNum": "০০",
-      "chapterId": 0,
-      "chapterKey": "০০_ভূমিকা",
+      "chapterId": 1,
+      "chapterKey": "০১_আকিদা",
       "title": "শুরুর আগে",
       "slug": "lesson-00",
       "slideUrl": "slides/lesson-00.html",

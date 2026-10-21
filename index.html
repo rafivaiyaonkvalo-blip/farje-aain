@@ -898,70 +898,7 @@
       box-shadow: 0 4px 14px rgba(245, 158, 11, 0.35);
     }
 
-    /* Hero Mega Quiz Banner */
-    .hero-quiz-cta {
-      display: flex;
-      justify-content: center;
-      margin-top: -6px;
-      margin-bottom: 24px;
-    }
-    .hero-mega-quiz-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 14px;
-      background: linear-gradient(135deg, rgba(14, 165, 233, 0.18) 0%, rgba(16, 185, 129, 0.18) 100%);
-      border: 1.5px solid rgba(56, 189, 248, 0.4);
-      padding: 10px 22px;
-      border-radius: 999px;
-      color: #FFFFFF;
-      cursor: pointer;
-      font-family: var(--font-body);
-      transition: all 0.25s ease;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), 0 0 16px rgba(56, 189, 248, 0.2);
-      text-decoration: none;
-    }
-    .hero-mega-quiz-btn:hover {
-      background: linear-gradient(135deg, rgba(14, 165, 233, 0.3) 0%, rgba(16, 185, 129, 0.3) 100%);
-      border-color: var(--cyan-bright);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 28px rgba(14, 165, 233, 0.35), 0 0 24px rgba(16, 185, 129, 0.3);
-    }
-    .hero-mega-badge {
-      background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
-      color: #FFFFFF;
-      font-size: 0.76rem;
-      font-weight: 700;
-      padding: 3px 10px;
-      border-radius: 999px;
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      box-shadow: 0 2px 8px rgba(245, 158, 11, 0.4);
-    }
-    .hero-mega-text {
-      display: flex;
-      flex-direction: column;
-      text-align: left;
-    }
-    .hero-mega-text strong {
-      font-size: 0.98rem;
-      color: #FFFFFF;
-      font-weight: 700;
-      letter-spacing: 0.2px;
-    }
-    .hero-mega-text span {
-      font-size: 0.78rem;
-      color: var(--cyan-bright);
-      font-weight: 500;
-    }
-    .hero-mega-arrow {
-      color: var(--cyan-bright);
-      font-size: 0.9rem;
-      transition: transform 0.2s ease;
-    }
-    .hero-mega-quiz-btn:hover .hero-mega-arrow {
-      transform: translateX(4px);
-    }
+
 
     /* Chapter View Header Quiz Button */
     .chapter-quiz-btn {
@@ -1021,6 +958,9 @@
       }
       .header-actions .drive-all-btn span {
         display: none;
+      }
+      .nav-mega-quiz-btn {
+        display: none !important;
       }
       .drive-all-btn {
         padding: 6px 10px;
@@ -1177,27 +1117,15 @@
   <section class="hero">
     <div class="hero-badge">
       <i class="fa-solid fa-book-open"></i>
-      <span>৫টি অধ্যায় • ভূমিকা ও ৩৫টি পাঠ (মোট ৩৬টি পাঠ)</span>
+      <span>৫টি মৌলিক অধ্যায় • ৩৫টি পাঠ</span>
     </div>
-    <h2>ফারজে আইন কিতাবের প্রেজেন্টেশন</h2>
-    <p>দ্বীনের অপরিহার্য জ্ঞান অর্জনের লক্ষ্যে ভূমিকা ও ৫টি মৌলিক অধ্যায়ের অধীনে মোট ৩৬টি ডিজিটাল স্লাইড ও প্রিন্ট-রেডি হ্যান্ডআউট সংকলন।</p>
+    <h2>ফারজে আইন প্রেজেন্টেশন</h2>
+    <p>দ্বীনের অপরিহার্য জ্ঞান অর্জনের লক্ষ্যে ৫টি মৌলিক অধ্যায়ের অধীনে মোট ৩৫টি ডিজিটাল স্লাইড ও প্রিন্ট-রেডি হ্যান্ডআউট সংকলন।</p>
     
     <!-- Search Box -->
     <div class="search-box">
       <i class="fa-solid fa-magnifying-glass"></i>
       <input type="text" id="searchInput" placeholder="পাঠের নাম বা নম্বর দিয়ে খুঁজুন (যেমন: তাওহিদ, সালাত, ১২)..." oninput="handleSearch()">
-    </div>
-
-    <!-- Book Quiz Banner Button -->
-    <div class="hero-quiz-cta">
-      <button class="hero-mega-quiz-btn" onclick="openMegaBookQuiz()">
-        <span class="hero-mega-badge"><i class="fa-solid fa-trophy"></i> সার্বিক পরীক্ষা</span>
-        <span class="hero-mega-text">
-          <strong>সম্পূর্ণ কিতাবের সমন্বিত কুইজ</strong>
-          <span>৩৫টি পাঠের ৩৫০০টি প্রশ্নব্যাংক থেকে সামগ্রিক জ্ঞান যাচাই</span>
-        </span>
-        <i class="fa-solid fa-arrow-right hero-mega-arrow"></i>
-      </button>
     </div>
   </section>
 
