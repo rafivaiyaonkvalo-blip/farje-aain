@@ -1233,9 +1233,9 @@
       </a>
 
       <div class="header-actions">
-        <button class="nav-mega-quiz-btn" onclick="openMegaBookQuiz()" title="সম্পূর্ণ কিতাবের মেগা কুইজ">
-          <i class="fa-solid fa-fire"></i>
-          <span>মেগা কুইজ</span>
+        <button class="nav-mega-quiz-btn" onclick="openMegaBookQuiz()" title="সম্পূর্ণ কিতাবের সমন্বিত কুইজ">
+          <i class="fa-solid fa-trophy"></i>
+          <span>কিতাবের কুইজ</span>
         </button>
         <a href="https://drive.google.com/drive/folders/1A-W6HkzzIlc8AMPn09w1YEqrfPCtuir3?usp=drive_link" target="_blank" class="drive-all-btn">
           <i class="fa-brands fa-google-drive"></i>
@@ -1260,13 +1260,13 @@
       <input type="text" id="searchInput" placeholder="পাঠের নাম বা নম্বর দিয়ে খুঁজুন (যেমন: তাওহিদ, সালাত, ১২)..." oninput="handleSearch()">
     </div>
 
-    <!-- Mega Quiz Banner Button -->
+    <!-- Book Quiz Banner Button -->
     <div class="hero-quiz-cta">
       <button class="hero-mega-quiz-btn" onclick="openMegaBookQuiz()">
-        <span class="hero-mega-badge"><i class="fa-solid fa-fire"></i> মেগা চ্যালেঞ্জ</span>
+        <span class="hero-mega-badge"><i class="fa-solid fa-trophy"></i> সার্বিক পরীক্ষা</span>
         <span class="hero-mega-text">
-          <strong>সম্পূর্ণ কিতাবের মেগা কুইজ খেলুন</strong>
-          <span>৩৫টি পাঠের ৩৫০০টি প্রশ্নব্যাংক থেকে সমন্বিত জ্ঞান যাচাই</span>
+          <strong>সম্পূর্ণ কিতাবের সমন্বিত কুইজ</strong>
+          <span>৩৫টি পাঠের ৩৫০০টি প্রশ্নব্যাংক থেকে সামগ্রিক জ্ঞান যাচাই</span>
         </span>
         <i class="fa-solid fa-arrow-right hero-mega-arrow"></i>
       </button>
@@ -1587,14 +1587,6 @@
             <h3>${chap.name}</h3>
             <div class="chapter-sub">${chap.english || ''}</div>
             <p>${chap.desc || ''}</p>
-            <div class="chapter-card-footer">
-              <button class="chapter-btn-sub chapter-btn-open" onclick="event.stopPropagation(); openChapter(${chap.id});" title="পাঠসমূহ দেখুন">
-                <i class="fa-solid fa-book-open"></i> পাঠসমূহ
-              </button>
-              <button class="chapter-btn-sub chapter-btn-quiz" onclick="event.stopPropagation(); openCurrentChapterQuiz(${chap.id});" title="এই অধ্যায়ের সম্পূর্ণ কুইজ খেলুন">
-                <i class="fa-solid fa-trophy"></i> অধ্যায় কুইজ
-              </button>
-            </div>
           </div>
         `;
         container.appendChild(card);
@@ -1839,7 +1831,7 @@
       setQuizModes([
         { count: 10, title: 'কুইক টেস্ট (১০টি প্রশ্ন)', desc: 'দ্রুত প্রস্তুতি ও মৌলিক জ্ঞান যাচাইয়ের জন্য (৫ মিনিট)', color: 'var(--cyan-bright)', icon: 'fa-bolt' },
         { count: 25, title: 'স্ট্যান্ডার্ড টেস্ট (২৫টি প্রশ্ন)', desc: 'গভীর মূল্যায়ন ও আত্মবিশ্বাসী প্রস্তুতির জন্য (১৫ মিনিট)', color: 'var(--emerald-mint)', icon: 'fa-bullseye' },
-        { count: 100, title: 'পূর্ণাঙ্গ ১০০ প্রশ্ন চ্যালেঞ্জ', desc: 'সম্পূর্ণ পাঠের এ টু জেড পুঙ্খানুপুঙ্খ মাস্টার করুন', color: '#F59E0B', icon: 'fa-award' }
+        { count: 100, title: 'পূর্ণাঙ্গ টেস্ট (১০০টি প্রশ্ন)', desc: 'সম্পূর্ণ পাঠের সকল বিষয়ের পুঙ্খানুপুঙ্খ মূল্যায়ন', color: '#F59E0B', icon: 'fa-award' }
       ], 10, 'এই পাঠের জন্য <strong style="color: var(--cyan-bright);">১০০টি যাচাইকৃত ২-অপশন বহুনির্বাচনী প্রশ্নব্যাংক</strong> প্রস্তুত রয়েছে। আপনার পছন্দসই কুইজ মোড নির্বাচন করুন:');
 
       showQuizModal();
@@ -1875,7 +1867,7 @@
         { count: 15, title: 'অধ্যায় কুইক টেস্ট (১৫টি প্রশ্ন)', desc: 'অধ্যায়ের মৌলিক বিধানসমূহের দ্রুত যাচাই (৮ মিনিট)', color: 'var(--cyan-bright)', icon: 'fa-bolt' },
         { count: 30, title: 'অধ্যায় স্ট্যান্ডার্ড টেস্ট (৩০টি প্রশ্ন)', desc: 'সকল পাঠের সমন্বিত ভারসাম্যপূর্ণ মূল্যায়ন (১৮ মিনিট)', color: 'var(--emerald-mint)', icon: 'fa-bullseye' },
         { count: 50, title: 'অধ্যায় গ্র্যান্ড টেস্ট (৫০টি প্রশ্ন)', desc: 'গভীর আত্মমূল্যায়ন ও পূর্ণাঙ্গ প্রস্তুতি (৩০ মিনিট)', color: '#6366F1', icon: 'fa-shield-halved' },
-        { count: 100, title: 'অধ্যায় ১০০ সুপার চ্যালেঞ্জ', desc: 'অধ্যায়ের সকল পাঠ থেকে ১০০টি গুরুত্বপূর্ণ প্রশ্ন', color: '#F59E0B', icon: 'fa-award' }
+        { count: 100, title: 'অধ্যায় পূর্ণাঙ্গ টেস্ট (১০০টি প্রশ্ন)', desc: 'অধ্যায়ের সকল পাঠের সমন্বিত পুঙ্খানুপুঙ্খ মূল্যায়ন', color: '#F59E0B', icon: 'fa-award' }
       ], 30, `‘<strong style="color: var(--cyan-bright);">${chap.name}</strong>’ অধ্যায়ের সকল পাঠের সমন্বিত ২-অপশন প্রশ্নব্যাংক। প্রশ্নের সংখ্যা নির্বাচন করুন:`);
 
       showQuizModal();
@@ -1892,19 +1884,19 @@
       }
     }
 
-    // 3. Open Mega Book Quiz ("সম্পূর্ণ কিতাবের মেগা কুইজ")
+    // 3. Open Book Quiz ("সম্পূর্ণ কিতাবের সমন্বিত কুইজ")
     async function openMegaBookQuiz() {
       quizState.type = 'mega';
       quizState.lessonId = null;
       quizState.chapterId = null;
-      quizState.quizTitle = 'সম্পূর্ণ কিতাবের মেগা কুইজ (৩৫টি পাঠের মহাচ্যালেঞ্জ)';
+      quizState.quizTitle = 'সম্পূর্ণ কিতাবের সমন্বিত কুইজ (৩৫টি পাঠ)';
       document.getElementById('quizTitle').innerText = quizState.quizTitle;
       updateSoundIcon();
 
       setQuizModes([
-        { count: 25, title: 'মেগা কুইক টেস্ট (২৫টি প্রশ্ন)', desc: '৫টি অধ্যায় ও ৩৫টি পাঠের মৌলিক সারসংক্ষেপ (১৫ মিনিট)', color: 'var(--cyan-bright)', icon: 'fa-bolt' },
-        { count: 50, title: 'মেগা গ্র্যান্ড টেস্ট (৫০টি প্রশ্ন)', desc: 'সমগ্র কিতাবের ভারসাম্যপূর্ণ সমন্বিত পরীক্ষা (৩০ মিনিট)', color: 'var(--emerald-mint)', icon: 'fa-bullseye' },
-        { count: 100, title: 'মেগা ১০০ আলটিমেট চ্যালেঞ্জ', desc: 'সম্পূর্ণ কিতাবের এ টু জেড চূড়ান্ত আত্মমূল্যায়ন', color: '#F59E0B', icon: 'fa-fire' }
+        { count: 25, title: 'কুইক টেস্ট (২৫টি প্রশ্ন)', desc: '৫টি অধ্যায় ও ৩৫টি পাঠের মৌলিক সারসংক্ষেপ (১৫ মিনিট)', color: 'var(--cyan-bright)', icon: 'fa-bolt' },
+        { count: 50, title: 'স্ট্যান্ডার্ড টেস্ট (৫০টি প্রশ্ন)', desc: 'সমগ্র কিতাবের ভারসাম্যপূর্ণ সমন্বিত পরীক্ষা (৩০ মিনিট)', color: 'var(--emerald-mint)', icon: 'fa-bullseye' },
+        { count: 100, title: 'পূর্ণাঙ্গ কিতাব টেস্ট (১০০টি প্রশ্ন)', desc: 'সম্পূর্ণ কিতাবের এ টু জেড চূড়ান্ত আত্মমূল্যায়ন', color: '#F59E0B', icon: 'fa-award' }
       ], 50, '৫টি অধ্যায় ও ৩৫টি পাঠের সমন্বিত <strong style="color: var(--cyan-bright);">৩,৫০০টি যাচাইকৃত ২-অপশন প্রশ্নব্যাংক</strong>। প্রশ্নের সংখ্যা নির্বাচন করুন:');
 
       showQuizModal();
