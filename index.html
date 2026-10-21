@@ -873,6 +873,163 @@
       color: #FFFFFF;
     }
 
+    /* Header Mega Quiz Button */
+    .nav-mega-quiz-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(245, 158, 11, 0.15);
+      border: 1px solid rgba(245, 158, 11, 0.45);
+      color: #FBBF24;
+      padding: 7px 15px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      font-weight: 600;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .nav-mega-quiz-btn:hover {
+      background: rgba(245, 158, 11, 0.28);
+      border-color: #F59E0B;
+      color: #FFFFFF;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(245, 158, 11, 0.35);
+    }
+
+    /* Hero Mega Quiz Banner */
+    .hero-quiz-cta {
+      display: flex;
+      justify-content: center;
+      margin-top: -6px;
+      margin-bottom: 24px;
+    }
+    .hero-mega-quiz-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      background: linear-gradient(135deg, rgba(14, 165, 233, 0.18) 0%, rgba(16, 185, 129, 0.18) 100%);
+      border: 1.5px solid rgba(56, 189, 248, 0.4);
+      padding: 10px 22px;
+      border-radius: 999px;
+      color: #FFFFFF;
+      cursor: pointer;
+      font-family: var(--font-body);
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), 0 0 16px rgba(56, 189, 248, 0.2);
+      text-decoration: none;
+    }
+    .hero-mega-quiz-btn:hover {
+      background: linear-gradient(135deg, rgba(14, 165, 233, 0.3) 0%, rgba(16, 185, 129, 0.3) 100%);
+      border-color: var(--cyan-bright);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(14, 165, 233, 0.35), 0 0 24px rgba(16, 185, 129, 0.3);
+    }
+    .hero-mega-badge {
+      background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+      color: #FFFFFF;
+      font-size: 0.76rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      box-shadow: 0 2px 8px rgba(245, 158, 11, 0.4);
+    }
+    .hero-mega-text {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+    }
+    .hero-mega-text strong {
+      font-size: 0.98rem;
+      color: #FFFFFF;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+    }
+    .hero-mega-text span {
+      font-size: 0.78rem;
+      color: var(--cyan-bright);
+      font-weight: 500;
+    }
+    .hero-mega-arrow {
+      color: var(--cyan-bright);
+      font-size: 0.9rem;
+      transition: transform 0.2s ease;
+    }
+    .hero-mega-quiz-btn:hover .hero-mega-arrow {
+      transform: translateX(4px);
+    }
+
+    /* Chapter View Header Quiz Button */
+    .chapter-quiz-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.2) 0%, rgba(14, 165, 233, 0.2) 100%);
+      border: 1px solid rgba(16, 185, 129, 0.5);
+      color: #34D399;
+      padding: 7px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      font-weight: 600;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .chapter-quiz-btn:hover {
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.35) 0%, rgba(14, 165, 233, 0.35) 100%);
+      border-color: #10B981;
+      color: #FFFFFF;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(16, 185, 129, 0.4);
+    }
+
+    /* Chapter Card Footer Quick Actions */
+    .chapter-card-footer {
+      display: flex;
+      gap: 8px;
+      margin-top: 14px;
+      padding-top: 10px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .chapter-btn-sub {
+      flex: 1;
+      padding: 7px 8px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      border-radius: 6px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      font-family: var(--font-body);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      transition: all 0.2s ease;
+    }
+    .chapter-btn-open {
+      background: rgba(56, 189, 248, 0.12);
+      border-color: rgba(56, 189, 248, 0.3);
+      color: var(--cyan-bright);
+    }
+    .chapter-btn-open:hover {
+      background: rgba(56, 189, 248, 0.25);
+      color: #FFFFFF;
+    }
+    .chapter-btn-quiz {
+      background: rgba(16, 185, 129, 0.12);
+      border-color: rgba(16, 185, 129, 0.3);
+      color: var(--emerald-mint);
+    }
+    .chapter-btn-quiz:hover {
+      background: rgba(16, 185, 129, 0.25);
+      color: #FFFFFF;
+    }
+
     /* Footer */
     footer {
       background: #040A14;
@@ -975,6 +1132,10 @@
       </a>
 
       <div class="header-actions">
+        <button class="nav-mega-quiz-btn" onclick="openMegaBookQuiz()" title="সম্পূর্ণ কিতাবের মেগা কুইজ">
+          <i class="fa-solid fa-fire"></i>
+          <span>মেগা কুইজ</span>
+        </button>
         <a href="https://drive.google.com/drive/folders/1A-W6HkzzIlc8AMPn09w1YEqrfPCtuir3?usp=drive_link" target="_blank" class="drive-all-btn">
           <i class="fa-brands fa-google-drive"></i>
           <span>ড্রাইভ ফোল্ডার</span>
@@ -997,6 +1158,18 @@
       <i class="fa-solid fa-magnifying-glass"></i>
       <input type="text" id="searchInput" placeholder="পাঠের নাম বা নম্বর দিয়ে খুঁজুন (যেমন: তাওহিদ, সালাত, ১২)..." oninput="handleSearch()">
     </div>
+
+    <!-- Mega Quiz Banner Button -->
+    <div class="hero-quiz-cta">
+      <button class="hero-mega-quiz-btn" onclick="openMegaBookQuiz()">
+        <span class="hero-mega-badge"><i class="fa-solid fa-fire"></i> মেগা চ্যালেঞ্জ</span>
+        <span class="hero-mega-text">
+          <strong>সম্পূর্ণ কিতাবের মেগা কুইজ খেলুন</strong>
+          <span>৩৫টি পাঠের ৩৫০০টি প্রশ্নব্যাংক থেকে সমন্বিত জ্ঞান যাচাই</span>
+        </span>
+        <i class="fa-solid fa-arrow-right hero-mega-arrow"></i>
+      </button>
+    </div>
   </section>
 
   <!-- Main Content -->
@@ -1008,6 +1181,10 @@
         <span>সকল অধ্যায়ে ফিরুন</span>
       </button>
       <div class="view-title" id="currentViewTitle"></div>
+      <button class="chapter-quiz-btn" id="chapterQuizBtn" onclick="openCurrentChapterQuiz()" title="এই অধ্যায়ের সম্পূর্ণ কুইজ খেলুন">
+        <i class="fa-solid fa-trophy"></i>
+        <span>অধ্যায় কুইজ</span>
+      </button>
     </div>
 
     <!-- 5 CHAPTER SQUARE CARDS GRID -->
@@ -1042,44 +1219,12 @@
       <!-- SCREEN 1: MODE SELECTOR SCREEN -->
       <div id="quizModeScreen">
         <div style="text-align: center; margin-bottom: 16px;">
-          <p style="color: var(--text-dim); font-size: 0.92rem;">
-            এই পাঠের জন্য <strong style="color: var(--cyan-bright);">১০০টি যাচাইকৃত বহুনির্বাচনী প্রশ্নব্যাংক</strong> প্রস্তুত রয়েছে। আপনার পছন্দসই কুইজ মোড নির্বাচন করুন:
-          </p>
+          <p id="quizModeDesc" style="color: var(--text-dim); font-size: 0.92rem; line-height: 1.5;"></p>
         </div>
 
-        <div class="quiz-mode-grid">
-          <div class="quiz-mode-card selected" onclick="selectQuizMode(10, this)">
-            <div>
-              <h4 style="color: #FFFFFF; font-size: 1.05rem; margin-bottom: 4px;">
-                <i class="fa-solid fa-bolt" style="color: var(--cyan-bright);"></i> কুইক টেস্ট (১০টি প্রশ্ন)
-              </h4>
-              <p style="color: var(--text-dim); font-size: 0.82rem;">দ্রুত প্রস্তুতি ও মৌলিক জ্ঞান যাচাইয়ের জন্য আদর্শ (৫ মিনিট)</p>
-            </div>
-            <span style="font-weight: 700; color: var(--cyan-bright); font-size: 0.9rem;">১০ প্রশ্ন</span>
-          </div>
+        <div class="quiz-mode-grid" id="quizModesList"></div>
 
-          <div class="quiz-mode-card" onclick="selectQuizMode(25, this)">
-            <div>
-              <h4 style="color: #FFFFFF; font-size: 1.05rem; margin-bottom: 4px;">
-                <i class="fa-solid fa-bullseye" style="color: var(--emerald-mint);"></i> স্ট্যান্ডার্ড টেস্ট (২৫টি প্রশ্ন)
-              </h4>
-              <p style="color: var(--text-dim); font-size: 0.82rem;">গভীর মূল্যায়ন ও আত্মবিশ্বাসী প্রস্তুতির জন্য (১৫ মিনিট)</p>
-            </div>
-            <span style="font-weight: 700; color: var(--emerald-mint); font-size: 0.9rem;">২৫ প্রশ্ন</span>
-          </div>
-
-          <div class="quiz-mode-card" onclick="selectQuizMode(100, this)">
-            <div>
-              <h4 style="color: #FFFFFF; font-size: 1.05rem; margin-bottom: 4px;">
-                <i class="fa-solid fa-award" style="color: #F59E0B;"></i> পূর্ণাঙ্গ ১০০ প্রশ্ন চ্যালেঞ্জ
-              </h4>
-              <p style="color: var(--text-dim); font-size: 0.82rem;">সম্পূর্ণ পাঠের এ টু জেড পুঙ্খানুপুঙ্খ মাস্টার করুন</p>
-            </div>
-            <span style="font-weight: 700; color: #F59E0B; font-size: 0.9rem;">১০০ প্রশ্ন</span>
-          </div>
-        </div>
-
-        <button class="quiz-btn-primary" style="width: 100%; justify-content: center; padding: 13px; font-size: 1.02rem; margin-top: 8px;" onclick="startQuizGame()">
+        <button class="quiz-btn-primary" style="width: 100%; justify-content: center; padding: 13px; font-size: 1.02rem; margin-top: 14px;" onclick="startQuizGame()">
           <span>কুইজ শুরু করুন</span> <i class="fa-solid fa-play"></i>
         </button>
       </div>
@@ -1219,6 +1364,14 @@
             <h3>${chap.name}</h3>
             <div class="chapter-sub">${chap.english || ''}</div>
             <p>${chap.desc || ''}</p>
+            <div class="chapter-card-footer">
+              <button class="chapter-btn-sub chapter-btn-open" onclick="event.stopPropagation(); openChapter(${chap.id});" title="পাঠসমূহ দেখুন">
+                <i class="fa-solid fa-book-open"></i> পাঠসমূহ
+              </button>
+              <button class="chapter-btn-sub chapter-btn-quiz" onclick="event.stopPropagation(); openCurrentChapterQuiz(${chap.id});" title="এই অধ্যায়ের সম্পূর্ণ কুইজ খেলুন">
+                <i class="fa-solid fa-trophy"></i> অধ্যায় কুইজ
+              </button>
+            </div>
           </div>
         `;
         container.appendChild(card);
@@ -1336,8 +1489,10 @@
     }
 
     const quizState = {
+      type: 'lesson', // 'lesson' | 'chapter' | 'mega'
       lessonId: null,
-      lessonTitle: '',
+      chapterId: null,
+      quizTitle: '',
       allQuestions: [],
       activeQuestions: [],
       currentIndex: 0,
@@ -1415,45 +1570,21 @@
       }
     }
 
-    // Open Quiz Modal & Fetch Lesson 100-MCQ Bank
-    async function openQuiz(lessonId) {
-      activeQuizLesson = portalData.lessons.find(l => l.id === lessonId);
-      if (!activeQuizLesson) return;
-
-      quizState.lessonId = lessonId;
-      quizState.lessonTitle = `পাঠ ${activeQuizLesson.bengaliNum}: ${activeQuizLesson.title}`;
-      document.getElementById('quizTitle').innerText = quizState.lessonTitle;
-      updateSoundIcon();
-
-      const numStr = String(lessonId).padStart(2, '0');
-      document.getElementById('quizModal').style.display = 'flex';
-      
-      // Reset screens
-      document.getElementById('quizModeScreen').style.display = 'block';
-      document.getElementById('quizPlayScreen').style.display = 'none';
-      document.getElementById('quizResultScreen').style.display = 'none';
-      document.getElementById('quizReviewScreen').style.display = 'none';
-
-      try {
-        const res = await fetch(`quiz-data/quiz-lesson-${numStr}.json?t=` + Date.now(), { cache: 'no-store' });
-        if (res.ok) {
-          quizState.allQuestions = await res.json();
-        } else {
-          // Fallback if network issue
-          quizState.allQuestions = generateFallbackQuestions(activeQuizLesson);
-        }
-      } catch (e) {
-        console.warn('Using local fallback questions:', e);
-        quizState.allQuestions = generateFallbackQuestions(activeQuizLesson);
-      }
-    }
-
-    function generateFallbackQuestions(lesson) {
-      return [
-        { id: 1, q: `১. '${lesson.title}' পাঠটি শরিয়তের কোন বিষয়ের অন্তর্ভুক্ত?`, options: ["ফরজে আইন আবশ্যক জ্ঞান", "ঐচ্ছিক জ্ঞান", "সাধারণ দুনিয়াবি তথ্য", "প্রচলিত সংস্কৃতি"], ans: 0, explanation: "কিতাবুল ফারজে আইন প্রতিটি মুসলিমের জন্য আবশ্যক ধর্মীয় জ্ঞানের সংকলন।" },
-        { id: 2, q: `২. এই পাঠের মৌলিক হুকুম জানা প্রত্যেক মুসলিমের ওপর কী?`, options: ["ফরজে আইন (বাধ্যতামূলক)", "মুস্তাহাব", "মাকরুহ", "নফল"], ans: 0, explanation: "ফরজে আইন বিষয়ের ইলম অর্জন করা প্রত্যেকের ওপর ব্যক্তিগত ফরজ।" },
-        { id: 3, q: `৩. শরিয়তের যেকোনো বিধান পালনের মূল লক্ষ্য কোনটি?`, options: ["আল্লাহ তাআলার সন্তুষ্টি ও নাজাত", "মানুষের প্রশংসা", "লোকদেখানো", "পার্থিব সম্পদ"], ans: 0, explanation: "সকল আমল কেবল আল্লাহর সন্তুষ্টির উদ্দেশ্যে একনিষ্ঠভাবে আদায় করতে হয়।" }
-      ];
+    function setQuizModes(modes, defaultCount, desc) {
+      document.getElementById('quizModeDesc').innerHTML = desc;
+      quizState.selectedMode = defaultCount;
+      const container = document.getElementById('quizModesList');
+      container.innerHTML = modes.map(m => `
+        <div class="quiz-mode-card ${m.count === defaultCount ? 'selected' : ''}" onclick="selectQuizMode(${m.count}, this)">
+          <div>
+            <h4 style="color: #FFFFFF; font-size: 1.05rem; margin-bottom: 4px;">
+              <i class="fa-solid ${m.icon}" style="color: ${m.color};"></i> ${m.title}
+            </h4>
+            <p style="color: var(--text-dim); font-size: 0.82rem;">${m.desc}</p>
+          </div>
+          <span style="font-weight: 700; color: ${m.color}; font-size: 0.9rem;">${toBn(m.count)} প্রশ্ন</span>
+        </div>
+      `).join('');
     }
 
     function selectQuizMode(count, el) {
@@ -1462,17 +1593,130 @@
       if (el) el.classList.add('selected');
     }
 
+    function showQuizModal() {
+      document.getElementById('quizModal').style.display = 'flex';
+      document.getElementById('quizModeScreen').style.display = 'block';
+      document.getElementById('quizPlayScreen').style.display = 'none';
+      document.getElementById('quizResultScreen').style.display = 'none';
+      document.getElementById('quizReviewScreen').style.display = 'none';
+    }
+
+    // 1. Open Lesson Quiz (100 MCQs with 2 options)
+    async function openQuiz(lessonId) {
+      activeQuizLesson = portalData.lessons.find(l => l.id === lessonId);
+      if (!activeQuizLesson) return;
+
+      quizState.type = 'lesson';
+      quizState.lessonId = lessonId;
+      quizState.chapterId = activeQuizLesson.chapterId;
+      quizState.quizTitle = `পাঠ ${activeQuizLesson.bengaliNum}: ${activeQuizLesson.title}`;
+      document.getElementById('quizTitle').innerText = quizState.quizTitle;
+      updateSoundIcon();
+
+      setQuizModes([
+        { count: 10, title: 'কুইক টেস্ট (১০টি প্রশ্ন)', desc: 'দ্রুত প্রস্তুতি ও মৌলিক জ্ঞান যাচাইয়ের জন্য (৫ মিনিট)', color: 'var(--cyan-bright)', icon: 'fa-bolt' },
+        { count: 25, title: 'স্ট্যান্ডার্ড টেস্ট (২৫টি প্রশ্ন)', desc: 'গভীর মূল্যায়ন ও আত্মবিশ্বাসী প্রস্তুতির জন্য (১৫ মিনিট)', color: 'var(--emerald-mint)', icon: 'fa-bullseye' },
+        { count: 100, title: 'পূর্ণাঙ্গ ১০০ প্রশ্ন চ্যালেঞ্জ', desc: 'সম্পূর্ণ পাঠের এ টু জেড পুঙ্খানুপুঙ্খ মাস্টার করুন', color: '#F59E0B', icon: 'fa-award' }
+      ], 10, 'এই পাঠের জন্য <strong style="color: var(--cyan-bright);">১০০টি যাচাইকৃত ২-অপশন বহুনির্বাচনী প্রশ্নব্যাংক</strong> প্রস্তুত রয়েছে। আপনার পছন্দসই কুইজ মোড নির্বাচন করুন:');
+
+      showQuizModal();
+
+      const numStr = String(lessonId).padStart(2, '0');
+      try {
+        const res = await fetch(`quiz-data/quiz-lesson-${numStr}.json?t=` + Date.now(), { cache: 'no-store' });
+        if (res.ok) {
+          quizState.allQuestions = await res.json();
+        } else {
+          quizState.allQuestions = generateFallbackQuestions(activeQuizLesson);
+        }
+      } catch (e) {
+        console.warn('Using local fallback questions:', e);
+        quizState.allQuestions = generateFallbackQuestions(activeQuizLesson);
+      }
+    }
+
+    // 2. Open Chapter Quiz ("সম্পূর্ণ অধ্যায়ের কুইজ")
+    async function openCurrentChapterQuiz(targetChapterId) {
+      const chId = targetChapterId || currentChapterId || 1;
+      const chap = portalData.chapters.find(c => c.id === chId);
+      if (!chap) return;
+
+      quizState.type = 'chapter';
+      quizState.lessonId = null;
+      quizState.chapterId = chId;
+      quizState.quizTitle = `অধ্যায় কুইজ: ${chap.name} (${chap.badge || chap.count})`;
+      document.getElementById('quizTitle').innerText = quizState.quizTitle;
+      updateSoundIcon();
+
+      setQuizModes([
+        { count: 15, title: 'অধ্যায় কুইক টেস্ট (১৫টি প্রশ্ন)', desc: 'অধ্যায়ের মৌলিক বিধানসমূহের দ্রুত যাচাই (৮ মিনিট)', color: 'var(--cyan-bright)', icon: 'fa-bolt' },
+        { count: 30, title: 'অধ্যায় স্ট্যান্ডার্ড টেস্ট (৩০টি প্রশ্ন)', desc: 'সকল পাঠের সমন্বিত ভারসাম্যপূর্ণ মূল্যায়ন (১৮ মিনিট)', color: 'var(--emerald-mint)', icon: 'fa-bullseye' },
+        { count: 50, title: 'অধ্যায় গ্র্যান্ড টেস্ট (৫০টি প্রশ্ন)', desc: 'গভীর আত্মমূল্যায়ন ও পূর্ণাঙ্গ প্রস্তুতি (৩০ মিনিট)', color: '#6366F1', icon: 'fa-shield-halved' },
+        { count: 100, title: 'অধ্যায় ১০০ সুপার চ্যালেঞ্জ', desc: 'অধ্যায়ের সকল পাঠ থেকে ১০০টি গুরুত্বপূর্ণ প্রশ্ন', color: '#F59E0B', icon: 'fa-award' }
+      ], 30, `‘<strong style="color: var(--cyan-bright);">${chap.name}</strong>’ অধ্যায়ের সকল পাঠের সমন্বিত ২-অপশন প্রশ্নব্যাংক। প্রশ্নের সংখ্যা নির্বাচন করুন:`);
+
+      showQuizModal();
+
+      try {
+        const res = await fetch(`quiz-data/quiz-chapter-${chId}.json?t=` + Date.now(), { cache: 'no-store' });
+        if (res.ok) {
+          quizState.allQuestions = await res.json();
+        } else {
+          quizState.allQuestions = [];
+        }
+      } catch (e) {
+        console.error('Failed to load chapter quiz:', e);
+      }
+    }
+
+    // 3. Open Mega Book Quiz ("সম্পূর্ণ কিতাবের মেগা কুইজ")
+    async function openMegaBookQuiz() {
+      quizState.type = 'mega';
+      quizState.lessonId = null;
+      quizState.chapterId = null;
+      quizState.quizTitle = 'সম্পূর্ণ কিতাবের মেগা কুইজ (৩৫টি পাঠের মহাচ্যালেঞ্জ)';
+      document.getElementById('quizTitle').innerText = quizState.quizTitle;
+      updateSoundIcon();
+
+      setQuizModes([
+        { count: 25, title: 'মেগা কুইক টেস্ট (২৫টি প্রশ্ন)', desc: '৫টি অধ্যায় ও ৩৫টি পাঠের মৌলিক সারসংক্ষেপ (১৫ মিনিট)', color: 'var(--cyan-bright)', icon: 'fa-bolt' },
+        { count: 50, title: 'মেগা গ্র্যান্ড টেস্ট (৫০টি প্রশ্ন)', desc: 'সমগ্র কিতাবের ভারসাম্যপূর্ণ সমন্বিত পরীক্ষা (৩০ মিনিট)', color: 'var(--emerald-mint)', icon: 'fa-bullseye' },
+        { count: 100, title: 'মেগা ১০০ আলটিমেট চ্যালেঞ্জ', desc: 'সম্পূর্ণ কিতাবের এ টু জেড চূড়ান্ত আত্মমূল্যায়ন', color: '#F59E0B', icon: 'fa-fire' }
+      ], 50, '৫টি অধ্যায় ও ৩৫টি পাঠের সমন্বিত <strong style="color: var(--cyan-bright);">৩,৫০০টি যাচাইকৃত ২-অপশন প্রশ্নব্যাংক</strong>। প্রশ্নের সংখ্যা নির্বাচন করুন:');
+
+      showQuizModal();
+
+      try {
+        const res = await fetch(`quiz-data/quiz-mega-challenge.json?t=` + Date.now(), { cache: 'no-store' });
+        if (res.ok) {
+          quizState.allQuestions = await res.json();
+        } else {
+          quizState.allQuestions = [];
+        }
+      } catch (e) {
+        console.error('Failed to load mega quiz:', e);
+      }
+    }
+
+    function generateFallbackQuestions(lesson) {
+      return [
+        { id: 1, q: `১. '${lesson.title}' পাঠটি শরিয়তের কোন বিষয়ের অন্তর্ভুক্ত?`, options: ["ফরজে আইন আবশ্যক জ্ঞান", "ঐচ্ছিক জ্ঞান"], ans: 0, explanation: "ফারজে আইন প্রতিটি মুসলিমের জন্য আবশ্যক ধর্মীয় জ্ঞানের সংকলন।" },
+        { id: 2, q: `২. এই পাঠের মৌলিক হুকুম জানা প্রত্যেক মুসলিমের ওপর কী?`, options: ["ফরজে আইন (বাধ্যতামূলক)", "নফল"], ans: 0, explanation: "ফরজে আইন বিষয়ের ইলম অর্জন করা প্রত্যেকের ওপর ব্যক্তিগত ফরজ।" },
+        { id: 3, q: `৩. শরিয়তের যেকোনো বিধান পালনের মূল লক্ষ্য কোনটি?`, options: ["আল্লাহ তাআলার সন্তুষ্টি ও নাজাত", "মানুষের প্রশংসা ও লোকদেখানো"], ans: 0, explanation: "সকল আমল কেবল আল্লাহর সন্তুষ্টির উদ্দেশ্যে একনিষ্ঠভাবে আদায় করতে হয়।" }
+      ];
+    }
+
     function startQuizGame() {
+      if (!quizState.allQuestions || quizState.allQuestions.length === 0) {
+        alert('প্রশ্ন লোড হচ্ছে, অনুগ্রহ করে কয়েক মুহূর্ত অপেক্ষা করুন...');
+        return;
+      }
       const totalAvailable = quizState.allQuestions.length;
       const count = Math.min(quizState.selectedMode, totalAvailable);
       
-      // Shuffle if less than total, or sequential if full challenge
-      if (count < totalAvailable) {
-        const shuffled = [...quizState.allQuestions].sort(() => 0.5 - Math.random());
-        quizState.activeQuestions = shuffled.slice(0, count);
-      } else {
-        quizState.activeQuestions = [...quizState.allQuestions];
-      }
+      // Shuffle randomly on every game
+      const shuffled = [...quizState.allQuestions].sort(() => 0.5 - Math.random());
+      quizState.activeQuestions = shuffled.slice(0, count);
 
       quizState.currentIndex = 0;
       quizState.score = 0;
@@ -1485,7 +1729,7 @@
       renderCurrentQuestion();
     }
 
-    const optLetters = ['ক', 'খ', 'গ', 'ঘ'];
+    const optLetters = ['(ক)', '(খ)'];
 
     function renderCurrentQuestion() {
       const total = quizState.activeQuestions.length;
@@ -1500,16 +1744,16 @@
       // Question title
       document.getElementById('quizQuestionText').innerText = currentQ.q;
 
-      // Options
+      // Options (strictly 2 options with touch targets)
       const optionsContainer = document.getElementById('quizOptionsContainer');
       optionsContainer.innerHTML = currentQ.options.map((opt, idx) => `
         <button class="quiz-opt-btn" onclick="handleOptionClick(${idx})" data-index="${idx}">
           <span class="quiz-opt-badge">${optLetters[idx] || (idx + 1)}</span>
-          <span>${opt}</span>
+          <span class="quiz-opt-text">${opt}</span>
         </button>
       `).join('');
 
-      // Hide explanation and next button
+      // Hide explanation and next button until answered
       document.getElementById('quizExplanationBox').style.display = 'none';
       document.getElementById('quizNextBtn').style.display = 'none';
     }
@@ -1526,10 +1770,10 @@
       buttons.forEach((btn, idx) => {
         if (idx === currentQ.ans) {
           btn.classList.add('correct');
-          btn.innerHTML += ` <i class="fa-solid fa-check" style="margin-left:auto; color:#10B981;"></i>`;
+          btn.innerHTML += ` <i class="fa-solid fa-check" style="margin-left:auto; color:#10B981; font-size:1.15rem;"></i>`;
         } else if (idx === selectedIdx && !isCorrect) {
           btn.classList.add('wrong');
-          btn.innerHTML += ` <i class="fa-solid fa-xmark" style="margin-left:auto; color:#EF4444;"></i>`;
+          btn.innerHTML += ` <i class="fa-solid fa-xmark" style="margin-left:auto; color:#EF4444; font-size:1.15rem;"></i>`;
         }
       });
 
@@ -1550,14 +1794,14 @@
       // Update live score
       document.getElementById('quizLiveScore').innerText = `✓ ${toBn(quizState.score)} | ✗ ${toBn(quizState.wrongCount)}`;
 
-      // Show educational explanation
+      // Show educational explanation immediately
       const expBox = document.getElementById('quizExplanationBox');
       expBox.style.display = 'block';
       expBox.innerHTML = `
-        <div style="font-weight: 700; color: var(--cyan-bright); margin-bottom: 4px; display: flex; align-items: center; gap: 6px;">
+        <div style="font-weight: 700; color: var(--cyan-bright); margin-bottom: 5px; display: flex; align-items: center; gap: 7px;">
           <i class="fa-solid fa-lightbulb"></i> <span>সহিহ ব্যাখ্যা ও কিতাবের রেফারেন্স:</span>
         </div>
-        <div>${currentQ.explanation || 'সহিহ সুন্নাহ ও কিতাবুল ফারজে আইনের মূল পাঠ অনুসারে এটি প্রমাণিত।'}</div>
+        <div style="color: #E2E8F0; font-size: 0.94rem; line-height: 1.55;">${currentQ.explanation || 'সহিহ সুন্নাহ ও ফারজে আইনের মূল পাঠ অনুসারে এটি প্রমাণিত।'}</div>
       `;
 
       // Show next button
@@ -1567,6 +1811,7 @@
       nextBtn.innerHTML = isLast 
         ? `<span>ফলাফল দেখুন</span> <i class="fa-solid fa-trophy"></i>` 
         : `<span>পরবর্তী প্রশ্ন</span> <i class="fa-solid fa-arrow-right"></i>`;
+      nextBtn.focus();
     }
 
     function nextQuestion() {
@@ -1679,7 +1924,7 @@
       document.getElementById('quizModal').style.display = 'none';
     }
 
-    // Keyboard support: 1, 2, 3, 4 to select options; Enter/ArrowRight to advance; Escape to close
+    // Keyboard support: 1/ক for opt 1, 2/খ for opt 2; Enter/ArrowRight/Space to advance; Escape to close
     document.addEventListener('keydown', (e) => {
       const modal = document.getElementById('quizModal');
       if (!modal || modal.style.display !== 'flex') return;
@@ -1691,18 +1936,12 @@
 
       const playScreen = document.getElementById('quizPlayScreen');
       if (playScreen && playScreen.style.display === 'block') {
-        if (e.key === '1' || e.key === '১') {
+        if (e.key === '1' || e.key === '১' || e.key.toLowerCase() === 'a' || e.key === 'ক') {
           const btn = document.querySelector('.quiz-opt-btn[data-index="0"]');
           if (btn && !btn.disabled) handleOptionClick(0);
-        } else if (e.key === '2' || e.key === '২') {
+        } else if (e.key === '2' || e.key === '২' || e.key.toLowerCase() === 'b' || e.key === 'খ') {
           const btn = document.querySelector('.quiz-opt-btn[data-index="1"]');
           if (btn && !btn.disabled) handleOptionClick(1);
-        } else if (e.key === '3' || e.key === '৩') {
-          const btn = document.querySelector('.quiz-opt-btn[data-index="2"]');
-          if (btn && !btn.disabled) handleOptionClick(2);
-        } else if (e.key === '4' || e.key === '৪') {
-          const btn = document.querySelector('.quiz-opt-btn[data-index="3"]');
-          if (btn && !btn.disabled) handleOptionClick(3);
         } else if (e.key === 'Enter' || e.key === 'ArrowRight' || e.key === ' ') {
           const nextBtn = document.getElementById('quizNextBtn');
           if (nextBtn && nextBtn.style.display !== 'none') {
