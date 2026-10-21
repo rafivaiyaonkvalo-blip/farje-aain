@@ -1549,6 +1549,10 @@
         card.className = 'lesson-card';
 
         const downloadUrl = l.downloadUrl || l.driveUrl;
+        const cleanSlidePath = (l.slideUrl || '').replace(/\.html$/i, '');
+        const slideTargetUrl = (window.location.pathname.startsWith('/farj'))
+          ? `/farj/${cleanSlidePath}`
+          : `${cleanSlidePath}`;
 
         card.innerHTML = `
           <div>
@@ -1559,7 +1563,7 @@
             <h4 class="lesson-title">${l.title}</h4>
           </div>
           <div class="lesson-actions">
-            <a href="${basePath}${l.slideUrl}" target="_blank" class="btn-action btn-slide" title="স্লাইড দেখুন">
+            <a href="${slideTargetUrl}" target="_blank" class="btn-action btn-slide" title="স্লাইড দেখুন">
               <i class="fa-solid fa-play"></i>
               <span>স্লাইড</span>
             </a>
@@ -1791,7 +1795,7 @@
       document.getElementById('quizTitle').innerText = quizState.quizTitle;
       updateSoundIcon();
 
-      quizState.selectedMode = 20;
+      quizState.selectedMode = 15;
       showQuizModal();
 
       const cacheKey = `chap-${chId}`;
@@ -1833,7 +1837,7 @@
       document.getElementById('quizTitle').innerText = quizState.quizTitle;
       updateSoundIcon();
 
-      quizState.selectedMode = 25;
+      quizState.selectedMode = 20;
       showQuizModal();
 
       const cacheKey = 'mega-book';
@@ -1868,9 +1872,9 @@
 
     function generateFallbackQuestions(lesson) {
       return [
-        { id: 1, q: `১. '${lesson.title}' পাঠটি শরিয়তের কোন বিষয়ের অন্তর্ভুক্ত?`, options: ["ফরজে আইন আবশ্যক জ্ঞান", "ঐচ্ছিক জ্ঞান"], ans: 0, explanation: "ফারজে আইন প্রতিটি মুসলিমের জন্য আবশ্যক ধর্মীয় জ্ঞানের সংকলন।" },
-        { id: 2, q: `২. এই পাঠের মৌলিক হুকুম জানা প্রত্যেক মুসলিমের ওপর কী?`, options: ["ফরজে আইন (বাধ্যতামূলক)", "নফল"], ans: 0, explanation: "ফরজে আইন বিষয়ের ইলম অর্জন করা প্রত্যেকের ওপর ব্যক্তিগত ফরজ।" },
-        { id: 3, q: `৩. শরিয়তের যেকোনো বিধান পালনের মূল লক্ষ্য কোনটি?`, options: ["আল্লাহ তাআলার সন্তুষ্টি ও নাজাত", "মানুষের প্রশংসা ও লোকদেখানো"], ans: 0, explanation: "সকল আমল কেবল আল্লাহর সন্তুষ্টির উদ্দেশ্যে একনিষ্ঠভাবে আদায় করতে হয়।" }
+        { id: 1, q: `১. '${lesson.title}' পাঠটি শরিয়তের কোন বিষয়ের অন্তর্ভুক্ত?`, options: ["ফরজে আইন আবশ্যক দ্বীনি জ্ঞান", "ঐচ্ছিক বা নফল জ্ঞান", "সামাজিক সাধারণ রীতি", "পার্থিব বিজ্ঞান"], ans: 0, explanation: "ফারজে আইন প্রতিটি মুসলিমের জন্য আবশ্যক ধর্মীয় জ্ঞানের সংকলন।" },
+        { id: 2, q: `২. এই পাঠের মৌলিক শারয়ি হুকুম জানা প্রত্যেক মুসলিমের ওপর কী?`, options: ["ফরজে আইন (বাধ্যতামূলক)", "নফল", "মাকরুহ", "ঐচ্ছিক"], ans: 0, explanation: "ফরজে আইন বিষয়ের ইলম অর্জন করা প্রত্যেকের ওপর ব্যক্তিগত ফরজ।" },
+        { id: 3, q: `৩. শরিয়তের যেকোনো বিধান পালনের মূল লক্ষ্য কোনটি?`, options: ["আল্লাহ তাআলার সন্তুষ্টি ও পরকালীন নাজাত", "মানুষের প্রশংসা ও লোকদেখানো", "পার্থিব সম্মান", "কেবল অর্থনৈতিক লাভ"], ans: 0, explanation: "সকল আমল কেবল আল্লাহর সন্তুষ্টির উদ্দেশ্যে একনিষ্ঠভাবে আদায় করতে হয়।" }
       ];
     }
 
@@ -1897,7 +1901,7 @@
       renderCurrentQuestion();
     }
 
-    const optLetters = ['(ক)', '(খ)'];
+    const optLetters = ['(ক)', '(খ)', '(গ)', '(ঘ)'];
 
     function renderCurrentQuestion() {
       const total = quizState.activeQuestions.length;
@@ -2109,6 +2113,12 @@
         } else if (e.key === '2' || e.key === '২' || e.key.toLowerCase() === 'b' || e.key === 'খ') {
           const btn = document.querySelector('.quiz-opt-btn[data-index="1"]');
           if (btn && !btn.disabled) handleOptionClick(1);
+        } else if (e.key === '3' || e.key === '৩' || e.key.toLowerCase() === 'c' || e.key === 'গ') {
+          const btn = document.querySelector('.quiz-opt-btn[data-index="2"]');
+          if (btn && !btn.disabled) handleOptionClick(2);
+        } else if (e.key === '4' || e.key === '৪' || e.key.toLowerCase() === 'd' || e.key === 'ঘ') {
+          const btn = document.querySelector('.quiz-opt-btn[data-index="3"]');
+          if (btn && !btn.disabled) handleOptionClick(3);
         } else if (e.key === 'Enter' || e.key === 'ArrowRight' || e.key === ' ') {
           const nextBtn = document.getElementById('quizNextBtn');
           if (nextBtn && nextBtn.style.display !== 'none') {
