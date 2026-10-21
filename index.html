@@ -1116,9 +1116,110 @@
         grid-template-columns: 1fr;
       }
     }
+
+    /* ════════════ Animated Kalima Motion Graphics Splash Intro ════════════ */
+    .kalima-intro-splash {
+      position: fixed;
+      inset: 0;
+      z-index: 999999;
+      background: #06090E;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.4s ease;
+      cursor: pointer;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    .kalima-canvas-wrap {
+      width: 100%;
+      max-width: 860px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+    }
+
+    #kalimaCanvas {
+      width: 100%;
+      height: auto;
+      max-height: 52vh;
+      aspect-ratio: 1080 / 540;
+      object-fit: contain;
+      filter: drop-shadow(0 0 35px rgba(56, 189, 248, 0.35));
+    }
+
+    .kalima-intro-footer {
+      position: absolute;
+      bottom: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+      pointer-events: auto;
+    }
+
+    .kalima-pulse-bar {
+      width: 140px;
+      height: 3px;
+      background: rgba(255, 255, 255, 0.12);
+      border-radius: 99px;
+      overflow: hidden;
+    }
+
+    .kalima-pulse-fill {
+      width: 0%;
+      height: 100%;
+      background: linear-gradient(90deg, #38BDF8, #34D399, #F59E0B);
+      transition: width 0.05s linear;
+    }
+
+    .kalima-skip-btn {
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      color: #CBD5E1;
+      padding: 7px 18px;
+      border-radius: 999px;
+      font-size: 0.84rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+      font-family: var(--font-body);
+    }
+
+    .kalima-skip-btn:hover {
+      background: rgba(56, 189, 248, 0.2);
+      border-color: #38BDF8;
+      color: #FFFFFF;
+      transform: translateY(-1px);
+    }
   </style>
 </head>
 <body>
+
+  <!-- ════════════ Animated Kalima Motion Graphics Splash Intro ════════════ -->
+  <div id="kalimaIntroSplash" class="kalima-intro-splash" onclick="finishKalimaIntro()">
+    <div class="kalima-canvas-wrap">
+      <canvas id="kalimaCanvas" width="1080" height="540"></canvas>
+    </div>
+    <div class="kalima-intro-footer">
+      <div class="kalima-pulse-bar">
+        <div class="kalima-pulse-fill" id="kalimaProgressFill"></div>
+      </div>
+      <button id="skipKalimaBtn" class="kalima-skip-btn" onclick="event.stopPropagation(); finishKalimaIntro();" title="সরাসরি ওয়েবসাইটে প্রবেশ করুন">
+        <span>স্কিপ করুন</span> <i class="fa-solid fa-forward-step"></i>
+      </button>
+    </div>
+  </div>
 
   <!-- Header -->
   <header>
@@ -1148,10 +1249,10 @@
   <section class="hero">
     <div class="hero-badge">
       <i class="fa-solid fa-book-open"></i>
-      <span>৫টি অধ্যায় • ৩৫টি পাঠ</span>
+      <span>৫টি অধ্যায় • ভূমিকা ও ৩৫টি পাঠ (মোট ৩৬টি পাঠ)</span>
     </div>
     <h2>ফারজে আইন কিতাবের প্রেজেন্টেশন</h2>
-    <p>দ্বীনের অপরিহার্য জ্ঞান অর্জনের লক্ষ্যে ৫টি মৌলিক অধ্যায়ের অধীনে মোট ৩৫টি ডিজিটাল স্লাইড ও প্রিন্ট-রেডি হ্যান্ডআউট সংকলন।</p>
+    <p>দ্বীনের অপরিহার্য জ্ঞান অর্জনের লক্ষ্যে ভূমিকা ও ৫টি মৌলিক অধ্যায়ের অধীনে মোট ৩৬টি ডিজিটাল স্লাইড ও প্রিন্ট-রেডি হ্যান্ডআউট সংকলন।</p>
     
     <!-- Search Box -->
     <div class="search-box">
@@ -1321,6 +1422,126 @@
   </footer>
 
   <script>
+    /* ════════════ 86-Frame Animated Kalima Calligraphy Motion Graphics ════════════ */
+    const SPLASH_CALLIGRAPHY_GRADIENTS = [
+      { name: 'Imperial Gold', darkColors: ['#FFECB3', '#FFD54F', '#FF9100'] },
+      { name: 'Gold & Amber', darkColors: ['#FFD54F', '#FF8F00'] },
+      { name: 'Medina Green', darkColors: ['#B9F6CA', '#00E676', '#00BFA5'] },
+      { name: 'Emerald & Mint', darkColors: ['#00E676', '#1DE9B6'] },
+      { name: 'Peacock Teal', darkColors: ['#00BFA5', '#64FFDA'] },
+      { name: 'Sapphire & Cyan', darkColors: ['#00B0FF', '#00E5FF'] },
+      { name: 'Deep Ocean', darkColors: ['#80D8FF', '#40C4FF', '#2979FF'] },
+      { name: 'Sunset Amber', darkColors: ['#FFE0B2', '#FF6D00', '#FF1744'] },
+      { name: 'Spiritual Lavender', darkColors: ['#F3E5F5', '#E040FB', '#7C4DFF'] },
+      { name: 'Amethyst & Violet', darkColors: ['#E040FB', '#7C4DFF'] },
+      { name: 'Ruby & Crimson', darkColors: ['#FF1744', '#FF5252'] },
+      { name: 'Rose Gold Luxury', darkColors: ['#FFCCBC', '#FFAB91', '#FFD54F', '#FF80AB'] }
+    ];
+
+    const basePath = (window.location.pathname.startsWith('/farj')) ? '/farj/' : '';
+    let kalimaAnimRunning = true;
+    let kalimaFinishTimer = null;
+
+    function finishKalimaIntro() {
+      if (!kalimaAnimRunning) return;
+      kalimaAnimRunning = false;
+      if (kalimaFinishTimer) clearTimeout(kalimaFinishTimer);
+      const splash = document.getElementById('kalimaIntroSplash');
+      if (splash) {
+        splash.style.opacity = '0';
+        splash.style.pointerEvents = 'none';
+        setTimeout(() => {
+          splash.style.display = 'none';
+        }, 400);
+      }
+    }
+
+    function initKalimaIntro() {
+      const canvas = document.getElementById('kalimaCanvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      if (!ctx) return;
+
+      canvas.width = 1080;
+      canvas.height = 540;
+
+      const randomIdx = Math.floor(Math.random() * SPLASH_CALLIGRAPHY_GRADIENTS.length);
+      const gradientColors = SPLASH_CALLIGRAPHY_GRADIENTS[randomIdx].darkColors;
+
+      const TOTAL_FRAMES = 86;
+      const FPS_INTERVAL = 30; // 30ms * 86 = 2580ms
+      const images = [];
+
+      function renderFrame(img) {
+        if (!ctx || !img || !img.complete || img.naturalWidth === 0) return;
+        const w = canvas.width;
+        const h = canvas.height;
+
+        ctx.clearRect(0, 0, w, h);
+        ctx.globalCompositeOperation = 'source-over';
+        ctx.drawImage(img, 0, 0, w, h);
+
+        ctx.globalCompositeOperation = 'source-in';
+        const grad = ctx.createLinearGradient(0, 0, w, h);
+        const stops = gradientColors.length;
+        gradientColors.forEach((color, idx) => {
+          grad.addColorStop(stops > 1 ? idx / (stops - 1) : 0, color);
+        });
+        ctx.fillStyle = grad;
+        ctx.fillRect(0, 0, w, h);
+        ctx.globalCompositeOperation = 'source-over';
+      }
+
+      // Preload frames
+      for (let i = 1; i <= TOTAL_FRAMES; i++) {
+        const img = new Image();
+        const fStr = String(i).padStart(3, '0');
+        img.src = `${basePath}intro_frames/frame_${fStr}.png`;
+        images.push(img);
+        if (i === 1) {
+          img.onload = () => {
+            if (kalimaAnimRunning) renderFrame(img);
+          };
+        }
+      }
+
+      let currentFrame = 1;
+      let lastTime = performance.now();
+      const progressFill = document.getElementById('kalimaProgressFill');
+
+      function playLoop(now) {
+        if (!kalimaAnimRunning) return;
+        const elapsed = now - lastTime;
+        if (elapsed >= FPS_INTERVAL) {
+          lastTime = now - (elapsed % FPS_INTERVAL);
+          const img = images[currentFrame - 1];
+          if (img && img.complete) {
+            renderFrame(img);
+          }
+          if (progressFill) {
+            progressFill.style.width = ((currentFrame / TOTAL_FRAMES) * 100) + '%';
+          }
+
+          if (currentFrame < TOTAL_FRAMES) {
+            currentFrame++;
+            requestAnimationFrame(playLoop);
+          } else {
+            kalimaFinishTimer = setTimeout(() => {
+              finishKalimaIntro();
+            }, 450);
+          }
+        } else {
+          requestAnimationFrame(playLoop);
+        }
+      }
+
+      requestAnimationFrame(playLoop);
+
+      setTimeout(() => {
+        if (kalimaAnimRunning) finishKalimaIntro();
+      }, 4500);
+    }
+
     let portalData = null;
     let currentChapterId = null;
     let activeQuizLesson = null;
@@ -1328,7 +1549,7 @@
     // Cache-busting fetch ensures fresh data on every page load
     async function loadData() {
       try {
-        const res = await fetch('portal-data.json?t=' + Date.now(), { cache: 'no-store' });
+        const res = await fetch(`${basePath}portal-data.json?t=` + Date.now(), { cache: 'no-store' });
         portalData = await res.json();
         
         // Double-check Chapter 1 name is strictly 'আকিদা'
@@ -1352,9 +1573,11 @@
         card.className = 'chapter-card';
         card.onclick = () => openChapter(chap.id);
         
+        const bgImgSrc = (chap.bgImg && chap.bgImg.startsWith('http')) ? chap.bgImg : `${basePath}${chap.bgImg || 'assets/ch_akida.jpg'}`;
+
         card.innerHTML = `
           <div class="chapter-img-wrap">
-            <img class="chapter-img" src="${chap.bgImg}" alt="${chap.name}">
+            <img class="chapter-img" src="${bgImgSrc}" alt="${chap.name}">
             <div class="chapter-badge-overlay">${chap.badge || chap.count}</div>
             <div class="chapter-icon-circle">
               <i class="fa-solid ${chap.icon}"></i>
@@ -1436,7 +1659,7 @@
             <h4 class="lesson-title">${l.title}</h4>
           </div>
           <div class="lesson-actions">
-            <a href="${l.slideUrl}" target="_blank" class="btn-action btn-slide" title="স্লাইড দেখুন">
+            <a href="${basePath}${l.slideUrl}" target="_blank" class="btn-action btn-slide" title="স্লাইড দেখুন">
               <i class="fa-solid fa-play"></i>
               <span>স্লাইড</span>
             </a>
@@ -1623,7 +1846,7 @@
 
       const numStr = String(lessonId).padStart(2, '0');
       try {
-        const res = await fetch(`quiz-data/quiz-lesson-${numStr}.json?t=` + Date.now(), { cache: 'no-store' });
+        const res = await fetch(`${basePath}quiz-data/quiz-lesson-${numStr}.json?t=` + Date.now(), { cache: 'no-store' });
         if (res.ok) {
           quizState.allQuestions = await res.json();
         } else {
@@ -1658,7 +1881,7 @@
       showQuizModal();
 
       try {
-        const res = await fetch(`quiz-data/quiz-chapter-${chId}.json?t=` + Date.now(), { cache: 'no-store' });
+        const res = await fetch(`${basePath}quiz-data/quiz-chapter-${chId}.json?t=` + Date.now(), { cache: 'no-store' });
         if (res.ok) {
           quizState.allQuestions = await res.json();
         } else {
@@ -1687,7 +1910,7 @@
       showQuizModal();
 
       try {
-        const res = await fetch(`quiz-data/quiz-mega-challenge.json?t=` + Date.now(), { cache: 'no-store' });
+        const res = await fetch(`${basePath}quiz-data/quiz-mega-challenge.json?t=` + Date.now(), { cache: 'no-store' });
         if (res.ok) {
           quizState.allQuestions = await res.json();
         } else {
@@ -1959,6 +2182,7 @@
       }
     };
 
+    initKalimaIntro();
     loadData();
   </script>
 </body>
