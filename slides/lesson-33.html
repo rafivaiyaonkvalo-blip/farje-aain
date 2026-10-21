@@ -536,11 +536,9 @@
   <script>
     (function() {
       // Find all slide elements (supports various class formats)
-      let slides = Array.from(document.querySelectorAll('.slide'));
+      let slides = Array.from(document.querySelectorAll('.slide-section'));
       if (slides.length === 0) {
-        slides = Array.from(document.querySelectorAll('[class*="slide"]')).filter(el => {
-          return !el.classList.contains('slide-nav-controls') && !el.classList.contains('slide-nav-btn');
-        });
+        slides = Array.from(document.querySelectorAll('.slide'));
       }
       if (slides.length === 0) return;
 
